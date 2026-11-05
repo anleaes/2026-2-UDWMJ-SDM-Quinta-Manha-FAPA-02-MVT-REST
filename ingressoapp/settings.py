@@ -23,10 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^pf1^!_w+u+d@c0d*^#+(7)p)2@z3z^7p1m+fgq@0=t!e7vw)t'
+# SECRET_KEY = 'django-insecure-^pf1^!_w+u+d@c0d*^#+(7)p)2@z3z^7p1m+fgq@0=t!e7vw)t'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -82,6 +83,19 @@ WSGI_APPLICATION = 'ingressoapp.wsgi.application'
 #     }
 # }
 
+DATABASES= {     
+    'default': {         
+        'ENGINE': 'django.db.backends.oracle',         
+        'NAME': config('TNS_NAME'),         
+        'USER': config('DB_USER'),         
+        'PASSWORD': config('DB_PASSWORD'),         
+        'OPTIONS': {             
+            'config_dir': config('TNS_ADMIN'),             
+            'wallet_location': config('TNS_ADMIN'),             
+            'wallet_password': config('WALLET_PASSWORD'),
+        },     
+    } 
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
