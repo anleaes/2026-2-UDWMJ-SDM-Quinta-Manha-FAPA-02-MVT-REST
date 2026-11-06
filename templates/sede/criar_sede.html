@@ -5,5 +5,30 @@
 {% endblock %}
 
 {% block body %}
-  
+<b>Registrar Sede</b>
+<br />
+
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <label>Nome:</label>
+  <br />
+  {{ form.nome }}
+
+
+  <label>Endereco:</label>
+  <br />
+  {{ form.endereco }}
+
+  <label>CNPJ:</label>
+  <br />
+  {{ form.cnpj }}
+
+
+  <label>Status:</label>
+  <br />
+  {{ form.status }}
+ 
+  <button type="submit">Salvar</button>
+</form>
 {% endblock %}
