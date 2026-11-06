@@ -5,7 +5,7 @@ class Pessoa(models.Model):
     data_nascimento = models.DateField('Data de Nascimento')
     telefone = models.CharField('Numero de Telefone', max_length=30)
     email = models.EmailField('Email')
-    genero = models.CharField(choices=[('M','Masculino'),('F','Feminino'),('O','Outro/Nao-Informado')], max_length=20)
+    genero = models.CharField('Genero', choices=[('M','Masculino'),('F','Feminino'),('O','Outro/Nao-Informado')], max_length=20)
 
     class Meta:
         verbose_name = 'Pessoa'
