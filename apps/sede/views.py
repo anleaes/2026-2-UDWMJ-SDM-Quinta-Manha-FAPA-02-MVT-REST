@@ -11,12 +11,13 @@ def criar_sede(request: HttpRequest):
     if request.method == 'POST':
         form = SedeForm(request.POST)
         if form.is_valid():
-            f = form.save(commit=False)
-            f.save()
+            obj_sede = form.save(commit=False)
+            obj_sede.save()
             form.save_m2m()
             # redirecionar para listar Sedes
-            return HttpResponse("Sucesso") # temporário
-    
+            return redirect('index:inicial')
+            # return HttpResponse("Sucesso") # temporário
+
     form = SedeForm()
     context['form'] = form
     return render(request, template_name, context)
