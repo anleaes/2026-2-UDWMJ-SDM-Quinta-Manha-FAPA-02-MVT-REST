@@ -16,9 +16,18 @@ def criar_sede(request: HttpRequest):
             form.save_m2m()
             # redirecionar para listar Sedes
             return redirect('index:inicial')
-            # return HttpResponse("Sucesso") # temporário
 
     form = SedeForm()
     context['form'] = form
     return render(request, template_name, context)
+
+def listar_sedes(request):
+    template_name = 'sede/listar_sedes.html'
+    
+    sedes = Sede.objects.all()
+    context = {
+        'sedes': sedes
+    }
+
+    render(request, template_name, context)
 
