@@ -15,6 +15,18 @@
 
 <h1>Sedes</h1>
 
+{% for sede in sedes %}
+
+<div class="item-sede">
+    <div> {{ sede.id }} </div>
+    <div> {{ sede.nome }} </div>
+    <div> {{ sede.endereco }} </div>
+    <div> {{ sede.cnpj }} </div>
+    <div> {{ sede.status }} </div>
+</div>
+
+{% endfor %}
+
 
 <!-- ------------------------- -->
 {% endblock %}
