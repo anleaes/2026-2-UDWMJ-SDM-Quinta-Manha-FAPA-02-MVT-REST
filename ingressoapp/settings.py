@@ -46,8 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'index.apps.IndexConfig',
-    'pessoa.apps.PessoaConfig',
-
+    'pessoa.apps.PessoaConfig',  
+    'sede.apps.SedeConfig',
+  
 ]
 
 MIDDLEWARE = [

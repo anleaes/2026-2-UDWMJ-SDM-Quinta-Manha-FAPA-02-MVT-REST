@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Criar Sede - {{ block.super }}
+{% endblock %}
+
+{% block metadados_adicionais %}
+        <link rel="stylesheet" href="{% static 'css/criar_sede.css' %}">
+{% endblock metadados_adicionais %}
+
+{% block body %}
+<!-- ------------------------- -->
+
+<h1>Registrar Sede</h1>
+
+<div>
+  <form action="" method="POST">
+    {% csrf_token %}
+
+    <div>
+      <label>Nome:</label>
+      {{ form.nome }}
+    </div>
+
+    <div> 
+      <label>Endereco:</label>
+      {{ form.endereco }}
+    </div>
+
+    <div>
+      <label>CNPJ:</label>
+      {{ form.cnpj }}
+    </div>
+
+    <div>
+      <label>Status:</label>
+      {{ form.status }}
+    </div>
+  
+    <button type="submit" id="criar-sede">Salvar</button>
+  </form>
+</div>
+
+<!-- ------------------------- -->
+{% endblock %}

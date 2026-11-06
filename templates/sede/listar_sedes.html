@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Sedes - {{ block.super }}
+{% endblock %}
+
+{% block metadados_adicionais %}
+        <link rel="stylesheet" href="{% static 'css/listar_sedes.css' %}">
+{% endblock metadados_adicionais %}
+
+{% block body %}
+<!-- ------------------------- -->
+
+<h1>Sedes</h1>
+
+{% for sede in sedes %}
+
+<div class="item-sede">
+    <div class="botoes-de-acao">
+        <a href="{% url 'sede:editar_sede' sede.id %}"><button class="editar-sede">Editar</button></a>
+        <a href="{% url 'sede:deletar_sede' sede.id %}"><button class="deletar-sede">Deletar</button></a>
+    </div>
+    <div> <p class="nome-sede">{{ sede.nome }} </p></div>
+    <div> ID:{{ sede.id }} </div>
+    <div> ENDEREÇO:{{ sede.endereco }} </div>
+    <div> CNPJ    :{{ sede.cnpj }} </div>
+    <div> STATUS  :{{ sede.status }} </div>
+</div>
+
+{% endfor %}
+
+
+<!-- ------------------------- -->
+{% endblock %}
