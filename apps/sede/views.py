@@ -1,4 +1,4 @@
-from django.http import HttpRequest
+from django.http import HttpRequest,HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Sede
@@ -15,6 +15,7 @@ def criar_sede(request: HttpRequest):
             f.save()
             form.save_m2m()
             # redirecionar para listar Sedes
+            return HttpResponse("Sucesso") # temporário
     
     form = SedeForm()
     context['form'] = form
