@@ -1,0 +1,13 @@
+.vscode/*
+local/*
+
+*/__pycache__/*
+/apps/*/__pycache__/*
+/apps/*/migrations/*
+
+.env
+Wallet_ingressoappdb/*
+Wallet_ingressoappdb.zip
+
+media/*/*
+!media/*/placeholder.txt
