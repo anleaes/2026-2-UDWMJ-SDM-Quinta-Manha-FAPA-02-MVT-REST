@@ -20,7 +20,7 @@
 <div class="item-sede">
     <div class="botoes-de-acao">
         <a href="{% url 'sede:editar_sede' sede.id %}"><button class="editar-sede">Editar</button></a>
-        <a href="#"><button class="deletar-sede">Deletar</button></a>
+        <a href="{% url 'sede:deletar_sede' sede.id %}"><button class="deletar-sede">Deletar</button></a>
     </div>
     <div> <p class="nome-sede">{{ sede.nome }} </p></div>
     <div> ID:{{ sede.id }} </div>
