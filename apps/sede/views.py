@@ -21,13 +21,14 @@ def criar_sede(request: HttpRequest):
     context['form'] = form
     return render(request, template_name, context)
 
-def listar_sedes(request):
+
+def listar_sedes(request: HttpRequest):
     template_name = 'sede/listar_sedes.html'
-    
+
     sedes = Sede.objects.all()
     context = {
         'sedes': sedes
     }
 
-    render(request, template_name, context)
+    return render(request, template_name, context)
 
