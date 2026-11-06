@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import EventoForm
 from .models import Evento
 
-def criar_sede(request):
-    template_name='evento/add_evento.html'
+def criar_evento(request):
+    template_name='evento/criar_evento.html'
     context= {}
 
     if request.method == 'POST':
