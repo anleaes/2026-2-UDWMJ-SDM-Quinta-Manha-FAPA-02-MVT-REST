@@ -10,3 +10,6 @@ class Evento(models.Model):
         verbose_name= 'Evento'
         verbose_name_plural= 'Eventos'
         ordering= ['id']
+
+    def __str__(self):
+        return f'{self.id} - {self.name}'
