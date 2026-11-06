@@ -10,3 +10,7 @@ class Sede(models.Model):
         verbose_name = 'Sede'
         verbose_name_plural = 'Sedes'
         ordering = ['id']
+
+    def __str__(self):
+        return f'{self.nome} - {self.cnpj}'
+
