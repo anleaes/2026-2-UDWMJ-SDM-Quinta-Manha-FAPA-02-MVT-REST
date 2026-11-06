@@ -32,3 +32,19 @@ def listar_sedes(request: HttpRequest):
 
     return render(request, template_name, context)
 
+def editar_sede(request: HttpRequest, sede_id : int):
+    template_name = 'sede/criar_sede.html'
+    context = {}
+    sede = get_object_or_404(Sede, id=sede_id)
+
+    if request.method == 'POST':
+        form = SedeForm(request.POST, instance=sede)
+        if form.is_valid():
+            form.save()
+            return redirect('sede:listar_sedes')
+        
+    form = SedeForm(instance=sede)
+    context['form'] = form
+    return render(request, template_name, context)
+
+
