@@ -32,7 +32,7 @@ def listar_sedes(request: HttpRequest):
 
     return render(request, template_name, context)
 
-def editar_sede(request: HttpRequest, sede_id : int):
+def editar_sede(request: HttpRequest, sede_id: int):
     template_name = 'sede/criar_sede.html'
     context = {}
     sede = get_object_or_404(Sede, id=sede_id)
@@ -48,4 +48,7 @@ def editar_sede(request: HttpRequest, sede_id : int):
     context['form'] = form
     return render(request, template_name, context)
 
-
+def deletar_sede(request: HttpRequest, sede_id: int):
+    sede = get_object_or_404(Sede, id=sede_id)
+    sede.delete()
+    return redirect('sede:listar_sedes')
