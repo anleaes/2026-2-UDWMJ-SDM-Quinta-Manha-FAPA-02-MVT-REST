@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def criar_sede(request):
+    template_name='evento/add_evento.html'
