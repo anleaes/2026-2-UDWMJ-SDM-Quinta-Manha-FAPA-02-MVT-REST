@@ -18,11 +18,15 @@
 {% for sede in sedes %}
 
 <div class="item-sede">
-    <div> {{ sede.id }} </div>
-    <div> {{ sede.nome }} </div>
-    <div> {{ sede.endereco }} </div>
-    <div> {{ sede.cnpj }} </div>
-    <div> {{ sede.status }} </div>
+    <div class="botoes-de-acao">
+        <a href="#"><button class="editar-sede">Editar</button></a>
+        <a href="#"><button class="deletar-sede">Deletar</button></a>
+    </div>
+    <div> <p class="nome-sede">{{ sede.nome }} </p></div>
+    <div> ID:{{ sede.id }} </div>
+    <div> ENDEREÇO:{{ sede.endereco }} </div>
+    <div> CNPJ    :{{ sede.cnpj }} </div>
+    <div> STATUS  :{{ sede.status }} </div>
 </div>
 
 {% endfor %}

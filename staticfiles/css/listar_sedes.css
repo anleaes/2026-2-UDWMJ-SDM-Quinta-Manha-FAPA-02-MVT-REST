@@ -1,0 +1,48 @@
+h1{
+    justify-self: center;
+}
+/* Botões de Editar/Deletar */
+
+div.item-sede > div.botoes-de-acao{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+button.deletar-sede{
+    background-color: rgba(255, 0, 0, 0.863);
+    padding: 5px;
+}
+
+button.editar-sede{
+    background-color: rgba(255, 230, 0, 0.842);
+    padding: 5px;
+
+}
+
+/* Disposição das informações de Sede */
+
+div.item-sede{
+    margin: 20px;
+    padding: 10px;
+    
+    border-width: 3px;
+    border-color: green;
+    border-style: solid;
+}
+
+div.item-sede > div{
+    display: flex;
+
+    justify-content: left;
+    align-items: center;
+}
+
+div.item-sede > div:has(p.nome-sede){
+    border-bottom: 3px dashed green;
+    margin-bottom: 5px;
+}
+
+div.item-sede > div p.nome-sede{
+    font-size: xx-large;
+}
