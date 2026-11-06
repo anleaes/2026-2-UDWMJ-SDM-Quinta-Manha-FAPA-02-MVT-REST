@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Sedes - {{ block.super }}
+{% endblock %}
+
+{% block metadados_adicionais %}
+        <link rel="stylesheet" href="{% static 'css/listar_sedes.css' %}">
+{% endblock metadados_adicionais %}
+
+{% block body %}
+<!-- ------------------------- -->
+
+<h1>Sedes</h1>
+
+
+<!-- ------------------------- -->
+{% endblock %}
