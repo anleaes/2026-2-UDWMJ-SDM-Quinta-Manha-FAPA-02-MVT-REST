@@ -37,6 +37,7 @@ def editar_sede(request: HttpRequest, sede_id : int):
     context = {}
     sede = get_object_or_404(Sede, id=sede_id)
 
+    #O Django diferencia o POST do criar e editar a partir do URL atual que o usuário se encontra!
     if request.method == 'POST':
         form = SedeForm(request.POST, instance=sede)
         if form.is_valid():
