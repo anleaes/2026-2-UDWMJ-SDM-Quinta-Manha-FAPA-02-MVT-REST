@@ -14,8 +14,7 @@ def criar_sede(request: HttpRequest):
             obj_sede = form.save(commit=False)
             obj_sede.save()
             form.save_m2m()
-            # redirecionar para listar Sedes
-            return redirect('index:inicial')
+            return redirect('sede:listar_sedes')
 
     form = SedeForm()
     context['form'] = form
