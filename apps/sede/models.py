@@ -5,3 +5,8 @@ class Sede(models.Model):
     endereco = models.CharField('Endereço', max_lenght=250, blank=False, null=False)
     cnpj = models.CharField('CNPJ', max_lenght=100, blank=False, null=False)
     status = models.CharField(choices=[('F','Em Funcionamento'),('X', 'Desativado'),('R', 'Em Reforma')] ,max_lenght=25)
+
+    class Meta:
+        verbose_name = 'Sede'
+        verbose_name_plural = 'Sedes'
+        ordering = ['id']
