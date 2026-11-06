@@ -12,7 +12,7 @@ def criar_evento(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            #TODO: retornar para o core
-        form = EventoForm()
-        context['form'] = form
-        return render(request, template_name, context)
+            return render(request, template_name, context)
+    form = EventoForm()
+    context['form'] = form
+    return render(request, template_name, context)
