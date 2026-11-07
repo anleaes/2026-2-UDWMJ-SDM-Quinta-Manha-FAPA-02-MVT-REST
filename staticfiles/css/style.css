@@ -25,6 +25,18 @@ div.entidade-div button{
     border-radius: 10%;
 }
 
+button.botao-deletar{
+    background-color: rgba(255, 0, 0, 0.863);
+    padding: 5px;
+}
+
+button.botao-editar{
+    background-color: rgba(255, 230, 0, 0.842);
+    padding: 5px;
+
+}
+
+
 /* Específico */
 div#sede button{
     background-color: rgb(133, 248, 110);
