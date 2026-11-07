@@ -1,8 +1,8 @@
 from decimal import Decimal
 
 from django.db import models
-from apps.pessoa.models import Pessoa
-from apps.sede.models import Sede
+from pessoa.models import Pessoa
+from sede.models import Sede
 
 class Funcionario(Pessoa):
     cargo = models.CharField('Cargo', blank=False, null=False, max_length=30)
