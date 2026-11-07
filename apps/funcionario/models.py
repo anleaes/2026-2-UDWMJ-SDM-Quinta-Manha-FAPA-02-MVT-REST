@@ -15,3 +15,6 @@ class Funcionario(Pessoa):
         verbose_name = 'Funcionario'
         verbose_name_plural = 'Funcionarios'
         ordering = ['id']
+
+    def __str__(self):
+        return f'{super().nome} - {self.cargo}'
