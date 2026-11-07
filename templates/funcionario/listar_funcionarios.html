@@ -20,7 +20,7 @@
 <div class="item-funcionario">
     <div class="botoes-de-acao">
         <a href="{% url 'funcionario:editar_funcionario' funcionario.id %}"><button class="botao-editar">Editar</button></a>
-
+        <a href="{% url 'funcionario:deletar_funcionario' funcionario.id %}"><button class="botao-deletar">Deletar</button></a>
     </div>
     <div> <p class="nome-funcionario"> {{ funcionario.nome }} </p></div>
     <div> <p class="funcionario-local-trabalho"> Local de Trabalho: {{ funcionario.sede_de_trabalho }}</p></div>
