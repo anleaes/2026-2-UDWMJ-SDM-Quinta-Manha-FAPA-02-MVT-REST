@@ -6,7 +6,9 @@
   Funcionarios - {{ block.super }}
 {% endblock %}
 
-
+{% block metadados_adicionais %}
+        <link rel="stylesheet" href="{% static 'css/funcionario/listar_funcionarios.css' %}">
+{% endblock metadados_adicionais %}
 
 {% block body %}
 <!-- ------------------------- -->
@@ -20,7 +22,7 @@
         <!-- TODO -->
     </div>
     <div> <p class="nome-funcionario"> {{ funcionario.nome }} </p></div>
-    <div> <p class="local-trabalho"> Local de Trabalho: {{ form.sede_de_trabalho }}</p></div>
+    <div> <p class="funcionario-local-trabalho"> Local de Trabalho: {{ form.sede_de_trabalho }}</p></div>
     
     <div> Nome:{{ form.nome }} </div>
     <div> Data de Nascimento: {{ form.data_nascimento }} </div>

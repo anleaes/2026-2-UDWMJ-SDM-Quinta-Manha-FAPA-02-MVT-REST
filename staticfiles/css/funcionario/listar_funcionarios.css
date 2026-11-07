@@ -1,0 +1,35 @@
+h1{
+    justify-self: center;
+}
+
+/* Disposição das informações de Funcionario */
+
+div.item-funcionario{
+    margin: 20px;
+    padding: 10px;
+    
+    border-width: 3px;
+    border-color: blue;
+    border-style: solid;
+}
+
+div.item-funcionario > div{
+    display: flex;
+
+    justify-content: left;
+    align-items: center;
+}
+
+div.item-funcionario > div:has(p.nome-funcionario){
+    border-bottom: 3px dashed blue;
+    margin-bottom: 5px;
+}
+
+div.item-funcionario > div p.nome-funcionario{
+    font-size: xx-large;
+}
+
+div.item-funcionario > div p.funcionario-local-trabalho{
+    font-size: large;
+    text-decoration-line: underline;
+}
