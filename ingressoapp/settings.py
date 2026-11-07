@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'index.apps.IndexConfig',
     'pessoa.apps.PessoaConfig',  
     'sede.apps.SedeConfig',
+    'funcionario.apps.FuncionarioConfig',
   
 ]
 
