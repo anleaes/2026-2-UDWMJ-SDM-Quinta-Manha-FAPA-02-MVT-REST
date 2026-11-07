@@ -22,17 +22,17 @@
         <!-- TODO -->
     </div>
     <div> <p class="nome-funcionario"> {{ funcionario.nome }} </p></div>
-    <div> <p class="funcionario-local-trabalho"> Local de Trabalho: {{ form.sede_de_trabalho }}</p></div>
+    <div> <p class="funcionario-local-trabalho"> Local de Trabalho: {{ funcionario.sede_de_trabalho }}</p></div>
     
-    <div> Nome:{{ form.nome }} </div>
-    <div> Data de Nascimento: {{ form.data_nascimento }} </div>
-    <div> Telefone: {{ form.telefone }} </div>
-    <div> Email: {{ form.email }} </div>
-    <div> Gênero: {{ form.genero }} </div>
-    <div> Cargo: {{ form.cargo }} </div>
-    <div> Turno de trabalho: {{ form.turno_trabalho }} </div>
-    <div> Salário: {{ form.salario }} </div>
-    <div> Fator Comissão: {{ form.multiplicador_comissao }} </div>
+    <div> Nome: {{ funcionario.nome }} </div>
+    <div> Data de Nascimento: {{ funcionario.data_nascimento }} </div>
+    <div> Telefone: {{ funcionario.telefone }} </div>
+    <div> Email: {{ funcionario.email }} </div>
+    <div> Gênero: {{ funcionario.genero }} </div>
+    <div> Cargo: {{ funcionario.cargo }} </div>
+    <div> Turno de trabalho: {{ funcionario.turno_trabalho }} </div>
+    <div> Salário: {{ funcionario.salario }} </div>
+    <div> Fator Comissão: {{ funcionario.multiplicador_comissao }} </div>
 </div>
 
 {% endfor %}
