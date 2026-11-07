@@ -43,6 +43,6 @@ def editar_funcionario(request: HttpRequest, funcionario_id: int):
 
     form = FuncionarioForm(instance=obj_funcionario)
     context = { 
-        'form': obj_funcionario
+        'form': form
     }
     return render(request, template_name, context)
