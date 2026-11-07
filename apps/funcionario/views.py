@@ -46,3 +46,8 @@ def editar_funcionario(request: HttpRequest, funcionario_id: int):
         'form': form
     }
     return render(request, template_name, context)
+
+def deletar_funcionario(request: HttpRequest, funcionario_id: int):
+    obj_funcionario = get_object_or_404(Funcionario, id=funcionario_id)
+    obj_funcionario.delete()
+    return redirect('funcionario:listar_funcionarios')
