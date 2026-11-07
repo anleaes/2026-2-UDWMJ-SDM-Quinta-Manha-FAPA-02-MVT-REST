@@ -15,7 +15,7 @@ def criar_funcionario(request: HttpRequest):
             obj_funcionario = form.save(commit=False)
             obj_funcionario.save()
             form.save_m2m()
-            return HttpResponse('Sucesso')
+            return redirect('funcionario:listar_funcionarios')
 
     form = FuncionarioForm()
     context['form'] = form
