@@ -6,6 +6,9 @@
   Registrar Funcionario - {{ block.super }}
 {% endblock %}
 
+{% block metadados_adicionais %}
+        <link rel="stylesheet" href="{% static 'css/funcionario/criar_funcionario.css' %}">
+{% endblock metadados_adicionais %}
 
 {% block body %}
 <!-- ------------------------- -->
@@ -14,7 +17,6 @@
 <div>
   <form action="" method="POST">
     {% csrf_token %}
-
 
     <div>
       <label>Nome:</label>
@@ -69,8 +71,6 @@
     <button type="submit" id="criar-funcionario">Salvar</button>
   </form>
 </div>
-
-
 
 <!-- ------------------------- -->
 {% enblock body %}
