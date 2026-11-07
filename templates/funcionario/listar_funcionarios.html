@@ -13,7 +13,27 @@
 
 <h1>Funcionários</h1>
 
+{% for funcionario in funcionarios %}
 
+<div class="item-funcionario">
+    <div class="botoes-de-acao">
+        <!-- TODO -->
+    </div>
+    <div> <p class="nome-funcionario"> {{ funcionario.nome }} </p></div>
+    <div> <p class="local-trabalho"> Local de Trabalho: {{ form.sede_de_trabalho }}</p></div>
+    
+    <div> Nome:{{ form.nome }} </div>
+    <div> Data de Nascimento: {{ form.data_nascimento }} </div>
+    <div> Telefone: {{ form.telefone }} </div>
+    <div> Email: {{ form.email }} </div>
+    <div> Gênero: {{ form.genero }} </div>
+    <div> Cargo: {{ form.cargo }} </div>
+    <div> Turno de trabalho: {{ form.turno_trabalho }} </div>
+    <div> Salário: {{ form.salario }} </div>
+    <div> Fator Comissão: {{ form.multiplicador_comissao }} </div>
+</div>
+
+{% endfor %}
 
 <!-- ------------------------- -->
 {% endblock %}
