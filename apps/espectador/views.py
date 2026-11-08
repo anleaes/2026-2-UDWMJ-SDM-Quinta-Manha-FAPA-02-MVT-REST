@@ -44,3 +44,8 @@ def editar_espectador(request: HttpRequest, espectador_id: int):
     form = EspectadorForm(instance=obj_espectador)
     context = { 'form': form}
     return render(request, template_name, context)
+
+def deletar_espectador(request: HttpRequest, espectador_id: int):
+    obj_espectador = get_object_or_404(Espectador, id=espectador_id)
+    obj_espectador.delete()
+    redirect('espectador:listar_espectadores')
