@@ -5,5 +5,5 @@ app_name = 'espectador'
 
 urlpatterns = [
     path('criar/', views.criar_espectador, name='criar_espectador'),
-    
+    path('listar/', views.listar_espectadores, name='listar_espectadores'),
 ]
