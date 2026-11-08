@@ -20,7 +20,8 @@
 
 <div class="item-espectador">
     <div class="botoes-de-acao">
-       <!--  -->
+        <a href="{% url 'espectador:editar_espectador' espectador.id %}"><button class="botao-editar">Editar</button></a>
+       
     </div>
     <div> <p class="nome-espectador"> {{ espectador.nome }} </p></div>
     <div> <p class="espectador-local-registro"> Sede de Registro: {{ espectador.sede_de_registro }}</p></div>
