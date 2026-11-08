@@ -23,8 +23,24 @@ def criar_espectador(request: HttpRequest):
     }
     return render(request, template_name, context)
 
+
 def listar_espectadores(request: HttpRequest):
     template_name = 'espectador/listar_espectadores.html'
     espectadores = Espectador.objects.all()
     context = {'espectadores': espectadores}
+    return render(request, template_name, context)
+
+
+def editar_espectador(request: HttpRequest, espectador_id: int):
+    template_name = 'expectador/criar_espectador'
+    obj_espectador = get_object_or_404(Espectador, id=espectador_id)
+
+    if request.method == 'POST':
+        form = EspectadorForm(request.POST, instance=obj_espectador)
+        if form.is_valid():
+            form.save()
+            return redirect('espectador:listar_espectadores')
+
+    form = EspectadorForm(instance=obj_espectador)
+    context = { 'form': form}
     return render(request, template_name, context)
