@@ -2,6 +2,7 @@ from django.http import HttpRequest,HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import EspectadorForm
+from .models import Espectador
 
 def criar_espectador(request: HttpRequest):
     template_name = 'espectador/criar_espectador.html'
@@ -20,4 +21,10 @@ def criar_espectador(request: HttpRequest):
     context = {
         'form': form
     }
+    return render(request, template_name, context)
+
+def listar_espectadores(request: HttpRequest):
+    template_name = 'espectador/listar_espectadores.html'
+    espectadores = Espectador.objects.all()
+    context = {'espectadores': espectadores}
     return render(request, template_name, context)
