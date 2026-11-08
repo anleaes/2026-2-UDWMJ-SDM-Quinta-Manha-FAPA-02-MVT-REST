@@ -8,3 +8,8 @@ class Espectador(Pessoa):
     ads_por_email = models.BooleanField('Receber ADs por Email', default=True)
     data_cadastro = models.DateTimeField('Data de Cadastro', auto_now_add=True)
     data_ultima_edicao = models.DateTimeField('Última Edição', auto_now=True)
+
+    class Meta:
+        verbose_name = 'Espectador'
+        verbose_name_plural = 'Espectadores'
+        ordering = ['id']
