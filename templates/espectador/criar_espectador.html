@@ -14,7 +14,49 @@
 <!-- ------------------------- -->
 <h1> Registrar Espectador </h1>
 
+<div>
+  <form action="" method="POST">
+    {% csrf_token %}
 
+    <div>
+      <label>Nome:</label>
+      {{ form.nome }}
+    </div>
+
+    <div> 
+      <label>Data de Nascimento:</label>
+      {{ form.data_nascimento }}
+    </div>
+
+    <div>
+      <label>Telefone:</label>
+      {{ form.telefone }}
+    </div>
+
+    <div>
+      <label>Email:</label>
+      {{ form.email }}
+    </div>
+
+    <div>
+      <label>Gênero:</label>
+      {{ form.genero }}
+    </div>
+
+    <div>
+      <label>Sede de Registro:</label>
+      {{ form.sede_de_registro }}
+    </div>
+
+    <div>
+      <label>Receber Anúncios por Email:</label>
+      {{ form.ads_por_email }}
+    </div>
+
+
+    <button type="submit" id="criar-espectador">Salvar</button>
+  </form>
+</div>
 
 <!-- ------------------------- -->
 {% endblock body %}
