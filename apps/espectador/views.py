@@ -48,4 +48,4 @@ def editar_espectador(request: HttpRequest, espectador_id: int):
 def deletar_espectador(request: HttpRequest, espectador_id: int):
     obj_espectador = get_object_or_404(Espectador, id=espectador_id)
     obj_espectador.delete()
-    redirect('espectador:listar_espectadores')
+    return redirect('espectador:listar_espectadores')
