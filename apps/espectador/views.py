@@ -15,7 +15,7 @@ def criar_espectador(request: HttpRequest):
             obj_espectador = form.save(commit=False)
             obj_espectador.save()
             form.save_m2m()
-            return HttpResponse('Sucesso')
+            return redirect('espectador:listar_espectadores')
 
     form = EspectadorForm()
     context = {
@@ -32,7 +32,7 @@ def listar_espectadores(request: HttpRequest):
 
 
 def editar_espectador(request: HttpRequest, espectador_id: int):
-    template_name = 'expectador/criar_espectador'
+    template_name = 'espectador/criar_espectador.html'
     obj_espectador = get_object_or_404(Espectador, id=espectador_id)
 
     if request.method == 'POST':
