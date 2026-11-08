@@ -16,5 +16,28 @@
 <h1>Espectadores</h1>
 
 
+{% for espectador in espectadores %}
+
+<div class="item-espectador">
+    <div class="botoes-de-acao">
+       <!--  -->
+    </div>
+    <div> <p class="nome-espectador"> {{ espectador.nome }} </p></div>
+    <div> <p class="espectador-local-registro"> Sede de Registro: {{ espectador.sede_de_registro }}</p></div>
+    <div> Registrado em: {{ espectador.data_cadastro }} </div>
+    
+    <div> ID: {{ espectador.id }} </div>
+    <div> Nome: {{ espectador.nome }} </div>
+    <div> Data de Nascimento: {{ espectador.data_nascimento }} </div>
+    <div> Telefone: {{ espectador.telefone }} </div>
+    <div> Email: {{ espectador.email }} </div>
+    <div> Gênero: {{ espectador.genero }} </div>
+
+    <div> Aderiu aos Anúncios: {{ espectador.ads_por_email }} </div>
+    <div> Última Edição: {{ espectador.data_ultima_edicao }} </div>
+</div>
+
+{% endfor %}
+
 <!-- ------------------------- -->
 {% endblock %}
