@@ -13,3 +13,6 @@ class Espectador(Pessoa):
         verbose_name = 'Espectador'
         verbose_name_plural = 'Espectadores'
         ordering = ['id']
+
+    def __str__(self):
+        return super().__str__()
