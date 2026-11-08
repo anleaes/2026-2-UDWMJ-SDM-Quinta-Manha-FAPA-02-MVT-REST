@@ -45,3 +45,7 @@ div#sede button{
 div#funcionario button{
     background-color: rgb(103, 236, 185);
 }
+
+div#espectador button{
+    background-color: rgb(221, 169, 58);
+}

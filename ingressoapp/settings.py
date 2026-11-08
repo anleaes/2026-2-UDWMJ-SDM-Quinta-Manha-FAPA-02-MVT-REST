@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'pessoa.apps.PessoaConfig',
     'sede.apps.SedeConfig',
     'funcionario.apps.FuncionarioConfig',
+    'espectador.apps.EspectadorConfig',
   
 ]
 

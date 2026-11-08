@@ -1,0 +1,35 @@
+h1{
+    justify-self: center;
+}
+
+/* Disposição das informações de Espectador */
+
+div.item-espectador{
+    margin: 20px;
+    padding: 10px;
+    
+    border-width: 3px;
+    border-color: orange;
+    border-style: solid;
+}
+
+div.item-espectador > div{
+    display: flex;
+
+    justify-content: left;
+    align-items: center;
+}
+
+div.item-espectador > div:has(p.nome-espectador){
+    border-bottom: 3px dashed orange;
+    margin-bottom: 5px;
+}
+
+div.item-espectador > div p.nome-espectador{
+    font-size: xx-large;
+}
+
+div.item-espectador > div p.espectador-local-registro{
+    font-size: large;
+    text-decoration-line: underline;
+}
