@@ -43,3 +43,7 @@ def listar_beneficios(request: HttpRequest):
     context = {'beneficios': beneficios}
     return render(request, template_name, context)
 
+def deletar_beneficio(request: HttpRequest, beneficio_id: int):
+    obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
+    obj_beneficio.delete()
+    return redirect('beneficio:listar_beneficios')
