@@ -14,7 +14,8 @@ def criar_beneficio(request: HttpRequest):
             obj_beneficio = form.save(commit=False)
             obj_beneficio.save()
             form.save_m2m()
-            return HttpResponse('Sucesso')
+            return redirect('beneficio:listar_beneficios')
+
 
     form = BeneficioForm()
     context = { 'form': form }
@@ -30,7 +31,8 @@ def editar_beneficio(request: HttpRequest, beneficio_id: int):
         form = BeneficioForm(request.POST, instance=obj_beneficio)
         if form.is_valid():
             form.save()
-            return HttpResponse('Sucesso')
+            return redirect('beneficio:listar_beneficios')
+
 
     form = BeneficioForm(instance=obj_beneficio)
     context = { 'form': form}
@@ -42,6 +44,7 @@ def listar_beneficios(request: HttpRequest):
     beneficios = Beneficio.objects.all()
     context = {'beneficios': beneficios}
     return render(request, template_name, context)
+
 
 def deletar_beneficio(request: HttpRequest, beneficio_id: int):
     obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
