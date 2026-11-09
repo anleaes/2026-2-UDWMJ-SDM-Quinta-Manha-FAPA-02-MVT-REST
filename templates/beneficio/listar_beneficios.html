@@ -23,7 +23,7 @@
     
     <div class="botoes-de-acao">
         <a href="{% url 'beneficio:editar_beneficio' beneficio.id %}"><button class="botao-editar">Editar</button></a>
- 
+        <a href="{% url 'beneficio:deletar_beneficio' beneficio.id %}"><button class="botao-deletar">Deletar</button></a>
     </div>
     <div> <p class="nome-beneficio"> {{ beneficio.nome }} </p></div>
     <h3> Descrição </h3>
