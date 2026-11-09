@@ -21,3 +21,17 @@ def criar_beneficio(request: HttpRequest):
 
     return render(request, template_name, context)
 
+def editar_beneficio(request: HttpRequest, beneficio_id: int):
+    template_name = 'beneficio/criar_beneficio.html'
+    obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
+
+    if request.method == 'POST':
+        form = BeneficioForm(request.POST, instance=obj_beneficio)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Sucesso')
+
+    form = BeneficioForm(instance=obj_beneficio)
+    context = { 'form': form}
+    return render(request, template_name, context)
+
