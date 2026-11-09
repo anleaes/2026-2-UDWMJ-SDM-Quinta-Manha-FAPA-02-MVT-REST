@@ -8,3 +8,6 @@ class Beneficio(models.Model):
         verbose_name = 'Beneficio'
         verbose_name_plural = 'Beneficios'
         ordering = ['id']
+
+    def __str__(self):
+        return f'{self.nome}'
