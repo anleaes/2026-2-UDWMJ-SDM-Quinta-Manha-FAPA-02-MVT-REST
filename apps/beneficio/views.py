@@ -21,6 +21,7 @@ def criar_beneficio(request: HttpRequest):
 
     return render(request, template_name, context)
 
+
 def editar_beneficio(request: HttpRequest, beneficio_id: int):
     template_name = 'beneficio/criar_beneficio.html'
     obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
@@ -34,6 +35,7 @@ def editar_beneficio(request: HttpRequest, beneficio_id: int):
     form = BeneficioForm(instance=obj_beneficio)
     context = { 'form': form}
     return render(request, template_name, context)
+
 
 def listar_beneficios(request: HttpRequest):
     template_name = 'beneficio/listar_beneficios.html'
