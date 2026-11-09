@@ -6,6 +6,10 @@
   Registrar Beneficio - {{ block.super }}
 {% endblock %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/beneficio/criar_beneficio.css' %}">
+{% endblock metadados_adicionais %}
+
 
 {% block body %}
 <!-- ------------------------- -->
