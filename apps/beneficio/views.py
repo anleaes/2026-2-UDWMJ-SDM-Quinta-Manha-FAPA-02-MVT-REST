@@ -35,3 +35,9 @@ def editar_beneficio(request: HttpRequest, beneficio_id: int):
     context = { 'form': form}
     return render(request, template_name, context)
 
+def listar_beneficios(request: HttpRequest):
+    template_name = 'beneficio/listar_beneficios.html'
+    beneficios = Beneficio.objects.all()
+    context = {'beneficios': beneficios}
+    return render(request, template_name, context)
+
