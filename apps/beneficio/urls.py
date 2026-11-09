@@ -5,4 +5,5 @@ app_name = 'beneficio'
 
 urlpatterns = [
     path('criar/', views.criar_beneficio, name='criar_beneficio'),
+    path('editar/<int:beneficio_id>', views.editar_beneficio, name='editar_beneficio'),
 ]
