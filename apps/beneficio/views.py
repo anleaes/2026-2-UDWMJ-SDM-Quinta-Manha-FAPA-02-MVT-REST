@@ -3,3 +3,21 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Beneficio
 from .forms import BeneficioForm
+
+def criar_beneficio(request: HttpRequest):
+    template_name = 'beneficio/criar_beneficio.html'
+    context = {}
+
+    if request.method == 'POST':
+        form = BeneficioForm(request.POST)
+        if form.is_valid():
+            obj_beneficio = form.save(commit=False)
+            obj_beneficio.save()
+            form.save_m2m()
+            return HttpResponse('Sucesso')
+
+    form = BeneficioForm()
+    context = { 'form': form }
+
+    return render(request, template_name, context)
+
