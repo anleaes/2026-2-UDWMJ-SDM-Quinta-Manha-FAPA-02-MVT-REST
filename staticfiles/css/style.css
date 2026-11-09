@@ -49,3 +49,7 @@ div#funcionario button{
 div#espectador button{
     background-color: rgb(221, 169, 58);
 }
+
+div#beneficio button{
+    background-color: rgb(137, 87, 202);
+}
