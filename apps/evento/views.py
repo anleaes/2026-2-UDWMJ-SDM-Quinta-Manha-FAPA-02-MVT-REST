@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EventoForm
 from .models import Evento
 
@@ -23,4 +23,17 @@ def lista_eventos(request):
     context= {
         'eventos': eventos
     }
+    return render(request, template_name, context)
+
+def editar_evento(request, id_evento):
+    template_name='evento/criar_evento.html'
+    context = {}
+    evento = get_object_or_404(Evento, id=id_evento)
+    if request.method == 'POST':
+        form = EventoForm(request.POST, request.FILES, instance=evento)
+        if form.is_valid():
+            form.save()
+            return redirect('evento:listar_eventos')
+    form = EventoForm(instance=evento)
+    context['form'] = form
     return render(request, template_name, context)
