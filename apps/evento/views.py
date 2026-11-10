@@ -37,3 +37,8 @@ def editar_evento(request, id_evento):
     form = EventoForm(instance=evento)
     context['form'] = form
     return render(request, template_name, context)
+
+def excluir_evento(request, id_evento):
+    evento = Evento.objects.get(id=id_evento)
+    evento.delete()
+    return redirect('evento:listar_eventos')
