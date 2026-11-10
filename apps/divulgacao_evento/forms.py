@@ -8,4 +8,5 @@ class Divulgacao_EventoForm(forms.ModelForm):
         widgets = {
             'horario_comeco': forms.TimeInput(attrs={'type': 'time'}),
             'horario_fim': forms.TimeInput(attrs={'type': 'time'}),
+            'data': forms.DateInput(attrs={'type': 'date'})
         }
