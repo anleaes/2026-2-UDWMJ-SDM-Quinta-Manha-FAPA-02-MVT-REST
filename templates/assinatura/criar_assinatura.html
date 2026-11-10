@@ -12,6 +12,38 @@
 <!-- ------------------------- -->
 <h1> Registrar Assinatura </h1>
 
+<div>
+  <form action="" method="POST">
+    {% csrf_token %}
+
+    <div>
+      <label>Ícone:</label>
+      {{ form.icone }}
+    </div>
+
+    <div>
+      <label>Nome:</label>
+      {{ form.nome }}
+    </div>
+
+     <div>
+      <label>Descrição:</label>
+      {{ form.descricao }}
+    </div>
+
+    <div>
+      <label>Custo Mensal (R$):</label>
+      {{ form.custo_mensal }}
+    </div>
+
+    <div>
+      <label>Benefícios:</label>
+      {{ form.beneficios }}
+    </div>
+
+    <button type="submit" id="criar-assinatura">Salvar</button>
+  </form>
+</div>
 
 <!-- ------------------------- -->
 {% endblock body %}
