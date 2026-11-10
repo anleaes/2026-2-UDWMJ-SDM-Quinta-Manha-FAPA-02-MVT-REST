@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Adicionar Divulgação - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+  <b>Cadastro de Divulgação de Evento</b>
+  <br />
+  <br />
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Evento:</label>
+    <br />
+    {{ form.evento }}
+    <br />
+    <br />
+    <label>Local:</label>
+    <br />
+    {{ form.local }}
+    <br />
+    <br />
+    <label>Data:</label>
+    <br />
+    {{ form.data }}
+    <br />
+    <br />
+    <label>Horário Inicial:</label>
+    <br />
+    {{ form.horario_comeco }}
+    <br />
+    <br />
+    <label>Horário Final:</label>
+    <br />
+    {{ form.horario_fim }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+  </form>
+{% endblock %}
