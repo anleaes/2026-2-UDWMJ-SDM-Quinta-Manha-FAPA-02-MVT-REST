@@ -7,12 +7,12 @@ def criar_evento(request):
     context= {}
 
     if request.method == 'POST':
-        form = EventoForm(request.POST)
+        form = EventoForm(request.POST, request.FILES)
         if form.is_valid():
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return render(request, template_name, context)
+            return redirect('evento:listar_eventos')
     form = EventoForm()
     context['form'] = form
     return render(request, template_name, context)
