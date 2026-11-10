@@ -10,7 +10,7 @@ def criar_assinatura(request: HttpRequest):
     context = {}
 
     if request.method == 'POST':
-        form = AssinaturaForm(request.POST)
+        form = AssinaturaForm(request.POST, request.FILES)
         if form.is_valid():
             obj_assinatura = form.save(commit=False)
             obj_assinatura.save()
