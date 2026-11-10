@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Lista de Eventos - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+  <b>Lista de Eventos</b>
+  <br />
+  <br />
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descricao</th>
+        <th>Regras</th>
+        <th>Banner</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for evento in eventos %}
+        <tr>
+          <th>{{ evento.id }}</th>
+          <td>{{ evento.nome }}</td>
+          <td>{{ evento.descricao }}</td>
+          <td>{{ evento.regras }}</td>
+          <td>{{ evento.banner }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
