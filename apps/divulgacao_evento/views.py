@@ -37,3 +37,8 @@ def editar_divulgacao_evento(request, id_divulgacao_evento):
     form = Divulgacao_EventoForm(instance=divulgacao_evento)
     context['form'] = form
     return render(request, template_name, context)
+
+def deletar_divulgacao_evento(request, id_divulgacao_evento):
+    divulgacao_evento = Divulgacao_Evento.objects.get(id=id_divulgacao_evento)
+    divulgacao_evento.delete()
+    return redirect('divulgacao_evento:lista_divulgacao_eventos')
