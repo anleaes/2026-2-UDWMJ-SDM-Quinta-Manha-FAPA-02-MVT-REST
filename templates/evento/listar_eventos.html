@@ -27,6 +27,9 @@
           <td>{{ evento.descricao }}</td>
           <td>{{ evento.regras }}</td>
           <td>{{ evento.banner }}</td>
+          <td>
+            <a href="{% url 'evento:editar_evento' evento.id %}" >Editar</a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
