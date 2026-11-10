@@ -26,7 +26,8 @@ urlpatterns = [
     path('espectador/', include('espectador.urls', namespace='espectador')),
     path('beneficio/', include('beneficio.urls', namespace='beneficio')),
     path('', include('index.urls', namespace='index')),
-    path('evento/', include('evento.urls', namespace='evento'))
+    path('evento/', include('evento.urls', namespace='evento')),
+    path('divulgacao_evento/', include('divulgacao_evento.urls', namespace='divulgacao_evento')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
