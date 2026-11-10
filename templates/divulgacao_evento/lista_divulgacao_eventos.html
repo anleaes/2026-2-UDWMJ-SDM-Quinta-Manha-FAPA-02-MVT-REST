@@ -29,6 +29,9 @@
                 <td>{{ d_evento.data }}</td>
                 <td>{{ d_evento.horario_comeco }}</td>
                 <td>{{ d_evento.horario_fim }}</td>
+                <td>
+                    <a href="{% url 'divulgacao_evento:editar_divulgacao_evento' d_evento.id %}" >Editar</a>
+                </td>
             </tr> 
         {% endfor %}
     </tbody>
