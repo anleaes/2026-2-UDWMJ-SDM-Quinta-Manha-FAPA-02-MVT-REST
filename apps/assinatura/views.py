@@ -21,3 +21,16 @@ def criar_assinatura(request: HttpRequest):
     context = {'form': form}
     return render(request, template_name, context)
 
+def editar_assinatura(request: HttpRequest, assinatura_id: int):
+    template_name = 'assinatura/criar_assinatura.html'
+    assinatura = get_object_or_404(Assinatura, id=assinatura_id)
+
+    if request.method == 'POST':
+        form = AssinaturaForm(request.POST, request.FILES, instance=assinatura)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Sucesso')
+
+    form = AssinaturaForm(instance=assinatura)
+    context = {'form': form}
+    return render(request, template_name, context) 
