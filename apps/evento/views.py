@@ -16,3 +16,11 @@ def criar_evento(request):
     form = EventoForm()
     context['form'] = form
     return render(request, template_name, context)
+
+def lista_eventos(request):
+    template_name='evento/listar_eventos.html'
+    eventos = Evento.objects.filter()
+    context= {
+        'eventos': eventos
+    }
+    return render(request, template_name, context)
