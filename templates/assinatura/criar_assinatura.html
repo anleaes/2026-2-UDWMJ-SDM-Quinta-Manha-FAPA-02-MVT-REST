@@ -6,7 +6,9 @@
   Registrar Assinatura - {{ block.super }}
 {% endblock %}
 
-
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/assinatura/criar_assinatura.css' %}">
+{% endblock metadados_adicionais %}
 
 {% block body %}
 <!-- ------------------------- -->
