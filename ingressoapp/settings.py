@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'funcionario.apps.FuncionarioConfig',
     'espectador.apps.EspectadorConfig',
     'beneficio.apps.BeneficioConfig',
+    'assinatura.apps.AssinaturaConfig',
   
 ]
 
