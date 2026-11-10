@@ -12,4 +12,4 @@ class Evento(models.Model):
         ordering= ['id']
 
     def __str__(self):
-        return f'{self.id} - {self.name}'
+        return f'{self.nome}'
