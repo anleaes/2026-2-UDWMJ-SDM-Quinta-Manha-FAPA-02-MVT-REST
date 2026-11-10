@@ -13,3 +13,6 @@ class Divulgacao_Evento(models.Model):
         verbose_name = 'Divulgacao Evento'
         verbose_name_plural = "Divulgacao Eventos"
         ordering  =['id']
+
+    def __str__(self):
+        return f'{self.evento}'
