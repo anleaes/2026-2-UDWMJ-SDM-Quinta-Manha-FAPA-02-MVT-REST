@@ -8,3 +8,8 @@ class Divulgacao_Evento(models.Model):
     data=models.DateField('Data do evento', auto_now=False)
     horario_comeco=models.TimeField(auto_now=False, auto_now_add=False)
     horario_fim=models.TimeField(auto_now=False, auto_now_add=False)
+
+    class Meta:
+        verbose_name = 'Divulgacao Evento'
+        verbose_name_plural = "Divulgacao Eventos"
+        ordering  =['id']
