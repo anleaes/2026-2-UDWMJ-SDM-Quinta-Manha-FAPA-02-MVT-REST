@@ -15,3 +15,6 @@ class Assinatura(models.Model):
         verbose_name = 'Assinatura'
         verbose_name_plural = 'Assinaturas'
         ordering = ['id']
+
+    def __str__(self):
+        return f'{self.nome} - R$ {self.custo_mensal}'
