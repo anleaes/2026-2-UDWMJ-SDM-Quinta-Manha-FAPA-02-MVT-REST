@@ -11,4 +11,7 @@ def criar_divulgacao_evento(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return HttpResponse('Suceso', status=200)
+            return HttpResponse('Sucesso', status=200)
+    form = Divulgacao_EventoForm()
+    context['form'] = form
+    return render(request, template_name, context)
