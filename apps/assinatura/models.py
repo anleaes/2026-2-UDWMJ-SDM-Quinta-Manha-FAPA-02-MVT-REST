@@ -10,3 +10,8 @@ class Assinatura(models.Model):
     descricao = models.TextField('Descrição', max_length=300)
     custo_mensal = models.DecimalField('Custo Mensal', decimal_places=2, max_digits=9, default=Decimal(0))
     beneficios = models.ManyToManyField(Beneficio, verbose_name='Beneficios')
+
+    class Meta:
+        verbose_name = 'Assinatura'
+        verbose_name_plural = 'Assinaturas'
+        ordering = ['id']
