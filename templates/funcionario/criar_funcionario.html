@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Registrar Funcionario - {{ block.super }}
+{% endblock %}
+
+{% block metadados_adicionais %}
+        <link rel="stylesheet" href="{% static 'css/funcionario/criar_funcionario.css' %}">
+{% endblock metadados_adicionais %}
+
+{% block body %}
+<!-- ------------------------- -->
+<h1> Registrar Funcionário </h1>
+
+<div>
+  <form action="" method="POST">
+    {% csrf_token %}
+
+    <div>
+      <label>Nome:</label>
+      {{ form.nome }}
+    </div>
+
+    <div> 
+      <label>Data de Nascimento:</label>
+      {{ form.data_nascimento }}
+    </div>
+
+    <div>
+      <label>Telefone:</label>
+      {{ form.telefone }}
+    </div>
+
+    <div>
+      <label>Email:</label>
+      {{ form.email }}
+    </div>
+
+    <div>
+      <label>Gênero:</label>
+      {{ form.genero }}
+    </div>
+
+    <div>
+      <label>Cargo:</label>
+      {{ form.cargo }}
+    </div>
+
+    <div>
+      <label>Local de Trabalho:</label>
+      {{ form.sede_de_trabalho }}
+    </div>
+
+    <div>
+      <label>Turno de trabalho:</label>
+      {{ form.turno_trabalho }}
+    </div>
+
+    <div>
+      <label>Salário:</label>
+      {{ form.salario }}
+    </div>
+
+    <div>
+      <label>Fator Comissão:</label>
+      {{ form.multiplicador_comissao }}
+    </div>
+  
+    <button type="submit" id="criar-funcionario">Salvar</button>
+  </form>
+</div>
+
+<!-- ------------------------- -->
+{% endblock body %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Funcionarios - {{ block.super }}
+{% endblock %}
+
+{% block metadados_adicionais %}
+        <link rel="stylesheet" href="{% static 'css/funcionario/listar_funcionarios.css' %}">
+{% endblock metadados_adicionais %}
+
+{% block body %}
+<!-- ------------------------- -->
+
+<h1>Funcionários</h1>
+
+{% for funcionario in funcionarios %}
+
+<div class="item-funcionario">
+    <div class="botoes-de-acao">
+        <a href="{% url 'funcionario:editar_funcionario' funcionario.id %}"><button class="botao-editar">Editar</button></a>
+        <a href="{% url 'funcionario:deletar_funcionario' funcionario.id %}"><button class="botao-deletar">Deletar</button></a>
+    </div>
+    <div> <p class="nome-funcionario"> {{ funcionario.nome }} </p></div>
+    <div> <p class="funcionario-local-trabalho"> Local de Trabalho: {{ funcionario.sede_de_trabalho }}</p></div>
+    
+    <div> ID: {{ funcionario.id }} </div>
+    <div> Nome: {{ funcionario.nome }} </div>
+    <div> Data de Nascimento: {{ funcionario.data_nascimento }} </div>
+    <div> Telefone: {{ funcionario.telefone }} </div>
+    <div> Email: {{ funcionario.email }} </div>
+    <div> Gênero: {{ funcionario.genero }} </div>
+    <div> Cargo: {{ funcionario.cargo }} </div>
+    <div> Turno de trabalho: {{ funcionario.turno_trabalho }} </div>
+    <div> Salário: {{ funcionario.salario }} </div>
+    <div> Fator Comissão: {{ funcionario.multiplicador_comissao }} </div>
+</div>
+
+{% endfor %}
+
+<!-- ------------------------- -->
+{% endblock %}
