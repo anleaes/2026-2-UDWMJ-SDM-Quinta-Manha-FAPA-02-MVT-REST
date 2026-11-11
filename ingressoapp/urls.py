@@ -30,6 +30,7 @@ urlpatterns = [
     path('divulgacao_evento/', include('divulgacao_evento.urls', namespace='divulgacao_evento')),
     path('cupom/', include('cupom.urls', namespace='cupom')),
     path('venda/', include('venda.urls', namespace='venda')),
+    path('ingresso/', include('ingresso.urls', namespace='ingresso')),
     
     path('', include('index.urls', namespace='index')),
 
