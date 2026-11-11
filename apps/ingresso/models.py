@@ -15,3 +15,6 @@ class Ingresso(models.Model):
         verbose_name = 'Ingresso'
         verbose_name_plural = "Ingressos"
         ordering  =['id']
+
+    def __str__(self):
+        return f'{self.validado}'
