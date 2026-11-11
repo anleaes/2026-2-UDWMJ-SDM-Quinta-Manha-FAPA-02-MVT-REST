@@ -3,4 +3,4 @@ from .models import Assinatura
 
 class AssinaturaSerializer(serializers.ModelSerializer):
     class Meta:
-        pass
+        model = Assinatura
