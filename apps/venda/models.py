@@ -12,3 +12,8 @@ class Venda(models.Model):
         ('CA', 'Cancelado'),
         ('CO', 'Concluido'),
     ])
+
+    class Meta:
+        verbose_name = 'Venda'
+        verbose_name_plural = 'Vendas'
+        ordering =['id']
