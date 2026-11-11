@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    'django_filters',
+    
     'index.apps.IndexConfig',
     'evento.apps.EventoConfig',
     'pessoa.apps.PessoaConfig',
@@ -54,6 +58,7 @@ INSTALLED_APPS = [
     'divulgacao_evento.apps.DivulgacaoEventoConfig',
     'cupom.apps.CupomConfig',
     'venda.apps.VendaConfig',
+    'assinatura.apps.AssinaturaConfig',
   
 ]
 
