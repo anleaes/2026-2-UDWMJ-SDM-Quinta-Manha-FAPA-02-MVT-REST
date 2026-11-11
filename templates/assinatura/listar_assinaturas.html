@@ -6,7 +6,9 @@
   Assinaturas - {{ block.super }}
 {% endblock %}
 
-
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/assinatura/listar_assinaturas.css' %}">
+{% endblock metadados_adicionais %}
 
 {% block body %}
 <!-- ------------------------- -->
