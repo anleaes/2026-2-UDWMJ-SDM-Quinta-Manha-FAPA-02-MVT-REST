@@ -37,3 +37,8 @@ def editar_venda(request, id_venda):
     form = VendaForm(instance=venda)
     context['form']=form
     return render(request, template_name, context)
+
+def deletar_venda(request, id_venda):
+    venda = Venda.objects.get(id=id_venda)
+    venda.delete()
+    return redirect('venda:lista_venda')
