@@ -38,4 +38,9 @@ def editar_ingresso(request, id_ingresso):
     context['form']=form
     return render(request, template_name, context)
 
+def deletar_ingresso(request, id_ingresso):
+    ingresso = Ingresso.objects.get(id=id_ingresso)
+    ingresso.delete()
+    return redirect('ingresso:lista_ingresso')
+
     
