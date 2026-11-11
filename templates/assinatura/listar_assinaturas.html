@@ -20,7 +20,7 @@
 <div class="item-assinatura">
     <div class="botoes-de-acao">
         <a href="{% url 'assinatura:editar_assinatura' assinatura.id %}"><button class="botao-editar">Editar</button></a>
-        
+        <a href="{% url 'assinatura:deletar_assinatura' assinatura.id %}"><button class="botao-deletar">Deletar</button></a>
     </div>
     <div> <p class="nome-assinatura"> {{ assinatura.nome }} </p></div>
     
