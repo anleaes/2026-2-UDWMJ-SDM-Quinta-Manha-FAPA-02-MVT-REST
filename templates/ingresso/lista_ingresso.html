@@ -32,6 +32,9 @@
                 <td>
                     <a href="{% url 'ingresso:editar_ingresso' i.id %}" >Editar</a>
                 </td>
+                <td>
+                    <a href="{% url 'ingresso:deletar_ingresso' i.id %}" >Deletar</a>
+                </td>
             </tr> 
         {% endfor %}
     </tbody>
