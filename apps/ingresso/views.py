@@ -16,3 +16,13 @@ def criar_ingresso(request):
     form = IngressoForm()
     context['form'] = form
     return render(request, template_name, context)
+
+def lista_ingresso(request):
+    template_name = 'ingresso/lista_ingresso.html'
+    ingresso = Ingresso.objects.filter()
+    context = {
+        'ingresso': ingresso
+    }
+    return render(template_name, request, context)
+
+    
