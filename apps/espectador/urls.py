@@ -5,7 +5,7 @@ from rest_framework import routers
 app_name = 'espectador'
 
 router = routers.SimpleRouter()
-
+router.register('', views.EspectadorViewSet, basename='espectador')
 
 urlpatterns = [
     path('criar/', views.criar_espectador, name='criar_espectador'),
