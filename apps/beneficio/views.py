@@ -58,4 +58,4 @@ def deletar_beneficio(request: HttpRequest, beneficio_id: int):
 # -------------------- REST --------------------------
 
 class BeneficioViewSet(viewsets.ModelViewSet):
-    pass
+    queryset = Beneficio.objects.all()
