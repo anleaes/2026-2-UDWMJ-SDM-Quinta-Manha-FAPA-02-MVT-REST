@@ -19,7 +19,7 @@ def criar_cupom(request):
 
 def lista_cupom(request):
     template_name = 'cupom/lista_cupom.html'
-    cupom= Cupom.objects.filter()
+    cupom= Cupom.objects.prefetch_related('eventos_validos')
     context = {
         'cupom': cupom
     }
