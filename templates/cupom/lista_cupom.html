@@ -25,6 +25,9 @@
                 <td>{{ c.porcentagem_desconto }}</td>
                 <td>{{ c.data_vencimento }}</td>
                 <td>{{ c.eventos_validos }}</td>
+                <td>
+                    <a href="{% url 'cupom:editar_cupom' c.id %}" >Editar</a>
+                </td>
             </tr> 
         {% endfor %}
     </tbody>
