@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Beneficio
 from .forms import BeneficioForm
 
+from rest_framework import viewsets
+from .serializer import BeneficioSerializer
+
 def criar_beneficio(request: HttpRequest):
     template_name = 'beneficio/criar_beneficio.html'
     context = {}
