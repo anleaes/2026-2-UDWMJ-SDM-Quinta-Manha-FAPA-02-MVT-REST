@@ -4,6 +4,8 @@ from rest_framework import routers
 
 app_name = 'funcionario'
 
+router = routers.SimpleRouter()
+
 urlpatterns = [
     path('criar/', views.criar_funcionario, name='criar_funcionario'),
     path('listar/', views.listar_funcionarios, name='listar_funcionarios'),
