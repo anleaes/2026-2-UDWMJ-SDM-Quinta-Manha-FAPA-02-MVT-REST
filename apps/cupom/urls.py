@@ -5,4 +5,5 @@ app_name= 'cupom'
 
 urlpatterns = [
     path('criar/', views.criar_cupom, name='criar_cupom'),
+    path('lista/', views.list_cupom, name='list_cupom'),
 ]
