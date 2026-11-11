@@ -7,3 +7,8 @@ class Ingresso(models.Model):
     espectador = models.ForeignKey(Espectador, on_delete=models.CASCADE)
     evento_divulgado = models.ForeignKey(Divulgacao_Evento, on_delete=models.CASCADE)
     cupom_aplicado = models.ForeignKey(Cupom, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Ingresso'
+        verbose_name_plural = "Ingressos"
+        ordering  =['id']
