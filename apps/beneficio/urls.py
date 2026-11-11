@@ -13,4 +13,5 @@ urlpatterns = [
     path('editar/<int:beneficio_id>', views.editar_beneficio, name='editar_beneficio'),
     path('deletar/<int:beneficio_id>', views.deletar_beneficio, name='deletar_beneficio'),
 
+    path('', include(router.urls))
 ]
