@@ -5,6 +5,7 @@ from rest_framework import routers
 app_name = 'assinatura'
 
 router = routers.SimpleRouter()
+router.register('', views.AssinaturaViewSet, basename='assinatura')
 
 
 
