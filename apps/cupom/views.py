@@ -37,3 +37,8 @@ def editar_cupom(request, id_cupom):
     form = CupomForm(instance=cupom)
     context['form'] = form
     return render(request, template_name, context)
+
+def deletar_cupom(request, id_cupom):
+    cupom = Cupom.objects.get(id=id_cupom)
+    cupom.delete()
+    return redirect('cupom:lista_cupom')
