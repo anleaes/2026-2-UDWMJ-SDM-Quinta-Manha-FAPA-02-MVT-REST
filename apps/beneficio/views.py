@@ -53,3 +53,9 @@ def deletar_beneficio(request: HttpRequest, beneficio_id: int):
     obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
     obj_beneficio.delete()
     return redirect('beneficio:listar_beneficios')
+
+
+# -------------------- REST --------------------------
+
+class BeneficioViewSet(viewsets.ModelViewSet):
+    pass
