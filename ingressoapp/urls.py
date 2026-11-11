@@ -28,6 +28,7 @@ urlpatterns = [
     path('', include('index.urls', namespace='index')),
     path('evento/', include('evento.urls', namespace='evento')),
     path('divulgacao_evento/', include('divulgacao_evento.urls', namespace='divulgacao_evento')),
+    path('cupom/', include('cupom.urls', namespace='cupom')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
