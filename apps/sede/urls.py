@@ -6,6 +6,8 @@ from .views import SedeViewSet
 
 app_name = 'sede'
 
+router = routers.SimpleRouter()
+
 urlpatterns = [
     path('criar/', views.criar_sede, name='criar_sede'),
     path('listar/', views.listar_sedes, name='listar_sedes'),
