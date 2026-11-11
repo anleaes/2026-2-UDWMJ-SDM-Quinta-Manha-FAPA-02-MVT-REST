@@ -23,6 +23,6 @@ def lista_ingresso(request):
     context = {
         'ingresso': ingresso
     }
-    return render(template_name, request, context)
+    return render(request, template_name, context)
 
     
