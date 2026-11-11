@@ -2,4 +2,5 @@ from rest_framework import serializers
 from .models import Beneficio
 
 class BeneficioSerializer(serializers.ModelSerializer):
-    pass
+    class Meta:
+        pass 
