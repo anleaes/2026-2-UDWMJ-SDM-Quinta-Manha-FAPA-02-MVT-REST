@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Cupons - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+<br />
+<b>Lista de Divulgação de eventos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Porcentagem de desconto'</th>
+            <th>Data de vencimento</th>
+            <th>Evento</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in cupom %}
+            <tr>
+                <td>{{ c.id }}</th>
+                <td>{{ c.porcentagem_desconto }}</td>
+                <td>{{ c.data_vencimento }}</td>
+                <td>
+                    {% for evento in c.eventos_validos.all %}
+                        {{ evento }}
+                        {% if not forloop.last %}
+                            , 
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{% url 'cupom:editar_cupom' c.id %}" >Editar</a>
+                </td>
+                <td>
+                    <a href="{% url 'cupom:deletar_cupom' c.id %}" >Deletar</a>
+                </td>
+            </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
