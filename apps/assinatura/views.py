@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AssinaturaForm
 from .models import Assinatura
 
+from rest_framework import viewsets
+from .serializer import AssinaturaSerializer
 
 def criar_assinatura(request: HttpRequest):
     template_name = 'assinatura/criar_assinatura.html'
@@ -47,3 +49,9 @@ def deletar_assinatura(request: HttpRequest, assinatura_id: int):
     obj_assinatura = get_object_or_404(Assinatura, id=assinatura_id)
     obj_assinatura.delete()
     return redirect('assinatura:listar_assinaturas')
+
+
+# ------------------ REST -------------------------------------
+class AssinaturaViewSet(viewsets.ModelViewSet):
+    queryset = Assinatura.objects.all()
+    serializer_class = AssinaturaSerializer
