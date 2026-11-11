@@ -2,11 +2,11 @@ from django.urls import path, include
 from . import views
 
 from rest_framework import routers
-from .views import SedeViewSet
 
 app_name = 'sede'
 
 router = routers.SimpleRouter()
+router.register('', views.SedeViewSet, basename='sede')
 
 urlpatterns = [
     path('criar/', views.criar_sede, name='criar_sede'),
