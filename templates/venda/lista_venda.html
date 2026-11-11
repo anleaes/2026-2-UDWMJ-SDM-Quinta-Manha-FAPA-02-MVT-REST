@@ -29,6 +29,9 @@
                 <td>{{ v.preco_total }}</td>
                 <td>{{ v.ultima_edicao }}</td>
                 <td>{{ v.status }}</td>
+                <td>
+                    <a href="{% url 'venda:editar_venda' v.id %}" >Editar</a>
+                </td>
             </tr> 
         {% endfor %}
     </tbody>
