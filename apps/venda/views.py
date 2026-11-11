@@ -33,7 +33,7 @@ def editar_venda(request, id_venda):
         form = VendaForm(request.POST, instance=venda)
         if form.is_valid():
             form.save()
-            return('venda:lista_venda')
+            return redirect('venda:lista_venda')
     form = VendaForm(instance=venda)
     context['form']=form
     return render(request, template_name, context)
