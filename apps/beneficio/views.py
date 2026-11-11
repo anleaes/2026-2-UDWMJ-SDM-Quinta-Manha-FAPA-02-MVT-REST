@@ -59,3 +59,5 @@ def deletar_beneficio(request: HttpRequest, beneficio_id: int):
 
 class BeneficioViewSet(viewsets.ModelViewSet):
     queryset = Beneficio.objects.all()
+    serializer_class = BeneficioSerializer 
+
