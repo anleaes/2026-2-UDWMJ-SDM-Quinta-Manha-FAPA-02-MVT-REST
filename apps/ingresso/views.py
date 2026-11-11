@@ -12,7 +12,7 @@ def criar_ingresso(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return HttpResponse('Sucesso', status=200)
+            return redirect('ingresso:lista_ingresso')
     form = IngressoForm()
     context['form'] = form
     return render(request, template_name, context)
