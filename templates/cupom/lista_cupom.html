@@ -24,7 +24,14 @@
                 <td>{{ c.id }}</th>
                 <td>{{ c.porcentagem_desconto }}</td>
                 <td>{{ c.data_vencimento }}</td>
-                <td>{{ c.eventos_validos }}</td>
+                <td>
+                    {% for evento in c.eventos_validos.all %}
+                        {{ evento }}
+                        {% if not forloop.last %}
+                            , 
+                        {% endif %}
+                    {% endfor %}
+                </td>
                 <td>
                     <a href="{% url 'cupom:editar_cupom' c.id %}" >Editar</a>
                 </td>
