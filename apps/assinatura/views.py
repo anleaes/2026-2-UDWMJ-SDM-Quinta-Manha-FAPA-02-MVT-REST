@@ -49,3 +49,8 @@ def deletar_assinatura(request: HttpRequest, assinatura_id: int):
     obj_assinatura = get_object_or_404(Assinatura, id=assinatura_id)
     obj_assinatura.delete()
     return redirect('assinatura:listar_assinaturas')
+
+
+# ------------------ REST -------------------------------------
+class AssinaturaViewSet(viewsets.ModelViewSet):
+    pass
