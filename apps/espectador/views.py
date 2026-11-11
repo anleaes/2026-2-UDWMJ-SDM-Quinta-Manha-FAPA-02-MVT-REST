@@ -58,3 +58,4 @@ def deletar_espectador(request: HttpRequest, espectador_id: int):
 
 class EspectadorViewSet(viewsets.ModelViewSet):
     queryset = Espectador.objects.all()
+    serializer_class = EspectadorSerializer 
