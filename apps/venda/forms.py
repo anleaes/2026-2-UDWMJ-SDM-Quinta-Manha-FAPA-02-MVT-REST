@@ -2,4 +2,6 @@ from django import forms
 from .models import Venda
 
 class VendaForm(forms.ModelForm):
-    pass
+    class Meta:
+        model = Venda
+        exclude = ()
