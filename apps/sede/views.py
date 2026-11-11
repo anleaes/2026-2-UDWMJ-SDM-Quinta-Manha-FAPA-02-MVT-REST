@@ -58,4 +58,4 @@ def deletar_sede(request: HttpRequest, sede_id: int):
 # ------------------------- REST -----------------------------
 
 class SedeViewSet(viewsets.ModelViewSet):
-    pass
+    queryset = Sede.objects.all()
