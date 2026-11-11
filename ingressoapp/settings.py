@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'cupom.apps.CupomConfig',
     'venda.apps.VendaConfig',
     'assinatura.apps.AssinaturaConfig',
+    'ingresso.apps.IngressoConfig',
   
 ]
 

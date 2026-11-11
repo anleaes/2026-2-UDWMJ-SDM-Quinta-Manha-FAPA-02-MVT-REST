@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Adicionar Ingresso - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+    <br />
+    <b>Cadastro de Ingresso</b>
+    <br />
+    <br />
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Espectador:</label>
+        <br />
+        {{ form.espectador }}
+        <br />
+        <br />
+        <label>Evento Divulgado:</label>
+        <br />
+        {{ form.evento_divulgado }}
+        <br />
+        <br />
+        <label>Cupom Aplicado:</label>
+        <br />
+        {{ form.cupom_aplicado }}
+        <br />
+        <br />
+        <label>Venda:</label>
+        <br />
+        {{ form.venda }}
+        <br />
+        <br />
+        <label>Validado:</label>
+        <br />
+        {{ form.validado }}
+        <br />
+        <br />
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}
