@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Sede
 from .forms import SedeForm
 
+from rest_framework import viewsets
+from .serializer import SedeSerializer
+
 def criar_sede(request: HttpRequest):
     template_name = 'sede/criar_sede.html'
     context = {}
@@ -51,3 +54,6 @@ def deletar_sede(request: HttpRequest, sede_id: int):
     sede = get_object_or_404(Sede, id=sede_id)
     sede.delete()
     return redirect('sede:listar_sedes')
+
+# ------------------------- REST -----------------------------
+
