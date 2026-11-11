@@ -13,7 +13,28 @@
 
 <h1>Assinaturas</h1>
 
+{% for assinatura in assinaturas %}
 
+<div class="item-assinatura">
+    <div class="botoes-de-acao">
+        
+    </div>
+    <div> <p class="nome-assinatura"> {{ assinatura.nome }} </p></div>
+    
+    <div> ID: {{ assinatura.id }} </div>
+    <div> Nome: {{ assinatura.nome }} </div>
+    <div> Ícone: {{ assinatura.icone }} </div>
+    <div> Custo Mensal: R$ {{ assinatura.custo_mensal }} </div>
+
+    <h3> Benefícios Incluídos</h2>
+    {% for beneficio in assinatura.beneficios.all %}
+        <div class="assinatura-beneficio"> {{ beneficio }} </div>
+    {% endfor %}
+    <hr/>
+
+</div>
+
+{% endfor %}
 
 
 <!-- ------------------------- -->
