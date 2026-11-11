@@ -24,3 +24,16 @@ def lista_venda(request):
         'venda': venda
     }
     return render(request, template_name, context)
+
+def editar_venda(request, id_venda):
+    template_name = ('venda/criar_venda.html')
+    context = {}
+    venda = get_object_or_404(Venda, id=id_venda)
+    if request.method == 'POST':
+        form = VendaForm(request.POST, instance=venda)
+        if form.is_valid():
+            form.save()
+            return('venda:lista_venda')
+    form = VendaForm(instance=venda)
+    context['form']=form
+    return render(request, template_name, context)
