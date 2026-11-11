@@ -5,5 +5,5 @@ app_name = 'divulgacao_evento'
 
 urlpatterns = [
     path('criar/', views.criar_venda, name='criar_venda'),
-    path('listar/', views.listar_venda, name='listar_venda'),
+    path('listar/', views.lista_venda, name='lista_venda'),
 ]
