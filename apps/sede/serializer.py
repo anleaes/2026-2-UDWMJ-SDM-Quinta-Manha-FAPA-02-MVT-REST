@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 class SedeSerializer(serializers.ModelSerializer):
     class Meta:
-            pass
+            model = Sede
+            fields = '__all__'
 
 
