@@ -28,6 +28,9 @@
                 <td>
                     <a href="{% url 'cupom:editar_cupom' c.id %}" >Editar</a>
                 </td>
+                <td>
+                    <a href="{% url 'cupom:deletar_cupom' c.id %}" >Deletar</a>
+                </td>
             </tr> 
         {% endfor %}
     </tbody>
