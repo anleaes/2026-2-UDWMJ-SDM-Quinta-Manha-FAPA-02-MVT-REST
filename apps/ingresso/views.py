@@ -4,7 +4,7 @@ from .forms import IngressoForm
 from .models import Ingresso
 
 def criar_ingresso(request):
-    template_name = 'criar/criar_ingresso.html'
+    template_name = 'ingresso/criar_ingresso.html'
     context = {}
     if request.method == 'POST':
         form = IngressoForm(request.POST)
