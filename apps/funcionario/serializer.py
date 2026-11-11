@@ -3,4 +3,5 @@ from rest_framework import serializers
 
 class FuncionarioSerializer(serializers.ModelSerializer):
     class Meta:
-        pass
+        model = Funcionario
+        fields = '__all__'
