@@ -2,8 +2,9 @@ from django.urls import path
 from . import views
 from rest_framework import routers
 
-
 app_name = 'assinatura'
+
+router = routers.SimpleRouter()
 
 
 
