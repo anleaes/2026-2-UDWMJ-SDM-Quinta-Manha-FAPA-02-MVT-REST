@@ -59,3 +59,4 @@ def deletar_sede(request: HttpRequest, sede_id: int):
 
 class SedeViewSet(viewsets.ModelViewSet):
     queryset = Sede.objects.all()
+    serializer_class = SedeSerializer 
