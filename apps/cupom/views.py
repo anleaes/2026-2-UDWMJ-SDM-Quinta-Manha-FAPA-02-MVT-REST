@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CupomForm
-from .models import Cupom
+from .models import Cupom, Evento
 
 def criar_cupom(request):
     template_name = 'cupom/criar_cupom.html'
@@ -19,7 +19,7 @@ def criar_cupom(request):
 
 def lista_cupom(request):
     template_name = 'cupom/lista_cupom.html'
-    cupom= Cupom.objects.prefetch_related('evento')
+    cupom= Cupom.objects.filter()
     context = {
         'cupom': cupom
     }
