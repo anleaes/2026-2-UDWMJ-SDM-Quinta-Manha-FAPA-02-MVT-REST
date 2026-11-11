@@ -15,7 +15,7 @@ def criar_assinatura(request: HttpRequest):
             obj_assinatura = form.save(commit=False)
             obj_assinatura.save()
             form.save_m2m()
-            return HttpResponse('Sucesso')
+            return redirect('assinatura:listar_assinaturas')
 
     form = AssinaturaForm()
     context = {'form': form}
@@ -29,7 +29,7 @@ def editar_assinatura(request: HttpRequest, assinatura_id: int):
         form = AssinaturaForm(request.POST, request.FILES, instance=assinatura)
         if form.is_valid():
             form.save()
-            return HttpResponse('Sucesso')
+            return redirect('assinatura:listar_assinaturas')
 
     form = AssinaturaForm(instance=assinatura)
     context = {'form': form}
