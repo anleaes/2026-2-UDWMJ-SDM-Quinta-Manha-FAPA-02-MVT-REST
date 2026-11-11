@@ -11,3 +11,6 @@ class Cupom(models.Model):
         verbose_name= 'Cupom'
         verbose_name_plural = 'Cupons'
         ordering = ['id']
+
+    def __str__(self):
+        return f'{self.porcentagem_desconto}-${self.eventos_validos}'
