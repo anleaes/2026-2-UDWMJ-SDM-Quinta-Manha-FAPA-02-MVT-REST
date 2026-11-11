@@ -58,4 +58,6 @@ def deletar_funcionario(request: HttpRequest, funcionario_id: int):
 
 # ---------------------------- REST -------------------------------------
 
-
+class FuncionarioViewSet(viewsets.ModelViewSet):
+    pass
+     
