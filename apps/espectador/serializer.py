@@ -3,4 +3,5 @@ from rest_framework import serializers
 
 class EspectadorSerializer(serializers.ModelSerializer):
     class Meta:
-            pass
+        model = Espectador
+        fields = '__all__'
