@@ -57,4 +57,4 @@ def deletar_espectador(request: HttpRequest, espectador_id: int):
 # --------------------------- REST -----------------------------
 
 class EspectadorViewSet(viewsets.ModelViewSet):
-    pass
+    queryset = Espectador.objects.all()
