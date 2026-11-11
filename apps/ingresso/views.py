@@ -25,4 +25,17 @@ def lista_ingresso(request):
     }
     return render(request, template_name, context)
 
+def editar_ingresso(request, id_ingresso):
+    template_name = 'ingresso/criar_ingresso.html'
+    context = {}
+    ingresso = get_object_or_404(Ingresso, id=id_ingresso)
+    if request.method == 'POST':
+        form = IngressoForm(request.POST, instance=ingresso)
+        if form.is_valid():
+            form.save()
+            return redirect('ingresso:lista_ingresso')
+    form = IngressoForm(instance=ingresso)
+    context['form']=form
+    return render(request, template_name, context)
+
     
