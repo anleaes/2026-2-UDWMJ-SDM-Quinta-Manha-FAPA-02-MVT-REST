@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EspectadorForm
 from .models import Espectador
 
+from rest_framework import viewsets
+from .serializer import EspectadorSerializer
+
 def criar_espectador(request: HttpRequest):
     template_name = 'espectador/criar_espectador.html'
     context = {}
@@ -49,3 +52,7 @@ def deletar_espectador(request: HttpRequest, espectador_id: int):
     obj_espectador = get_object_or_404(Espectador, id=espectador_id)
     obj_espectador.delete()
     return redirect('espectador:listar_espectadores')
+
+
+# --------------------------- REST -----------------------------
+
