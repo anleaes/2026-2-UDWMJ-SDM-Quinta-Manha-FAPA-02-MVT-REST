@@ -12,7 +12,15 @@ def criar_venda(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return HttpResponse('Sucesso', status=200)
+            return redirect('venda:lista_venda')
     form = VendaForm()
-    context['venda'] = form
+    context['form'] = form
+    return render(request, template_name, context)
+
+def listar_venda(request):
+    template_name = 'venda/listar_venda.html'
+    venda = Venda.objects.filter()
+    context = {
+        'venda': venda
+    }
     return render(request, template_name, context)
