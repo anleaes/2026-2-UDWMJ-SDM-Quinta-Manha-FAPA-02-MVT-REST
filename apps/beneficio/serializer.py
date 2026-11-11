@@ -3,4 +3,4 @@ from .models import Beneficio
 
 class BeneficioSerializer(serializers.ModelSerializer):
     class Meta:
-        pass 
+        model = Beneficio 
