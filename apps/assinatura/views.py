@@ -34,3 +34,9 @@ def editar_assinatura(request: HttpRequest, assinatura_id: int):
     form = AssinaturaForm(instance=assinatura)
     context = {'form': form}
     return render(request, template_name, context) 
+
+def listar_assinaturas(request: HttpRequest):
+    template_name = 'assinatura/listar_assinaturas.html'
+    assinaturas = Assinatura.objects.all()
+    context = { 'assinaturas': assinaturas}
+    return render(request, template_name, context)
