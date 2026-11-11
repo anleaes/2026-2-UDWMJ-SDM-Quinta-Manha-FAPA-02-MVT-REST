@@ -4,7 +4,7 @@ from rest_framework import routers
 
 app_name = 'espectador'
 
-
+router = routers.SimpleRouter()
 
 
 urlpatterns = [
