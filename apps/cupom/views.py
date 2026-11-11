@@ -17,7 +17,7 @@ def criar_cupom(request):
     context['form'] = form
     return render(request, template_name, context)
 
-def list_cupom(request):
+def lista_cupom(request):
     template_name = 'cupom/lista_cupom.html'
     cupom= Cupom.objects.prefetch_related('evento')
     context = {
