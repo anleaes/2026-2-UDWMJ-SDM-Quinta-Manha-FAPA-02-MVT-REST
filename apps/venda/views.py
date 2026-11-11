@@ -18,7 +18,7 @@ def criar_venda(request):
     return render(request, template_name, context)
 
 def lista_venda(request):
-    template_name = 'venda/listar_venda.html'
+    template_name = 'venda/lista_venda.html'
     venda = Venda.objects.filter()
     context = {
         'venda': venda
