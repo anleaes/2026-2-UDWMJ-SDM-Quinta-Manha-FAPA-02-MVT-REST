@@ -5,7 +5,6 @@ from .models import Funcionario
 from .forms import FuncionarioForm
 
 from rest_framework import viewsets
-from .models import Funcionario
 from .serializer import FuncionarioSerializer
 
 def criar_funcionario(request: HttpRequest):
