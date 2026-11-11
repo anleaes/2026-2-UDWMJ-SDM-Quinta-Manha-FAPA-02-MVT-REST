@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'beneficio.apps.BeneficioConfig',
     'divulgacao_evento.apps.DivulgacaoEventoConfig',
     'cupom.apps.CupomConfig',
-    'venda.appsVendaConfig',
+    'venda.apps.VendaConfig',
   
 ]
 
