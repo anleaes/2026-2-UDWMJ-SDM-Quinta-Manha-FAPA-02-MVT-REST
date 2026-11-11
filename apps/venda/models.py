@@ -17,3 +17,6 @@ class Venda(models.Model):
         verbose_name = 'Venda'
         verbose_name_plural = 'Vendas'
         ordering =['id']
+
+    def __str__(self):
+        return '{ultima_edicao}-{status}'
