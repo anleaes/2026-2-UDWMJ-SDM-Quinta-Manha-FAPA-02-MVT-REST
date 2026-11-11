@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
 from rest_framework import routers
 
@@ -12,4 +12,6 @@ urlpatterns = [
     path('listar/', views.listar_espectadores, name='listar_espectadores'),
     path('editar/<int:espectador_id>', views.editar_espectador, name='editar_espectador'),
     path('deletar/<int:espectador_id>', views.deletar_espectador, name='deletar_espectador'),
+
+    path('', include(router.urls))
 ]
