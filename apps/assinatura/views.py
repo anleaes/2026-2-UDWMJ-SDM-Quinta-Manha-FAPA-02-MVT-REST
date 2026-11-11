@@ -54,3 +54,4 @@ def deletar_assinatura(request: HttpRequest, assinatura_id: int):
 # ------------------ REST -------------------------------------
 class AssinaturaViewSet(viewsets.ModelViewSet):
     queryset = Assinatura.objects.all()
+    serializer_class = AssinaturaSerializer
