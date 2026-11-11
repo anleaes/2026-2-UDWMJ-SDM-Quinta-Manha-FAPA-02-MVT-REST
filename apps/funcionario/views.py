@@ -60,4 +60,6 @@ def deletar_funcionario(request: HttpRequest, funcionario_id: int):
 
 class FuncionarioViewSet(viewsets.ModelViewSet):
     queryset = Funcionario.objects.all()
+    serializer_class = FuncionarioSerializer 
+
      
