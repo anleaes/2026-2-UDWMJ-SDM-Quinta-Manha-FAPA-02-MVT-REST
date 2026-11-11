@@ -13,6 +13,5 @@ urlpatterns = [
     path('editar/<int:funcionario_id>/', views.editar_funcionario, name='editar_funcionario'),
     path('deletar/<int:funcionario_id>/', views.deletar_funcionario, name='deletar_funcionario'),
 
-    
-    
+    path('', include(router.urls))
 ]
