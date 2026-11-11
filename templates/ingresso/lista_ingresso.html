@@ -10,6 +10,28 @@
 <br />
 <b>Lista de Ingressos</b>
 <table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Espectador</th>
+            <th>Evento Divulgado</th>
+            <th>Cupom Aplicado</th>
+            <th>Venda</th>
+            <th>Validado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in ingresso %}
+            <tr>
+                <td>{{ i.id }}</th>
+                <td>{{ i.espectador }}</td>
+                <td>{{ i.evento_divulgado }}</td>
+                <td>{{ i.cupom_aplicado }}</td>
+                <td>{{ i.venda }}</td>
+                <td>{{ i.validado }}</td>
+            </tr> 
+        {% endfor %}
+    </tbody>
 </table>
 
 {% endblock body %}
