@@ -29,6 +29,9 @@
                 <td>{{ i.cupom_aplicado }}</td>
                 <td>{{ i.venda }}</td>
                 <td>{{ i.validado }}</td>
+                <td>
+                    <a href="{% url 'ingresso:editar_ingresso' i.id %}" >Editar</a>
+                </td>
             </tr> 
         {% endfor %}
     </tbody>
