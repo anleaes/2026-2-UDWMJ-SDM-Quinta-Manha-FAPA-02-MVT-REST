@@ -6,3 +6,7 @@ class AssinaturaForm(forms.ModelForm):
     class Meta:
         model = Assinatura
         exclude = ()
+        widgets = {
+            'beneficios': forms.CheckboxSelectMultiple(),
+
+        }
