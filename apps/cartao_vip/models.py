@@ -20,3 +20,6 @@ class Cartao_Vip(models.Model):
         verbose_name = 'Cartao VIP'
         verbose_name_plural = 'Cartões VIP'
         ordering = ['id']
+
+    def __str__(self):
+        return f'{self.validade}-{self.codigo_autenticador}'
