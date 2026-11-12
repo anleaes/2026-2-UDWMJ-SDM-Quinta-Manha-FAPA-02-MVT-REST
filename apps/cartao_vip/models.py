@@ -12,3 +12,6 @@ class Cartao_Vip(models.Model):
         unique=True,
         editable=False
     )
+    validade = models.DateField('Validade', auto_now=False)
+    espectador = models.OneToOneField(Espectador, on_delete=models.CASCADE, related_name='cartao_vip')
+    assinatura = models.ForeignKey(Assinatura, on_delete=models.CASCADE)
