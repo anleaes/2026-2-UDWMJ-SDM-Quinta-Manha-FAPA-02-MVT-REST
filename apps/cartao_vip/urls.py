@@ -3,7 +3,7 @@ from . import views
 from rest_framework import routers
 
 router = routers.SimpleRouter()
-router.register('', views.Cartao_VipSerializer, basename='cartao_vip')
+router.register('', views.Cartao_VipViewSet, basename='cartao_vip')
 
 app_name = 'cartao_vip'
 
