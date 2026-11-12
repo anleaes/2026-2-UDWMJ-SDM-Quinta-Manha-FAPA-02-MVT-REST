@@ -12,5 +12,10 @@ class Pessoa(models.Model):
         verbose_name_plural = 'Pessoas'
         ordering = ['id']
 
+        permissions = [
+            ('acesso_gerente', 'Permite acessar, editar e excluir qualquer registro'),
+            ('acesso_atendente', 'Permite apenas criar registros.')
+        ]
+
     def __str__(self):
         return f'{self.nome} - {self.genero}'
