@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EventoForm
 from .models import Evento
+from rest_framework import viewsets
+from .serializer import EventoSerializer
 
 def criar_evento(request):
     template_name='evento/criar_evento.html'
@@ -42,3 +44,7 @@ def deletar_evento(request, id_evento):
     evento = Evento.objects.get(id=id_evento)
     evento.delete()
     return redirect('evento:listar_eventos')
+
+class EventoViewSet(viewsets.ModelViewSet):
+    queryset = Evento.objects.all()
+    serializer_class = EventoSerializer 
