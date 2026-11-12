@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import IngressoForm
 from .models import Ingresso
+from rest_framework import viewsets
+from .serializer import IngressoSerializer
 
 def criar_ingresso(request):
     template_name = 'ingresso/criar_ingresso.html'
@@ -43,4 +45,7 @@ def deletar_ingresso(request, id_ingresso):
     ingresso.delete()
     return redirect('ingresso:lista_ingresso')
 
+class IngressoViewSet(viewsets.ModelViewSet):
+    queryset = Ingresso.objects.all()
+    serializer_class = IngressoSerializer 
     
