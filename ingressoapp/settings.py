@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'venda.apps.VendaConfig',
     'assinatura.apps.AssinaturaConfig',
     'ingresso.apps.IngressoConfig',
-  
+    'cartao_vip.apps.CartaoVipConfig',
 ]
 
 MIDDLEWARE = [
