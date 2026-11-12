@@ -2,4 +2,6 @@ from rest_framework import serializers
 from .models import Evento
 
 class EventoSerializer(serializers.ModelSerializer):
-    pass
+    class Meta:
+        model = Evento 
+        fields = '__all__'
