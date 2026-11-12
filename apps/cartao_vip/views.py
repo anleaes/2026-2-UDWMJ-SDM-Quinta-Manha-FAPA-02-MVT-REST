@@ -37,3 +37,8 @@ def editar_cartao_vip(request, id_cartao_vip):
     form = Cartao_VipForm(instance=cartao_vip)
     context['form'] = form
     return render(request, template_name, context)
+
+def deletar_cartao_vip(request, id_cartao_vip):
+    cartao_vip = Cartao_Vip.objects.get(id=id_cartao_vip)
+    cartao_vip.delete()
+    return redirect('cartao_vip:lista_cartao_vip')
