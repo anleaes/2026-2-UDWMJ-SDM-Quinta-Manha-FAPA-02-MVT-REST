@@ -15,3 +15,8 @@ class Cartao_Vip(models.Model):
     validade = models.DateField('Validade', auto_now=False)
     espectador = models.OneToOneField(Espectador, on_delete=models.CASCADE, related_name='cartao_vip')
     assinatura = models.ForeignKey(Assinatura, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Cartao VIP'
+        verbose_name_plural = 'Cartões VIP'
+        ordering = ['id']
