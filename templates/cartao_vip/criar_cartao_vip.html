@@ -6,9 +6,31 @@
 
 {% block body %}
     <br />
-    <b>Cadastro de Divulgação de Evento</b>
+    <b>Cadastro de Cartões VIP</b>
     <br />
     <br />
     <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <label>Codigo Autenticador:</label>
+    <br />
+    {{ form.codigo_autenticador }}
+    <br />
+    <br />
+    <label>Validade:</label>
+    <br />
+    {{ form.validade }}
+    <br />
+    <br />
+    <label>Espectador:</label>
+    <br />
+    {{ form.espectador }}
+    <br />
+    <br />
+    <label>Assinatura:</label>
+    <br />
+    {{ form.assinatura }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
     </form>
 {% endblock %}
