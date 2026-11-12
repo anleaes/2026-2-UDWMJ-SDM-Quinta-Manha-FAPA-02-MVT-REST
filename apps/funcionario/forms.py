@@ -8,5 +8,4 @@ class FuncionarioForm(forms.ModelForm):
     
     class Meta:
         model = Funcionario
-        validators = [validators.MinValueValidator(Decimal(0))]
         exclude = ()
