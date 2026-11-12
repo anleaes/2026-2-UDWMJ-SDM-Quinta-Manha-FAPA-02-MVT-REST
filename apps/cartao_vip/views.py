@@ -12,7 +12,7 @@ def criar_cartao_vip(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return HttpResponse('Sucesso', status=200)
+            return redirect('cartao_vip:lista_cartao_vip')
     form = Cartao_VipForm()
     context['form'] = form
     return render(request, template_name, context)
