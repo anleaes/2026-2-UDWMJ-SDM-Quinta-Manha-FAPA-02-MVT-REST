@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CupomForm
-from .models import Cupom, Evento
+from .models import Cupom
+from rest_framework import viewsets
+from .serializer import CupomSerializer
 
 def criar_cupom(request):
     template_name = 'cupom/criar_cupom.html'
@@ -42,3 +44,7 @@ def deletar_cupom(request, id_cupom):
     cupom = Cupom.objects.get(id=id_cupom)
     cupom.delete()
     return redirect('cupom:lista_cupom')
+
+class CupomViewSet(viewsets.ModelViewSet):
+    queryset = Cupom.objects.all()
+    serializer_class = CupomSerializer 
