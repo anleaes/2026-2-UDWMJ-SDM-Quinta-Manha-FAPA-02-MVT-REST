@@ -16,3 +16,11 @@ def criar_cartao_vip(request):
     form = Cartao_VipForm()
     context['form'] = form
     return render(request, template_name, context)
+
+def lista_cartao_vip(request):
+    template_name = 'cartao_vip/lista_cartao_vip.html'
+    cartao_vip = Cartao_Vip.objects.filter()
+    context = {
+        'cartao_vip': cartao_vip
+    }
+    return render(request, template_name, context)
