@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import Cartao_VipForm
 from .models import Cartao_Vip
 from django.http import HttpResponse
+from rest_framework import viewsets
+from .serializer import Cartao_VipSerializer
+
 
 def criar_cartao_vip(request):
     template_name = 'cartao_vip/criar_cartao_vip.html'
@@ -42,3 +45,7 @@ def deletar_cartao_vip(request, id_cartao_vip):
     cartao_vip = Cartao_Vip.objects.get(id=id_cartao_vip)
     cartao_vip.delete()
     return redirect('cartao_vip:lista_cartao_vip')
+
+class Cartao_VipViewSet(viewsets.ModelViewSet):
+    queryset = Cartao_Vip.objects.all()
+    serializer_class = Cartao_VipSerializer 
