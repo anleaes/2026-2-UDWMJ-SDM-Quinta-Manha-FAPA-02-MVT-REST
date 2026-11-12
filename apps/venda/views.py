@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import VendaForm
 from .models import Venda
 from django.http import HttpResponse
+from rest_framework import viewsets
+from .serializer import VendaSerializer
 
 def criar_venda(request):
     template_name = 'venda/criar_venda.html'
@@ -42,3 +44,7 @@ def deletar_venda(request, id_venda):
     venda = Venda.objects.get(id=id_venda)
     venda.delete()
     return redirect('venda:lista_venda')
+
+class VendaViewSet(viewsets.ModelViewSet):
+    queryset = Venda.objects.all()
+    serializer_class = VendaSerializer 
