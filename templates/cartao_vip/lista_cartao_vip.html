@@ -10,6 +10,26 @@
 <br />
 <b>Lista de Cartões VIP</b>
 <table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Codigo Autenticador</th>
+            <th>Validade</th>
+            <th>Espectador</th>
+            <th>Assinatura</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c_vip in cartao_vip %}
+            <tr>
+                <td>{{ c_vip.id }}</th>
+                <td>{{ c_vip.codigo_autenticador }}</td>
+                <td>{{ c_vip.validade }}</td>
+                <td>{{ c_vip.espectador }}</td>
+                <td>{{ c_vip.assinatura }}</td>
+            </tr> 
+        {% endfor %}
+    </tbody>
 </table>
 
 {% endblock body %}
