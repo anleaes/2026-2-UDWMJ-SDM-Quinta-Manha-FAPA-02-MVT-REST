@@ -15,8 +15,15 @@ form{
     background-color: rgb(103, 236, 185);
 }
 
-form > label{
+form label{
     display: block;
+    margin-top: 10px;
+}
+
+form input, form select{
+    display: block;
+    margin-top: 10px;
+    width: 100%;
 }
 
 form > div{
@@ -27,3 +34,30 @@ button#criar-funcionario{
     width: 200px;
     height: 50px;
 }
+
+div.func-div-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+button{
+    justify-self: center;
+    align-self: center;
+}
+
+form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+div#form-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* div.func-div-grid > div la{
+    gap: 10px;
+} */
