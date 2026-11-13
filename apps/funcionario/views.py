@@ -18,6 +18,11 @@ def criar_funcionario(request: HttpRequest):
             obj_funcionario.save()
             form.save_m2m()
             return redirect('funcionario:listar_funcionarios')
+        else:
+            # items() retorna um dict_items inconveniente de manipular, converte-se pra <<Lista de Tuplas>> list()
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = FuncionarioForm(request.POST)
+            return render(request, template_name, context)
 
     form = FuncionarioForm()
     context['form'] = form

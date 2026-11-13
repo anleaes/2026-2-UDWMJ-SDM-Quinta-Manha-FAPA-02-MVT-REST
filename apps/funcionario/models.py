@@ -4,11 +4,13 @@ from django.db import models
 from pessoa.models import Pessoa
 from sede.models import Sede
 
+from django.core import validators
+
 class Funcionario(Pessoa):
-    cargo = models.CharField('Cargo', blank=False, null=False, max_length=30)
+    cargo = models.CharField('Cargo', choices=[('Atendente','Atendente'),('Gerente','Gerente')], blank=False, null=False, max_length=30)
     sede_de_trabalho = models.ForeignKey(Sede, on_delete=models.CASCADE)
-    salario = models.DecimalField('Salário', max_digits=9, decimal_places=2, default=Decimal(0))
-    multiplicador_comissao = models.FloatField('Comissão', default=0.0)
+    salario = models.DecimalField('Salário', max_digits=9, decimal_places=2, default=Decimal(0), validators=[validators.MinValueValidator(Decimal(0))])
+    multiplicador_comissao = models.FloatField('Comissão', default=0.0, validators=[validators.MinValueValidator(Decimal(0))])
     turno_trabalho = models.CharField('Turno de Trabalho', choices=[('M-T','Manhã-Tarde'),('T-N','Tarde-Noite')], max_length=20)
 
     class Meta:
