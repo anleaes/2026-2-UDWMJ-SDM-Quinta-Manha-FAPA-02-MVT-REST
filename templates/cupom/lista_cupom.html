@@ -8,12 +8,12 @@
 
 {% block body %}
 <br />
-<b>Lista de Divulgação de eventos</b>
+<b>Lista de Cupons</b>
 <table border="1">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Porcentagem de desconto'</th>
+            <th>Porcentagem de desconto</th>
             <th>Data de vencimento</th>
             <th>Evento</th>
         </tr>
@@ -21,7 +21,7 @@
     <tbody>
         {% for c in cupom %}
             <tr>
-                <td>{{ c.id }}</th>
+                <td>{{ c.id }}</td>
                 <td>{{ c.porcentagem_desconto }}</td>
                 <td>{{ c.data_vencimento }}</td>
                 <td>
