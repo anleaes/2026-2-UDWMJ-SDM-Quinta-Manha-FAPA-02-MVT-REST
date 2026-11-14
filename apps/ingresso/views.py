@@ -40,6 +40,10 @@ def editar_ingresso(request, id_ingresso):
         if form.is_valid():
             form.save()
             return redirect('ingresso:lista_ingresso')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = IngressoForm(request.POST)
+            return render(request, template_name, context)
     form = IngressoForm(instance=ingresso)
     context['form']=form
     return render(request, template_name, context)
