@@ -15,6 +15,10 @@ def criar_cupom(request):
             f.save()
             form.save_m2m()
             return redirect('cupom:lista_cupom')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = CupomForm(request.POST)
+            return render(request, template_name, context)
     form = CupomForm()
     context['form'] = form
     return render(request, template_name, context)
