@@ -10,6 +10,7 @@ class Ingresso(models.Model):
     cupom_aplicado = models.ForeignKey(Cupom, on_delete=models.CASCADE)
     venda= models.ForeignKey(Venda, on_delete=models.CASCADE)
     validado = models.BooleanField('Validado', default=False)
+    preco_final = models.DecimalField('Preço Final', decimal_places=2, max_digits=12, default= 0)
 
 
     class Meta:
