@@ -18,6 +18,7 @@
             <th>Cupom Aplicado</th>
             <th>Venda</th>
             <th>Validado</th>
+            <th>Preço Final</th>
         </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
                 <td>{{ i.cupom_aplicado }}</td>
                 <td>{{ i.venda }}</td>
                 <td>{{ i.validado }}</td>
+                <td>{{ i.preco_final }}</td>
                 <td>
                     <a href="{% url 'ingresso:editar_ingresso' i.id %}" >Editar</a>
                 </td>

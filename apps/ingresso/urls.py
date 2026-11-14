@@ -9,7 +9,7 @@ app_name = 'ingresso'
 
 urlpatterns = [
     path('criar/', views.criar_ingresso, name='criar_ingresso'),
-    path('lista/', views.lista_ingresso, name='lista_ingresso'),
+    path('listar/', views.lista_ingresso, name='lista_ingresso'),
     path('editar/<int:id_ingresso>/', views.editar_ingresso, name='editar_ingresso'),
     path('deletar/<int:id_ingresso>/', views.deletar_ingresso, name='deletar_ingresso'),
     path('', include(router.urls))
