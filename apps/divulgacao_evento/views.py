@@ -15,6 +15,10 @@ def criar_divulgacao_evento(request):
             f.save()
             form.save_m2m()
             return redirect('divulgacao_evento:lista_divulgacao_eventos')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = Divulgacao_EventoForm(request.POST)
+            return render(request, template_name, context)
     form = Divulgacao_EventoForm()
     context['form'] = form
     return render(request, template_name, context)
