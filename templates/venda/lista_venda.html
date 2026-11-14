@@ -24,16 +24,24 @@
     <tbody>
         {% for v in venda %}
             <tr>
-                <td>{{ v.id }}</th>
+                <td>{{ v.id }}</td>
                 <td>{{ v.funcionario }}</td>
                 <td>{{ v.pagador }}</td>
                 <td>{{ v.preco_total }}</td>
                 <td>{{ v.ultima_edicao }}</td>
                 <td>{{ v.status }}</td>
                 <td>
-                    {% for ing in v.compra.all %}
+
+                    {{ v.compra.count }}
+
+                    <!-- {% for ing in v.compra.all %}
                         {{ ing.validado }}
-                    {% endfor %}
+
+                        {% empty %}
+                            Vazio
+
+                    {% endfor %} -->
+
                 </td>
                 <td>
                     <a href="{% url 'venda:editar_venda' v.id %}" >Editar</a>
