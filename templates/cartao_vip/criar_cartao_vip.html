@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Adicionar Cartão VIP - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+    <br />
+    <b>Cadastro de Cartões VIP</b>
+    <br />
+    <br />
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <label>Validade:</label>
+    <br />
+    {{ form.validade }}
+    <br />
+    <br />
+    <label>Espectador:</label>
+    <br />
+    {{ form.espectador }}
+    <br />
+    <br />
+    <label>Assinatura:</label>
+    <br />
+    {{ form.assinatura }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+    </form>
+{% endblock %}

@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Funcionario
 from .forms import FuncionarioForm
 
+from rest_framework import viewsets
+from .serializer import FuncionarioSerializer
 
 def criar_funcionario(request: HttpRequest):
     template_name = 'funcionario/criar_funcionario.html'
@@ -16,6 +18,11 @@ def criar_funcionario(request: HttpRequest):
             obj_funcionario.save()
             form.save_m2m()
             return redirect('funcionario:listar_funcionarios')
+        else:
+            # items() retorna um dict_items inconveniente de manipular, converte-se pra <<Lista de Tuplas>> list()
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = FuncionarioForm(request.POST)
+            return render(request, template_name, context)
 
     form = FuncionarioForm()
     context['form'] = form
@@ -51,3 +58,12 @@ def deletar_funcionario(request: HttpRequest, funcionario_id: int):
     obj_funcionario = get_object_or_404(Funcionario, id=funcionario_id)
     obj_funcionario.delete()
     return redirect('funcionario:listar_funcionarios')
+
+
+# ---------------------------- REST -------------------------------------
+
+class FuncionarioViewSet(viewsets.ModelViewSet):
+    queryset = Funcionario.objects.all()
+    serializer_class = FuncionarioSerializer 
+
+     

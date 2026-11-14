@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Adicionar Venda - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+    <br />
+    <b>Cadastro de Divulgação de Evento</b>
+    <br />
+    <br />
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Funcionario:</label>
+        <br />
+        {{ form.funcionario }}
+        <br />
+        <br />
+        <label>Pagador:</label>
+        <br />
+        {{ form.pagador }}
+        <br />
+        <br />
+        <label>Preço Total:</label>
+        <br />
+        {{ form.preco_total }}
+        <br />
+        <br />
+        <label>Ultima Edição:</label>
+        <br />
+        {{ form.ultima_edicao }}
+        <br />
+        <br />
+        <label>Status:</label>
+        <br />
+        {{ form.status }}
+        <br />
+        <br />
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}

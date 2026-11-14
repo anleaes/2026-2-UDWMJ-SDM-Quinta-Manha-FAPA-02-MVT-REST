@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Beneficio
 from .forms import BeneficioForm
 
+from rest_framework import viewsets
+from .serializer import BeneficioSerializer
+
 def criar_beneficio(request: HttpRequest):
     template_name = 'beneficio/criar_beneficio.html'
     context = {}
@@ -50,3 +53,11 @@ def deletar_beneficio(request: HttpRequest, beneficio_id: int):
     obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
     obj_beneficio.delete()
     return redirect('beneficio:listar_beneficios')
+
+
+# -------------------- REST --------------------------
+
+class BeneficioViewSet(viewsets.ModelViewSet):
+    queryset = Beneficio.objects.all()
+    serializer_class = BeneficioSerializer 
+
