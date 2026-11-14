@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import Divulgacao_EventoForm
 from .models import Divulgacao_Evento
+from rest_framework import viewsets
+from .serializer import Divulgacao_EventoSerializer
 
 def criar_divulgacao_evento(request):
     template_name = 'divulgacao_evento/criar_divulgacao_evento.html'
@@ -50,3 +52,7 @@ def deletar_divulgacao_evento(request, id_divulgacao_evento):
     divulgacao_evento = Divulgacao_Evento.objects.get(id=id_divulgacao_evento)
     divulgacao_evento.delete()
     return redirect('divulgacao_evento:lista_divulgacao_evento')
+
+class Divulgacao_EventoViewSet(viewsets.ModelViewSet):
+    queryset = Divulgacao_Evento.objects.all()
+    serializer_class = Divulgacao_EventoSerializer 

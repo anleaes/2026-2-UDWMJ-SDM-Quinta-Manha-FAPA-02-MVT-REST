@@ -15,6 +15,8 @@
 
 <h1>Funcionários</h1>
 
+<a href="{% url 'funcionario:criar_funcionario' %}"><button>Novo +</button></a>
+
 {% for funcionario in funcionarios %}
 
 <div class="item-funcionario">

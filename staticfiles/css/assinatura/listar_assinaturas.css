@@ -1,0 +1,37 @@
+h1{
+    justify-self: center;
+}
+/* Botões de Editar/Deletar */
+
+div.item-assinatura > div.botoes-de-acao{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+/* Disposição das informações de Assinatura */
+
+div.item-assinatura{
+    margin: 20px;
+    padding: 10px;
+    
+    border-width: 3px;
+    border-color: red;
+    border-style: solid;
+}
+
+div.item-assinatura > div{
+    display: flex;
+
+    justify-content: left;
+    align-items: center;
+}
+
+div.item-assinatura > div:has(p.nome-assinatura){
+    border-bottom: 3px dashed red;
+    margin-bottom: 5px;
+}
+
+div.item-assinatura > div p.nome-assinatura{
+    font-size: xx-large;
+}
