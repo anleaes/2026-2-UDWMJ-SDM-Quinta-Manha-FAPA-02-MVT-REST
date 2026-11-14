@@ -20,7 +20,7 @@ class Ingresso(models.Model):
         max_digits=12, 
         default= Decimal(0),
         validators=[validators.MinValueValidator(Decimal(0))]
-        )
+    )
 
 
     class Meta:
