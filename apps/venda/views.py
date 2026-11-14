@@ -15,6 +15,10 @@ def criar_venda(request):
             f.save()
             form.save_m2m()
             return redirect('venda:lista_venda')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = VendaForm(request.POST)
+            return render(request, template_name, context)
     form = VendaForm()
     context['form'] = form
     return render(request, template_name, context)
@@ -36,6 +40,10 @@ def editar_venda(request, id_venda):
         if form.is_valid():
             form.save()
             return redirect('venda:lista_venda')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = VendaForm(request.POST)
+            return render(request, template_name, context)
     form = VendaForm(instance=venda)
     context['form']=form
     return render(request, template_name, context)
