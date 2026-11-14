@@ -9,6 +9,15 @@
     <b>Cadastro de Ingresso</b>
     <br />
     <br />
+
+    {% for erro in erros_validacao %}
+        {{ erro.0 }}:
+        {{ erro.1 }}
+        <hr/>
+    {% endfor %}
+
+    <br>
+
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <label>Espectador:</label>
