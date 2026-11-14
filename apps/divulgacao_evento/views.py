@@ -14,7 +14,7 @@ def criar_divulgacao_evento(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return redirect('divulgacao_evento:lista_divulgacao_eventos')
+            return redirect('divulgacao_evento:lista_divulgacao_evento')
         else:
             context['erros_validacao'] = list(form.errors.items())
             context['form'] = Divulgacao_EventoForm(request.POST)
@@ -24,7 +24,7 @@ def criar_divulgacao_evento(request):
     return render(request, template_name, context)
 
 def lista_divulgacao_eventos(request):
-    template_name = 'divulgacao_evento/lista_divulgacao_eventos.html'
+    template_name = 'divulgacao_evento/lista_divulgacao_evento.html'
     divulgacao_evento = Divulgacao_Evento.objects.filter()
     context = {
         'divulgacao_evento': divulgacao_evento
@@ -39,7 +39,7 @@ def editar_divulgacao_evento(request, id_divulgacao_evento):
         form = Divulgacao_EventoForm(request.POST, instance=divulgacao_evento)
         if form.is_valid():
             form.save()
-            return redirect('divulgacao_evento:lista_divulgacao_eventos')
+            return redirect('divulgacao_evento:lista_divulgacao_evento')
     form = Divulgacao_EventoForm(instance=divulgacao_evento)
     context['form'] = form
     return render(request, template_name, context)
@@ -47,7 +47,7 @@ def editar_divulgacao_evento(request, id_divulgacao_evento):
 def deletar_divulgacao_evento(request, id_divulgacao_evento):
     divulgacao_evento = Divulgacao_Evento.objects.get(id=id_divulgacao_evento)
     divulgacao_evento.delete()
-    return redirect('divulgacao_evento:lista_divulgacao_eventos')
+    return redirect('divulgacao_evento:lista_divulgacao_evento')
 
 class Divulgacao_EventoViewSet(viewsets.ModelViewSet):
     queryset = Divulgacao_Evento.objects.all()
