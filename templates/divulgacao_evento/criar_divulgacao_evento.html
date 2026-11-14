@@ -9,6 +9,15 @@
   <b>Cadastro de Divulgação de Evento</b>
   <br />
   <br />
+
+  {% for erro in erros_validacao %}
+    {{ erro.0 }}:
+    {{ erro.1 }}
+    <hr/>
+  {% endfor %}
+
+  <br>
+
   <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <label>Evento:</label>
@@ -34,6 +43,11 @@
     <label>Horário Final:</label>
     <br />
     {{ form.horario_fim }}
+    <br />
+    <br />
+    <label>Preço base:</label>
+    <br />
+    {{ form.preco_base }}
     <br />
     <br />
     <button type="submit">Salvar</button>
