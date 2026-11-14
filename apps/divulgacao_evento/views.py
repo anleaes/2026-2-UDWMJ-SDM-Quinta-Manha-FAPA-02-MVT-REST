@@ -40,6 +40,10 @@ def editar_divulgacao_evento(request, id_divulgacao_evento):
         if form.is_valid():
             form.save()
             return redirect('divulgacao_evento:lista_divulgacao_evento')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = Divulgacao_EventoForm(request.POST)
+            return render(request, template_name, context)
     form = Divulgacao_EventoForm(instance=divulgacao_evento)
     context['form'] = form
     return render(request, template_name, context)
