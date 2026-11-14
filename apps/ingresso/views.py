@@ -13,6 +13,10 @@ def criar_ingresso(request):
             f.save()
             form.save_m2m()
             return redirect('ingresso:lista_ingresso')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = IngressoForm(request.POST)
+            return render(request, template_name, context)
     form = IngressoForm()
     context['form'] = form
     return render(request, template_name, context)
