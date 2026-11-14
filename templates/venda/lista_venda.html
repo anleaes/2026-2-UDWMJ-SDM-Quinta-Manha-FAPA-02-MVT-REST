@@ -8,7 +8,7 @@
 
 {% block body %}
 <br />
-<b>Lista de Divulgação de eventos</b>
+<b>Lista de Vendas</b>
 <table border="1">
     <thead>
         <tr>
@@ -18,17 +18,31 @@
             <th>Preço Total</th>
             <th>Ultima Edição</th>
             <th>Status</th>
+            <th>Ingressos</th>
         </tr>
     </thead>
     <tbody>
         {% for v in venda %}
             <tr>
-                <td>{{ v.id }}</th>
+                <td>{{ v.id }}</td>
                 <td>{{ v.funcionario }}</td>
                 <td>{{ v.pagador }}</td>
                 <td>{{ v.preco_total }}</td>
                 <td>{{ v.ultima_edicao }}</td>
                 <td>{{ v.status }}</td>
+                <td>
+
+                    {{ v.compra.count }}
+
+                    <!-- {% for ing in v.compra.all %}
+                        {{ ing.validado }}
+
+                        {% empty %}
+                            Vazio
+
+                    {% endfor %} -->
+
+                </td>
                 <td>
                     <a href="{% url 'venda:editar_venda' v.id %}" >Editar</a>
                 </td>
