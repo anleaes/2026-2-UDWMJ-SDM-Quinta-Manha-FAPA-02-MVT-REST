@@ -15,7 +15,7 @@
 .subcontainer-botoes {
     display: grid;
     grid-auto-rows: 1fr;
-    min-height: calc(100vh - 100px);
+    height: 100%;
 }
 
 .entidade-div{
@@ -30,9 +30,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px 40px;
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
 }
 
 button.botao-deletar{
@@ -66,5 +69,29 @@ button.botao-editar{
 
 #assinatura a{
     background-color: rgb(207, 67, 67);
+}
+
+#venda a{
+    background-color: rgb(199, 216, 50);
+}
+
+#ingresso a{
+    background-color: rgb(67, 88, 207);
+}
+
+#evento a{
+    background-color: rgb(2, 109, 25);
+}
+
+#divulgacao_evento a{
+    background-color: rgb(145, 145, 145);
+}
+
+#cupom a{
+    background-color: rgb(122, 33, 240);
+}
+
+#cartao_vip a{
+    background-color: rgb(221, 42, 42);
 }
 
