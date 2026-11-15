@@ -5,10 +5,25 @@
 }
 
 /* Geral */
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+}
+
+.subcontainer-botoes {
+    display: grid;
+    grid-auto-rows: 1fr;
+    min-height: calc(100vh - 100px);
+}
+
 .entidade-div{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .entidade-div a{
@@ -16,8 +31,8 @@
     align-items: center;
     justify-content: center;
     padding: 30px 40px;
-    width: 200px;
-    height: 50px;
+    width: inherit;
+    height: inherit;
 }
 
 button.botao-deletar{
