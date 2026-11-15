@@ -5,24 +5,19 @@
 }
 
 /* Geral */
-div.entidade-div{
+.entidade-div{
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 10vw;
-    height: 10vh;
 }
 
-div.entidade-div button > p{
-    font-size: 20px;
-}
-
-div.entidade-div button{
-    width: 100%;
-    height: 100%;
-
-    border-radius: 10%;
+.entidade-div a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 40px;
+    width: 200px;
+    height: 50px;
 }
 
 button.botao-deletar{
@@ -38,23 +33,23 @@ button.botao-editar{
 
 
 /* Específico */
-div#sede button{
+#sede a{
     background-color: rgb(133, 248, 110);
 }
 
-div#funcionario button{
+#funcionario a{
     background-color: rgb(103, 236, 185);
 }
 
-div#espectador button{
+#espectador a{
     background-color: rgb(221, 169, 58);
 }
 
-div#beneficio button{
+#beneficio a{
     background-color: rgb(137, 87, 202);
 }
 
-div#assinatura button{
+#assinatura a{
     background-color: rgb(207, 67, 67);
 }
 
