@@ -36,6 +36,11 @@
     font-weight: bold;
     font-size: 18px;
     color: black;
+    transition: all 0.3s ease;
+}
+
+.entidade-div a:hover{
+    transform: scale(1.05);
 }
 
 button.botao-deletar{
