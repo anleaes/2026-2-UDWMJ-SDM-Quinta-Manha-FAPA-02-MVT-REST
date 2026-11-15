@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 def login_usuario(request):
     template_name = 'conta_usuario/tela_login.html'
-    
+
     if request.method =='POST':
         nome_usuario = request.POST.get('usuario')
         senha_digitada = request.POST.get('senha')
@@ -20,3 +20,6 @@ def login_usuario(request):
 
     context = {}
     return render(request, template_name, context)
+
+def desconectar_usuario(request):
+    
