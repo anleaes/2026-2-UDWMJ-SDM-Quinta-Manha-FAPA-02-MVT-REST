@@ -22,4 +22,5 @@ def login_usuario(request):
     return render(request, template_name, context)
 
 def desconectar_usuario(request):
-    
+    logout(request)
+    return redirect('conta_usuario:login_usuario')
