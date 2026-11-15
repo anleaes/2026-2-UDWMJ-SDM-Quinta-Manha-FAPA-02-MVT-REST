@@ -54,6 +54,53 @@ button.botao-editar{
 
 }
 
+/* Tela video */
+
+.subcontainer-tela{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.video-fundo{
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.tela_transparente{
+    position: absolute;
+    background-color: rgba(255, 255, 255 , 0.6);
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 25px;
+    filter: brightness(0.1);
+}
+
+.titulo {
+    font-size: 4rem;
+    color: rgb(32, 32, 32);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.texto {
+    font-size: 2rem;
+    color: rgb(32, 32, 32);;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.5;
+}
 
 /* Específico */
 #sede a{
