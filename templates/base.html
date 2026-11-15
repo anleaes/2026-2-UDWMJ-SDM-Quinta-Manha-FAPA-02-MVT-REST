@@ -16,6 +16,12 @@
     <title>{% block title %}Ingresso App{% endblock title %}</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+        <a href="{% url 'conta_usuario:desconectar_usuario' %}"><button>Sair</button></a>
+        {% for permissao in user.get_group_permissions %}
+            <p> {{ permissao }} </p>
+        {% endfor %}
+    {% endif %}
 
     {% block body %}
     
