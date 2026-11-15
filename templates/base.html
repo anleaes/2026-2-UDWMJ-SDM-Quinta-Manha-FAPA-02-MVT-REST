@@ -16,7 +16,7 @@
     <title>{% block title %}Ingresso App{% endblock title %}</title>
 </head>
 <body>
-    <div>
+    <div id="div-conta-logada">
         {% if user.is_authenticated %}
             <p>Bem Vindo(a) {{ user.username }}</p>
             {% for permissao in user.get_group_permissions %}

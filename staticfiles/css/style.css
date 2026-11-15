@@ -102,6 +102,25 @@ button.botao-editar{
     line-height: 1.5;
 }
 
+
+/* Módulo conta logada */
+div#div-conta-logada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+div#div-conta-logada > p{
+    block-size:auto;
+}
+
+div#div-conta-logada button{
+    background-color: red;
+    width: 50px;
+    height: 20px;
+}
+
 /* Específico */
 #sede a{
     background-color: rgb(133, 248, 110);
