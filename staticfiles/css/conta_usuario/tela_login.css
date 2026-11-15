@@ -18,6 +18,7 @@ body{
     width: auto;
 }
 
+    
 /* Imagens */
 
 img{
@@ -69,8 +70,15 @@ button{
 
     margin-top: 20px;
 
+    border-style: none;
     border-radius: 10px;
     background-image: linear-gradient(#FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, #a88124 80%);
+}
+
+button:hover{
+    /* opacity: 80%; */
+    cursor: pointer;
+    scale: 1.05;
 }
 
 /* foi necessário esse <p> dentro do button porque não estava centralizando o texto */
@@ -110,12 +118,13 @@ div#login-form{
     flex-direction: column;
 
     border-radius: 10px;
-    border-style: solid;
+    border-style: dashed;
     border-width: 3px;
+    border-color: #463713;
 
     padding: 50px;
 
-    background-color: rgba(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.55);
 
     width: 400px;
     height: auto;
