@@ -4,6 +4,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Funcionario
 from .forms import FuncionarioForm
 
+from rest_framework import viewsets
+from .serializer import FuncionarioSerializer
+
+from django.contrib.auth.models import User
+from django.contrib.auth.models import Group
 
 def criar_funcionario(request: HttpRequest):
     template_name = 'funcionario/criar_funcionario.html'
@@ -15,6 +20,20 @@ def criar_funcionario(request: HttpRequest):
             obj_funcionario = form.save(commit=False)
             obj_funcionario.save()
             form.save_m2m()
+
+            try:
+                #  criacao automatica de conta
+                conta_usuario = User(username=obj_funcionario.nome, password='senhapadrao1234')
+                conta_usuario.set_password(conta_usuario.password)
+                conta_usuario.save()
+
+                # usuario precisa existir no banco de dados (ter um ID) para poder receber cargos
+                grupo_acesso = Group.objects.get(name=f'acesso_{str.lower(obj_funcionario.cargo)}')
+                conta_usuario.groups.add(grupo_acesso)
+            except:
+                obj_funcionario.delete()
+                return HttpResponse('Erro Ao Criar a conta do Funcionário')
+            
             return redirect('funcionario:listar_funcionarios')
         else:
             # items() retorna um dict_items inconveniente de manipular, converte-se pra <<Lista de Tuplas>> list()
@@ -56,3 +75,12 @@ def deletar_funcionario(request: HttpRequest, funcionario_id: int):
     obj_funcionario = get_object_or_404(Funcionario, id=funcionario_id)
     obj_funcionario.delete()
     return redirect('funcionario:listar_funcionarios')
+
+
+# ---------------------------- REST -------------------------------------
+
+class FuncionarioViewSet(viewsets.ModelViewSet):
+    queryset = Funcionario.objects.all()
+    serializer_class = FuncionarioSerializer 
+
+     

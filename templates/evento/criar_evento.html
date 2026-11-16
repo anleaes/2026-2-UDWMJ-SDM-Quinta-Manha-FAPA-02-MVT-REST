@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Adicionar Evento - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+  <b>Cadastro de Evento</b>
+  <br />
+  <br />
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Nome:</label>
+    <br />
+    {{ form.nome }}
+    <br />
+    <br />
+    <label>Descricao:</label>
+    <br />
+    {{ form.descricao }}
+    <br />
+    <br />
+    <label>Banner:</label>
+    <br />
+    {{ form.banner }}
+    <br />
+    <br />
+    <label>Regras:</label>
+    <br />
+    {{ form.regras }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+  </form>
+{% endblock %}

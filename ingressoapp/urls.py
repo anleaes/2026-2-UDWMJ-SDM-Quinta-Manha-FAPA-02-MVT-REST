@@ -23,7 +23,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sede/', include('sede.urls', namespace='sede')),
     path('funcionario/', include('funcionario.urls', namespace='funcionario')),
+    path('espectador/', include('espectador.urls', namespace='espectador')),
+    path('beneficio/', include('beneficio.urls', namespace='beneficio')),
+    path('assinatura/', include('assinatura.urls', namespace='assinatura')),
+    path('evento/', include('evento.urls', namespace='evento')),
+    path('divulgacao_evento/', include('divulgacao_evento.urls', namespace='divulgacao_evento')),
+    path('cupom/', include('cupom.urls', namespace='cupom')),
+    path('venda/', include('venda.urls', namespace='venda')),
+    path('ingresso/', include('ingresso.urls', namespace='ingresso')),
+    path('cartao_vip/', include('cartao_vip.urls', namespace='cartao_vip')),
+    path('conta/', include('conta_usuario.urls', namespace='conta_usuario')),
     path('', include('index.urls', namespace='index')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

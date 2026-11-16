@@ -1,0 +1,37 @@
+h1{
+    justify-self: center;
+}
+/* Botões de Editar/Deletar */
+
+div.item-beneficio > div.botoes-de-acao{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+/* Disposição das informações de Beneficio */
+
+div.item-beneficio{
+    margin: 20px;
+    padding: 10px;
+    
+    border-width: 3px;
+    border-color: purple;
+    border-style: solid;
+}
+
+div.item-beneficio > div{
+    display: flex;
+
+    justify-content: left;
+    align-items: center;
+}
+
+div.item-beneficio > div:has(p.nome-beneficio){
+    border-bottom: 3px dashed purple;
+    margin-bottom: 5px;
+}
+
+div.item-beneficio > div p.nome-beneficio{
+    font-size: xx-large;
+}

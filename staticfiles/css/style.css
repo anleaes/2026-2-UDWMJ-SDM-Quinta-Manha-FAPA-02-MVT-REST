@@ -5,24 +5,42 @@
 }
 
 /* Geral */
-div.entidade-div{
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+}
+
+.subcontainer-botoes {
+    display: grid;
+    grid-auto-rows: 1fr;
+    height: 100%;
+}
+
+.entidade-div{
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 10vw;
-    height: 10vh;
-}
-
-div.entidade-div button > p{
-    font-size: 20px;
-}
-
-div.entidade-div button{
     width: 100%;
     height: 100%;
+}
 
-    border-radius: 10%;
+.entidade-div a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.entidade-div a:hover{
+    transform: scale(1.05);
 }
 
 button.botao-deletar{
@@ -36,12 +54,96 @@ button.botao-editar{
 
 }
 
+/* Tela video */
+
+.subcontainer-tela{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.video-fundo{
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.tela_transparente{
+    position: absolute;
+    background-color: rgba(255, 255, 255 , 0.6);
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 25px;
+    filter: brightness(0.1);
+}
+
+.titulo {
+    font-size: 4rem;
+    color: rgb(32, 32, 32);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.texto {
+    font-size: 2rem;
+    color: rgb(32, 32, 32);;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.5;
+}
 
 /* Específico */
-div#sede button{
+#sede a{
     background-color: rgb(133, 248, 110);
 }
 
-div#funcionario button{
+#funcionario a{
     background-color: rgb(103, 236, 185);
 }
+
+#espectador a{
+    background-color: rgb(221, 169, 58);
+}
+
+#beneficio a{
+    background-color: rgb(137, 87, 202);
+}
+
+#assinatura a{
+    background-color: rgb(207, 67, 67);
+}
+
+#venda a{
+    background-color: rgb(199, 216, 50);
+}
+
+#ingresso a{
+    background-color: rgb(67, 88, 207);
+}
+
+#evento a{
+    background-color: rgb(2, 109, 25);
+}
+
+#divulgacao_evento a{
+    background-color: rgb(145, 145, 145);
+}
+
+#cupom a{
+    background-color: rgb(122, 33, 240);
+}
+
+#cartao_vip a{
+    background-color: rgb(221, 42, 42);
+}
+
