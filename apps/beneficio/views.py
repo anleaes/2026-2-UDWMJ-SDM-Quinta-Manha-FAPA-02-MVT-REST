@@ -18,6 +18,10 @@ def criar_beneficio(request: HttpRequest):
             obj_beneficio.save()
             form.save_m2m()
             return redirect('beneficio:listar_beneficios')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = BeneficioForm(request.POST)
+            return render(request, template_name, context)
 
 
     form = BeneficioForm()
