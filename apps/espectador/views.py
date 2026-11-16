@@ -19,6 +19,10 @@ def criar_espectador(request: HttpRequest):
             obj_espectador.save()
             form.save_m2m()
             return redirect('espectador:listar_espectadores')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = EspectadorForm(request.POST)
+            return render(request, template_name, context)
 
     form = EspectadorForm()
     context = {
