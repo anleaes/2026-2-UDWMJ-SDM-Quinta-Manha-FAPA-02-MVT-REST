@@ -15,6 +15,12 @@
 <!-- ------------------------- -->
 <h1> Registrar Benefício </h1>
 
+{% for erro in erros_validacao %}
+  {{ erro.0 }}:
+  {{ erro.1 }}
+  <hr/>
+{% endfor %}
+
 <div>
   <form action="" method="POST">
     {% csrf_token %}

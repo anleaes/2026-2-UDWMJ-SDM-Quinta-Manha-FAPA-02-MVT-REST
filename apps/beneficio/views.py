@@ -18,6 +18,10 @@ def criar_beneficio(request: HttpRequest):
             obj_beneficio.save()
             form.save_m2m()
             return redirect('beneficio:listar_beneficios')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = BeneficioForm(request.POST)
+            return render(request, template_name, context)
 
 
     form = BeneficioForm()
@@ -29,12 +33,17 @@ def criar_beneficio(request: HttpRequest):
 def editar_beneficio(request: HttpRequest, beneficio_id: int):
     template_name = 'beneficio/criar_beneficio.html'
     obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
+    context = {}
 
     if request.method == 'POST':
         form = BeneficioForm(request.POST, instance=obj_beneficio)
         if form.is_valid():
             form.save()
             return redirect('beneficio:listar_beneficios')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = BeneficioForm(request.POST)
+            return render(request, template_name, context)
 
 
     form = BeneficioForm(instance=obj_beneficio)
