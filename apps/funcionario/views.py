@@ -64,6 +64,10 @@ def editar_funcionario(request: HttpRequest, funcionario_id: int):
         if form.is_valid():
             form.save()
             return redirect('funcionario:listar_funcionarios')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = FuncionarioForm(request.POST)
+            return render(request, template_name, context)
 
     form = FuncionarioForm(instance=obj_funcionario)
     context = { 
