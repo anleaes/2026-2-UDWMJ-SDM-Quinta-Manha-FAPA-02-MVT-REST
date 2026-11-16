@@ -1,29 +1,51 @@
+body{
+    background-image: url("../../img/bg_padrao.jpg");
+}
+
 h1{
+    margin-top: 20px;
     justify-self: center;
+    font-family: Impact;
+    font-weight: 100;
 }
 
 form{
-    margin-top: 10vh;
+    margin-top: 5vh;
     justify-self: center;
     
     border-radius: 5%;
     border-style: solid;
     border-width: 3px;
+    border-color: #2A7B9B;
+
+    box-shadow: 0px 15px #2A7B9B;
 
     padding: 10px;
 
-    background-color: rgb(103, 236, 185);
+    background-image: linear-gradient(125deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
 }
 
 form label{
     display: block;
     margin-top: 10px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: large;
+    border-bottom: dotted 1px rgba(0, 0, 0, 0.527);
 }
+
 
 form input, form select{
     display: block;
     margin-top: 10px;
     width: 100%;
+
+    border-radius: 100px;
+    border-style: none;
+}
+
+form label, form input, form select{
+    height: 25px;
 }
 
 form > div{
@@ -40,24 +62,33 @@ div.func-div-grid{
     grid-template-columns: 50% 50%;
 }
 
-button{
-    justify-self: center;
-    align-self: center;
-}
+
 
 form button{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    justify-self: center;
+    align-self: center;
+
+    background-color: rgb(161, 160, 160);
+    font-weight: 1000;
+    color: rgba(0, 0, 0, 0.822);
+
+    border-color: whitesmoke;
+    border-radius: 25%;
+    border-style: double;
 }
 
-/* 
-div#form-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+form button:hover{
+    transform: translateY(-8px);
+    box-shadow: 0px 8px rgb(161, 160, 160);;
+}
 
-/* div.func-div-grid > div la{
-    gap: 10px;
-} */
+form button:active{
+    opacity: 75%;
+    transform: none;
+    box-shadow: none;
+}
+
