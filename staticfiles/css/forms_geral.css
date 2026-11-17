@@ -186,3 +186,15 @@ form#beneficio-form{
     box-shadow: 0px 15px #aa3ed4;
     background-image: linear-gradient(to bottom, #aa3ed4 0%, #d75fdb 50%, rgb(216, 237, 247) 100%); 
 }
+
+/* Assinatura */
+h1#assinatura-h1{
+    border-color: #e43636;
+    box-shadow: inset 0px 8px #e43636, 0px 10px #e43636;
+}
+
+form#assinatura-form{
+    border-color: #e43636;
+    box-shadow: 0px 15px #e43636;
+    background-image: linear-gradient(to bottom, #e43636 0%, #f0985e 50%, rgb(216, 237, 247) 100%); 
+}
