@@ -48,7 +48,7 @@ form label{
 }
 
 
-form input, form select{
+form input, form select, form textarea{
     display: block;
     margin-top: 10px;
     width: 100%;
@@ -62,7 +62,7 @@ form label, form input, form select{
     height: 25px;
 }
 
-form input:hover, form select:hover{
+form input:hover, form select:hover, form textarea:hover{
     width: 200%;
     transform: translateX(-50%);
 }
@@ -128,7 +128,11 @@ form button:active{
     box-shadow: none;
 }
 
+
+/* ------------------------------------------------------------------- */
 /* - = - = - = - = - = -  SOBRESCRITAS DE CORES - = - = - = - = - = - */
+/* ------------------------------------------------------------------- */
+
 
 /* Formatação padrão
 
@@ -169,4 +173,16 @@ form#espectador-form{
     border-color: #ca8f22;
     box-shadow: 0px 15px #ca8f22;
     background-image: linear-gradient(to bottom, #ca8f22 0%, #c7b654 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* Espectador */
+h1#beneficio-h1{
+    border-color: #aa3ed4;
+    box-shadow: inset 0px 8px #aa3ed4, 0px 10px #aa3ed4;
+}
+
+form#beneficio-form{
+    border-color: #aa3ed4;
+    box-shadow: 0px 15px #aa3ed4;
+    background-image: linear-gradient(to bottom, #aa3ed4 0%, #d75fdb 50%, rgb(216, 237, 247) 100%); 
 }
