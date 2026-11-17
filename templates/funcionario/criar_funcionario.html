@@ -7,12 +7,12 @@
 {% endblock %}
 
 {% block metadados_adicionais %}
-        <link rel="stylesheet" href="{% static 'css/funcionario/criar_funcionario.css' %}">
+        <link rel="stylesheet" href="{% static 'css/forms_geral.css' %}">
 {% endblock metadados_adicionais %}
 
 {% block body %}
 <!-- ------------------------- -->
-<h1> Registrar Funcionário </h1>
+<h1 id="funcionario-h1"> Registrar Funcionário </h1>
 
 {% for erro in erros_validacao %}
   {{ erro.0 }}:
@@ -21,7 +21,7 @@
 {% endfor %}
 
 <div id="form-div">
-  <form action="" method="POST">
+  <form id=funcionario-form action="" method="POST">
     {% csrf_token %}
     <div class="func-div-grid">
       <div>
