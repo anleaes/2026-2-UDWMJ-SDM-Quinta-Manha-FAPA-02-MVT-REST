@@ -1,0 +1,139 @@
+body{
+    background-image: url("../../img/bg_padrao.jpg");
+}
+
+h1{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    justify-self: center;
+
+    font-family: Impact;
+    font-weight: 100;
+    text-shadow: 0px 3px rgb(117, 116, 116);
+
+    border: solid #2A7B9B 5px;
+    border-radius: 5%;
+    border-bottom: none;
+    box-shadow: inset 0px 8px #2A7B9B, 0px 10px #2A7B9B;
+    
+    background-color: white;
+
+    padding: 10px
+}
+
+form{
+    /* margin-top: 5vh; */
+    justify-self: center;
+    
+    border-radius: 5%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #2A7B9B;
+
+    box-shadow: 0px 15px #2A7B9B;
+    
+    padding: 10px;
+
+    /* background-image: linear-gradient(125deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%); */
+    background-image: linear-gradient(to bottom,rgba(42, 123, 155, 1) 0%, rgb(92, 202, 138) 50%, rgb(216, 237, 247) 100%);
+}
+
+form label{
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: large;
+    border-bottom: dotted 1px rgba(0, 0, 0, 0.527);
+}
+
+
+form input, form select{
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+
+    /* border-radius: 100px; */
+    border-style: none;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+form label, form input, form select{
+    height: 25px;
+}
+
+form input:hover, form select:hover{
+    width: 200%;
+    transform: translateX(-50%);
+}
+
+form > div{
+    margin-bottom: 10px;
+}
+
+button#criar-funcionario{
+    width: 200px;
+    height: 50px;
+}
+
+div.func-div-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+
+form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    justify-self: center;
+    align-self: center;
+    font-weight: 1000;
+
+    /* background-color: goldenrod; */
+    /* background-image: linear-gradient(#FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, #a88124 80%); */
+    color: black;
+
+    border-color: grey;
+    border-radius: 25%;
+    border-style: double;
+
+    /* background-image: linear-gradient(135deg, #25272b 0%, #868f9f 33%, #42474e 67%, #979ca6 100%); */
+    background-image: linear-gradient(135deg, #42474e 0%, #979ca6 25%, #868f9f 50%,  #42474e 75%, #979ca6 100%);
+
+    background-size: 100%;
+    transition: background-size 0.3s ease-out;
+}
+
+form button:hover{
+    transform: translateY(-8px);
+    box-shadow: 0px 8px grey;
+
+    background-size: 150%;
+}
+
+form button:active{
+    opacity: 75%;
+    transform: none;
+    box-shadow: none;
+}
+
+/* - = - = - = - = - = -  SOBRESCRITAS DE CORES - = - = - = - = - = - */
+
+/* Formatação padrão
+
+h1#<<nomeapp-h1>>{
+    border-color: <Cor-identidade-do-app-aqui> ;
+    box-shadow: inset 0px 8px <Cor-identidade-do-app-aqui>, 0px 10px <Cor-identidade-do-app-aqui>;
+}
+
+form#<<nomeapp-form>>{
+    border-color: <Cor-identidade-do-app-aqui>;
+    box-shadow: 0px 15px <Cor-identidade-do-app-aqui>;
+    background-image: linear-gradient(to bottom, <Cor-identidade-do-app-aqui> 0%, <<COR MEDIANA AQUI>> 50%, rgb(216, 237, 247) 100%); 
+                                                                        deixar esse último com essa cor branca -------^
+}
+
+*/
