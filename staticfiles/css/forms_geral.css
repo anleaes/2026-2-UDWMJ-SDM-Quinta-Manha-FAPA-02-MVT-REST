@@ -228,3 +228,16 @@ div#id_beneficios input[type=checkbox]{
     transform: translateY(20px);
 
 }
+
+/* Sede */
+
+h1#sede-h1{
+    border-color: #1a9138;
+    box-shadow: inset 0px 8px #1a9138, 0px 10px #1a9138;
+}
+
+form#sede-form{
+    border-color: #1a9138;
+    box-shadow: 0px 15px #1a9138;
+    background-image: linear-gradient(to bottom, #1a9138 0%, #68c750 50%, rgb(216, 237, 247) 100%); 
+}
