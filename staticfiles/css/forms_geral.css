@@ -142,11 +142,8 @@ div#lista-erros:has(*){
     display: flex;
     align-self: center;
     justify-self: center;
-}
 
-/* Talvez converter para animação de pisca-pisca ? */
-div#lista-erros:hover{
-    background-color: rgba(255, 0, 0, 0.705);
+    animation: erro-pisca-pisca 0.8s linear 0s 3;
 }
 
 div.erro-div{
@@ -157,10 +154,17 @@ div.erro-div{
     gap: 3px;
 
     font-weight: bold;
+
 }
 
 div.erro-div ul{
-     list-style-type: none
+     list-style-type: none;
+}
+
+@keyframes erro-pisca-pisca {
+    0% { background-color: rgba(255, 0, 0, 0.295); }
+    50% { background-color: rgba(255, 0, 0, 0.705); }
+    100% { background-color: rgba(255, 0, 0, 0.295); }
 }
 
 
