@@ -18,6 +18,10 @@ def criar_sede(request: HttpRequest):
             obj_sede.save()
             form.save_m2m()
             return redirect('sede:listar_sedes')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = SedeForm(request.POST)
+            return render(request, template_name, context)
 
     form = SedeForm()
     context['form'] = form
@@ -45,6 +49,10 @@ def editar_sede(request: HttpRequest, sede_id: int):
         if form.is_valid():
             form.save()
             return redirect('sede:listar_sedes')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = SedeForm(request.POST)
+            return render(request, template_name, context)
         
     form = SedeForm(instance=sede)
     context['form'] = form

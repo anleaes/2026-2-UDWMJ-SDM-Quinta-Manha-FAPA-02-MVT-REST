@@ -1,5 +1,75 @@
+body{
+    background-image: url("../../img/bg_padrao.jpg");
+}
+
 h1{
     justify-self: center;
+    font-family: Impact, 'Haettenschweiler';
+    font-size: 5em;
+    font-weight: 50;
+
+    text-shadow: 0px 5px gray;
+}
+
+div#container-cartas{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-wrap: wrap;
+
+    margin-bottom: 150px;
+}
+
+div.item-funcionario > div.botoes-de-acao{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+div.item-funcionario > div.botoes-de-acao > a > button{
+    border-radius: 25%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+button#botao-novo-item{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 4em;
+    /* background-color: rgba(172, 255, 47, 0.555); */
+
+    background-image: linear-gradient(to bottom, #1a9138 0%, #68c750 50%, rgb(216, 237, 247) 100%); 
+    opacity: 0.8;
+    border: solid rgb(56, 56, 56);
+
+    position:fixed;
+
+    right: 45vw;
+    bottom: 2vh;
+
+    /* transition: background-color 0.3s ease-in-out; */
+    transition: opacity 0.3s ease-in-out;
+}
+
+button#botao-novo-item:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+button#botao-novo-item:active{
+    opacity: 0.7;
+}
+
+
+
+div#container-relativo{
+    position: relative;
+}
+
+div.item-lista > div p.nome-destaque{
+    font-size: xx-large;
 }
 
 /* Disposição das informações de Funcionario */
@@ -7,10 +77,18 @@ h1{
 div.item-funcionario{
     margin: 20px;
     padding: 10px;
+
+    width: fit-content;
+    height: fit-content;
     
     border-width: 3px;
     border-color: blue;
     border-style: solid;
+
+    border-radius: 5%;
+    background-color: rgba(0, 0, 255, 0.144);
+
+
 }
 
 div.item-funcionario > div{
@@ -18,18 +96,23 @@ div.item-funcionario > div{
 
     justify-content: left;
     align-items: center;
+
+}
+
+div.item-funcionario span{
+    font-weight: bold;
+
 }
 
 div.item-funcionario > div:has(p.nome-funcionario){
     border-bottom: 3px dashed blue;
     margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-div.item-funcionario > div p.nome-funcionario{
-    font-size: xx-large;
-}
 
-div.item-funcionario > div p.funcionario-local-trabalho{
+div.item-lista > div p.funcionario-local-trabalho{
     font-size: large;
     text-decoration-line: underline;
 }
