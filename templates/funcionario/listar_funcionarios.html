@@ -15,8 +15,11 @@
 
 <h1>Funcionários</h1>
 
-<a href="{% url 'funcionario:criar_funcionario' %}"><button>Novo +</button></a>
+<div id="container-relativo">
+  <a href="{% url 'funcionario:criar_funcionario' %}"><button id="botao-novo-item">+</button></a>
+</div>
 
+<div id="container-cartas">
 {% for funcionario in funcionarios %}
 
 <div class="item-funcionario">
@@ -27,19 +30,19 @@
     <div> <p class="nome-funcionario"> {{ funcionario.nome }} </p></div>
     <div> <p class="funcionario-local-trabalho"> Local de Trabalho: {{ funcionario.sede_de_trabalho }}</p></div>
     
-    <div> ID: {{ funcionario.id }} </div>
-    <div> Nome: {{ funcionario.nome }} </div>
-    <div> Data de Nascimento: {{ funcionario.data_nascimento }} </div>
-    <div> Telefone: {{ funcionario.telefone }} </div>
-    <div> Email: {{ funcionario.email }} </div>
-    <div> Gênero: {{ funcionario.genero }} </div>
-    <div> Cargo: {{ funcionario.cargo }} </div>
-    <div> Turno de trabalho: {{ funcionario.turno_trabalho }} </div>
-    <div> Salário: {{ funcionario.salario }} </div>
-    <div> Fator Comissão: {{ funcionario.multiplicador_comissao }} </div>
+    <div> <p> <span>ID:</span> {{ funcionario.id }} </p> </div>
+    <div> <p> <span>Nome:</span> {{ funcionario.nome }}</p> </div>
+    <div> <p> <span>Data de Nascimento:</span> {{ funcionario.data_nascimento }}</p> </div>
+    <div> <p> <span>Telefone:</span> {{ funcionario.telefone }}</p> </div>
+    <div> <p> <span>Email:</span> {{ funcionario.email }}</p> </div>
+    <div> <p> <span>Gênero:</span> {{ funcionario.genero }}</p> </div>
+    <div> <p> <span>Cargo:</span> {{ funcionario.cargo }}</p> </div>
+    <div> <p> <span>Turno de trabalho:</span> {{ funcionario.turno_trabalho }}</p> </div>
+    <div> <p> <span>Salário:</span> {{ funcionario.salario }}</p> </div>
+    <div> <p> <span>Fator Comissão:</span> {{ funcionario.multiplicador_comissao }}</p> </div>
 </div>
-
 {% endfor %}
+</div>
 
 <!-- ------------------------- -->
 {% endblock %}
