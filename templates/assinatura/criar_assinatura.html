@@ -14,11 +14,14 @@
 <!-- ------------------------- -->
 <h1 id="assinatura-h1"> Registrar Assinatura </h1>
 
+<div id="lista-erros">
 {% for erro in erros_validacao %}
-  {{ erro.0 }}:
+<div class="erro-div">
+  <p>{{ erro.0 }}: </p>
   {{ erro.1 }}
-  <hr/>
+</div>
 {% endfor %}
+</div>
 
 <div id="form-div">
   <form id="assinatura-form" action="" method="POST" enctype="multipart/form-data">

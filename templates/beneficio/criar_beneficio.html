@@ -15,11 +15,14 @@
 <!-- ------------------------- -->
 <h1 id="beneficio-h1"> Registrar Benefício </h1>
 
+<div id="lista-erros">
 {% for erro in erros_validacao %}
-  {{ erro.0 }}:
+<div class="erro-div">
+  <p>{{ erro.0 }}: </p>
   {{ erro.1 }}
-  <hr/>
+</div>
 {% endfor %}
+</div>
 
 <div id="form-div">
   <form id="beneficio-form" action="" method="POST">
