@@ -1,0 +1,28 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ERRO AUTORIZACAO</title>
+    <link rel="stylesheet" href="{% static 'css/conta_usuario/tela_erro_autorizacao.css' %}">
+</head>
+<body>
+
+    <div>
+        <img src="{% static 'img/atencaoicone' %}">
+        <h1> Erro de Autorização</h1>
+        <p> Você tentou acessar uma página ou executar uma ação da qual não possui permissão o suficiente </p>
+        <div>
+            <p> Voltar para tela de login</p>
+            <a href="{% url 'conta_usuario:login_usuario' %}"><button> Login </button></a>
+        </div>
+    </div>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
