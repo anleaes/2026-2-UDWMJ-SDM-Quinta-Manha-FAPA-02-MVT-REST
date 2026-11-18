@@ -110,25 +110,6 @@ div.item-lista > div:has(p.nome-destaque){
 }
 
 
-
-
-
-
-/* ------------------------------------------------- Funcionario ------------------------------------------------- */
-
-div.item-funcionario{
-    border-color: blue;
-    background-color: rgba(0, 0, 255, 0.144);
-}
-div.item-funcioario > div:has(p.nome-destaque){
-    border-color: blue;
-}
-
-div.item-funcionario > div p.funcionario-local-trabalho{
-    font-size: large;
-    text-decoration-line: underline;
-}
-
 /* -------------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------- SOBRESCRITA DE CORES -------------------------------------------- */
 /* -------------------------------------------------------------------------------------------------------------- */
@@ -147,6 +128,23 @@ div.item-<nomeDoApp> > div:has(p.nome-destaque){
 
 
 */
+
+
+/* ------------------------------------------------- Funcionario ------------------------------------------------- */
+
+div.item-funcionario{
+    border-color: blue;
+    background-color: rgba(0, 0, 255, 0.144);
+}
+div.item-funcioario > div:has(p.nome-destaque){
+    border-color: blue;
+}
+
+div.item-funcionario > div p.funcionario-local-trabalho{
+    font-size: large;
+    text-decoration-line: underline;
+}
+
 
 /* ------------------------------------------------- Beneficio ------------------------------------------------- */
 
@@ -181,4 +179,19 @@ div.item-sede{
 }
 div.item-sede > div:has(p.nome-destaque){
     border-color: green;
+}
+
+/* ------------------------------------------------- Assinatura ------------------------------------------------- */
+
+div.item-assinatura{
+    border-color: red;
+    background-color: rgba(255, 0, 0, 0.151);
+}
+
+div.item-assinatura > div:has(p.nome-destaque){
+    border-color: red;
+}
+
+div.item-assinatura li.assinatura-beneficio{
+    list-style-position: inside;
 }
