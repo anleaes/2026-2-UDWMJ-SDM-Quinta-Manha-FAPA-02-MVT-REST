@@ -13,14 +13,15 @@
 </head>
 <body>
 
-    <div>
-        <img src="{% static 'img/atencaoicone' %}">
-        <h1> Erro de Autorização</h1>
-        <p> Você tentou acessar uma página ou executar uma ação da qual não possui permissão o suficiente </p>
-        <div>
-            <p> Voltar para tela de login</p>
-            <a href="{% url 'conta_usuario:login_usuario' %}"><button> Login </button></a>
+    <div id="container-geral">
+        <div id="header">
+            <img src="{% static 'img/atencaoicone.png' %}">
+            <h1> Erro de Autorização - 403 Forbidden </h1>
         </div>
+        <p> Você tentou acessar uma página ou executar uma ação da qual não possui permissão o suficiente </p>
+        <hr/>
+
+        <a href="{% url 'conta_usuario:login_usuario' %}"><p> Voltar para tela de login</p></a>
     </div>
 
   <script src="{% static 'js/script.js' %}"></script>
