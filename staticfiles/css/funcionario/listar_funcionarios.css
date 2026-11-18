@@ -68,6 +68,10 @@ div#container-relativo{
     position: relative;
 }
 
+div.item-lista > div p.nome-destaque{
+    font-size: xx-large;
+}
+
 /* Disposição das informações de Funcionario */
 
 div.item-funcionario{
@@ -107,11 +111,8 @@ div.item-funcionario > div:has(p.nome-funcionario){
     font-weight: bold;
 }
 
-div.item-funcionario > div p.nome-funcionario{
-    font-size: xx-large;
-}
 
-div.item-funcionario > div p.funcionario-local-trabalho{
+div.item-lista > div p.funcionario-local-trabalho{
     font-size: large;
     text-decoration-line: underline;
 }
