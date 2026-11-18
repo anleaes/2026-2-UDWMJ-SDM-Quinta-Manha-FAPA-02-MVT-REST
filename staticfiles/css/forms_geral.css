@@ -246,16 +246,17 @@ form label#assinatura-beneficio-m2m{
     margin-bottom: 50px;
 }
 
-/* Decisões nem um pouco ideais, porém o formato rígido do html vindo dos widgets complica bastante a estilização!!!! */
+/* Decisões nem um pouco ideais, porém o formato rígido do html vindo dos widgets complica bastante a estilização :| */
 form div#id_beneficios{
+    margin-top: 15px;
     transform: translateY(-5px);
     height: fit-content;
     margin-bottom: 50px;
+    overflow: hidden scroll;
+    max-height: 25vh;
 
 }
 
-/* necessário este asterisco("catch all") porque o django widgets colocou texto puro dento de uma tag, 
-impedindo de capturar de outro jeito :/  */
 form div#id_beneficios{
     display: flex;
     flex-direction:column;
