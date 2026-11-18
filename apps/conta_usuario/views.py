@@ -24,3 +24,8 @@ def login_usuario(request):
 def desconectar_usuario(request):
     logout(request)
     return redirect('conta_usuario:login_usuario')
+
+def tela_erro_autorizacao(request):
+    template_name = 'conta_usuario/tela_erro_autorizacao.html'
+    context = {}
+    return render(request, template_name, context)
