@@ -109,6 +109,11 @@ div.item-lista > div:has(p.nome-destaque){
     font-weight: bold;
 }
 
+
+
+
+
+
 /* ------------------------------------------------- Funcionario ------------------------------------------------- */
 
 div.item-funcionario{
@@ -132,4 +137,19 @@ div.item-beneficio{
 }
 div.item-beneficio > div:has(p.nome-destaque){
     border-color: purple;
+}
+
+/* ------------------------------------------------- Espectador ------------------------------------------------- */
+
+div.item-espectador{
+    border-color: orange;
+    background-color: rgba(255, 166, 0, 0.164);
+}
+div.item-espectador > div:has(p.nome-destaque){
+    border-color: orange;
+}
+
+div.item-espectador > div p.espectador-local-registro{
+    font-size: large;
+    text-decoration-line: underline;
 }
