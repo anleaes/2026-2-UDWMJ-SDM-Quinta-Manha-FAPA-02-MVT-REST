@@ -6,7 +6,10 @@ from .models import Espectador
 
 from rest_framework import viewsets
 from .serializer import EspectadorSerializer
+from django.contrib.auth.decorators import login_required, permission_required
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def criar_espectador(request: HttpRequest):
     template_name = 'espectador/criar_espectador.html'
     context = {}
@@ -30,14 +33,16 @@ def criar_espectador(request: HttpRequest):
     }
     return render(request, template_name, context)
 
-
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def listar_espectadores(request: HttpRequest):
     template_name = 'espectador/listar_espectadores.html'
     espectadores = Espectador.objects.all()
     context = {'espectadores': espectadores}
     return render(request, template_name, context)
 
-
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def editar_espectador(request: HttpRequest, espectador_id: int):
     template_name = 'espectador/criar_espectador.html'
     obj_espectador = get_object_or_404(Espectador, id=espectador_id)
@@ -57,6 +62,8 @@ def editar_espectador(request: HttpRequest, espectador_id: int):
     context = { 'form': form}
     return render(request, template_name, context)
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def deletar_espectador(request: HttpRequest, espectador_id: int):
     obj_espectador = get_object_or_404(Espectador, id=espectador_id)
     obj_espectador.delete()

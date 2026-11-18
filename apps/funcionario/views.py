@@ -10,6 +10,10 @@ from .serializer import FuncionarioSerializer
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 
+from django.contrib.auth.decorators import login_required, permission_required
+
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def criar_funcionario(request: HttpRequest):
     template_name = 'funcionario/criar_funcionario.html'
     context = {}
@@ -45,6 +49,8 @@ def criar_funcionario(request: HttpRequest):
     context['form'] = form
     return render(request, template_name, context)
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def listar_funcionarios(request: HttpRequest):
     template_name = 'funcionario/listar_funcionarios.html'
     funcionarios = Funcionario.objects.all()
@@ -54,6 +60,8 @@ def listar_funcionarios(request: HttpRequest):
 
     return render(request, template_name, context)
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def editar_funcionario(request: HttpRequest, funcionario_id: int):
     template_name = 'funcionario/criar_funcionario.html'
     context = {}
@@ -75,6 +83,8 @@ def editar_funcionario(request: HttpRequest, funcionario_id: int):
     }
     return render(request, template_name, context)
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def deletar_funcionario(request: HttpRequest, funcionario_id: int):
     obj_funcionario = get_object_or_404(Funcionario, id=funcionario_id)
     obj_funcionario.delete()

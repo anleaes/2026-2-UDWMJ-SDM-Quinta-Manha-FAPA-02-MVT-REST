@@ -6,7 +6,10 @@ from .models import Assinatura
 
 from rest_framework import viewsets
 from .serializer import AssinaturaSerializer
+from django.contrib.auth.decorators import login_required, permission_required
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def criar_assinatura(request: HttpRequest):
     template_name = 'assinatura/criar_assinatura.html'
     context = {}
@@ -27,6 +30,8 @@ def criar_assinatura(request: HttpRequest):
     context = {'form': form}
     return render(request, template_name, context)
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def editar_assinatura(request: HttpRequest, assinatura_id: int):
     template_name = 'assinatura/criar_assinatura.html'
     assinatura = get_object_or_404(Assinatura, id=assinatura_id)
@@ -46,14 +51,16 @@ def editar_assinatura(request: HttpRequest, assinatura_id: int):
     context = {'form': form}
     return render(request, template_name, context) 
 
-
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def listar_assinaturas(request: HttpRequest):
     template_name = 'assinatura/listar_assinaturas.html'
     assinaturas = Assinatura.objects.all()
     context = { 'assinaturas': assinaturas}
     return render(request, template_name, context)
 
-
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def deletar_assinatura(request: HttpRequest, assinatura_id: int):
     obj_assinatura = get_object_or_404(Assinatura, id=assinatura_id)
     obj_assinatura.delete()
