@@ -129,6 +129,25 @@ div.item-funcionario > div p.funcionario-local-trabalho{
     text-decoration-line: underline;
 }
 
+/* -------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------- SOBRESCRITA DE CORES -------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------- */
+
+/* 
+Sugestão de copy-paste:
+
+
+div.item-<nomeDoApp>{
+    border-color: <cor-identidade-do-app>;
+    background-color: <cor-identidade-do-app (COM O ALPHA menor q 0.3)>;
+}
+div.item-<nomeDoApp> > div:has(p.nome-destaque){
+    border-color: <cor-identidade-do-app>;
+}
+
+
+*/
+
 /* ------------------------------------------------- Beneficio ------------------------------------------------- */
 
 div.item-beneficio{
