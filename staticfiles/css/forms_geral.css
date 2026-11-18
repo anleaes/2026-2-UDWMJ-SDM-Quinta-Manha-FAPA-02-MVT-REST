@@ -235,33 +235,33 @@ form#assinatura-form{
 }
 
 form label#assinatura-beneficio-m2m{
-    height: 165px;
-    height: 180px;
+    height: 25vh;
+    margin-bottom: 50px;
 }
 
 /* Decisões nem um pouco ideais, porém o formato rígido do html vindo dos widgets complica bastante a estilização!!!! */
 form div#id_beneficios{
     transform: translateY(-5px);
-    height: 180px;
+    height: fit-content;
+    margin-bottom: 50px;
 
 }
 
 /* necessário este asterisco("catch all") porque o django widgets colocou texto puro dento de uma tag, 
 impedindo de capturar de outro jeito :/  */
-form div#id_beneficios *{
+form div#id_beneficios{
     display: flex;
     flex-direction:column;
-    font-size: large;
-    transform: translateY(-7px);
-
-    
+    font-size: large;    
 }
+
+/* form div#id_beneficios label{
+    background-color: #1a91384f;
+} */
 
 /* Forma não ideal de forçar o checkbox a ficar no canto do forms */
 div#id_beneficios input[type=checkbox]{
-    width: 185%;
-    transform: translateY(20px);
-
+    transform: translate(100px, 25px);
 }
 
 /* ------------------------------------------------- Sede ------------------------------------------------- */
