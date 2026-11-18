@@ -6,5 +6,6 @@ app_name = 'conta_usuario'
 urlpatterns = [
     path('login/', views.login_usuario, name='login_usuario'),
     path('desconectar/', views.desconectar_usuario, name='desconectar_usuario'),
+    path('nao_autorizado/', views.tela_erro_autorizacao, name='tela_erro_autorizacao'),
 
 ]
