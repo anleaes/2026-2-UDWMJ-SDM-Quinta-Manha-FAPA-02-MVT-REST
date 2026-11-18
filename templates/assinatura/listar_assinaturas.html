@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block metadados_adicionais %}
-    <link rel="stylesheet" href="{% static 'css/assinatura/listar_assinaturas.css' %}">
+    <link rel="stylesheet" href="{% static 'css/listas_geral.css' %}">
 {% endblock metadados_adicionais %}
 
 {% block body %}
@@ -15,31 +15,36 @@
 
 <h1>Assinaturas</h1>
 
-<a href="{% url 'assinatura:criar_assinatura' %}"><button>Novo +</button></a>
-
-{% for assinatura in assinaturas %}
-
-<div class="item-assinatura">
-    <div class="botoes-de-acao">
-        <a href="{% url 'assinatura:editar_assinatura' assinatura.id %}"><button class="botao-editar">Editar</button></a>
-        <a href="{% url 'assinatura:deletar_assinatura' assinatura.id %}"><button class="botao-deletar">Deletar</button></a>
-    </div>
-    <div> <p class="nome-assinatura"> {{ assinatura.nome }} </p></div>
-    
-    <div> ID: {{ assinatura.id }} </div>
-    <div> Nome: {{ assinatura.nome }} </div>
-    <div> Ícone: {{ assinatura.icone }} </div>
-    <div> Custo Mensal: R$ {{ assinatura.custo_mensal }} </div>
-
-    <h3> Benefícios Incluídos</h2>
-    {% for beneficio in assinatura.beneficios.all %}
-        <div class="assinatura-beneficio"> {{ beneficio }} </div>
-    {% endfor %}
-    <hr/>
-
+<div id="container-relativo">
+    <a href="{% url 'assinatura:criar_assinatura' %}"><button id="botao-novo-item">+</button></a>
 </div>
 
-{% endfor %}
+<div id="container-cartas">
+    {% for assinatura in assinaturas %}
+
+    <div class="item-assinatura item-lista">
+        <div class="botoes-de-acao">
+            <a href="{% url 'assinatura:editar_assinatura' assinatura.id %}"><button class="botao-editar">Editar</button></a>
+            <a href="{% url 'assinatura:deletar_assinatura' assinatura.id %}"><button class="botao-deletar">Deletar</button></a>
+        </div>
+        <div> <p class="nome-destaque"> {{ assinatura.nome }} </p></div>
+        
+        <div> <p><span>ID:</span> {{ assinatura.id }} </p></div>
+        <div> <p><span>Nome: </span>{{ assinatura.nome }} </p></div>
+        <div> <p><span>Ícone: </span>{{ assinatura.icone }} </p></div>
+        <div> <p><span>Custo Mensal: </span>R$ {{ assinatura.custo_mensal }} </p></div>
+
+        <div> <p><span>[ Benefícios Incluídos ]</span></p></div>
+        <ul>
+            {% for beneficio in assinatura.beneficios.all %}
+                <li class="assinatura-beneficio"> {{ beneficio }} </li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+
+    {% endfor %}
+</div>
 
 
 <!-- ------------------------- -->
