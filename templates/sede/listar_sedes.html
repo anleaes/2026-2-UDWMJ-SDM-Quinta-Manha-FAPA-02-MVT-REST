@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block metadados_adicionais %}
-        <link rel="stylesheet" href="{% static 'css/listar_sedes.css' %}">
+        <link rel="stylesheet" href="{% static 'css/listas_geral.css' %}">
 {% endblock metadados_adicionais %}
 
 {% block body %}
@@ -15,21 +15,27 @@
 
 <h1>Sedes</h1>
 
-{% for sede in sedes %}
-
-<div class="item-sede">
-    <div class="botoes-de-acao">
-        <a href="{% url 'sede:editar_sede' sede.id %}"><button class="botao-editar">Editar</button></a>
-        <a href="{% url 'sede:deletar_sede' sede.id %}"><button class="botao-deletar">Deletar</button></a>
-    </div>
-    <div> <p class="nome-sede">{{ sede.nome }} </p></div>
-    <div> ID:{{ sede.id }} </div>
-    <div> ENDEREÇO:{{ sede.endereco }} </div>
-    <div> CNPJ    :{{ sede.cnpj }} </div>
-    <div> STATUS  :{{ sede.status }} </div>
+<div id="container-relativo">
+  <a href="{% url 'sede:criar_sede' %}"><button id="botao-novo-item">+</button></a>
 </div>
 
-{% endfor %}
+<div id="container-cartas">
+  {% for sede in sedes %}
+
+  <div class="item-sede item-lista">
+      <div class="botoes-de-acao">
+          <a href="{% url 'sede:editar_sede' sede.id %}"><button class="botao-editar">Editar</button></a>
+          <a href="{% url 'sede:deletar_sede' sede.id %}"><button class="botao-deletar">Deletar</button></a>
+      </div>
+      <div> <p class="nome-destaque">{{ sede.nome }} </p></div>
+      <div> <p><span>ID:</span>{{ sede.id }} </p></div>
+      <div> <p><span>ENDEREÇO:</span>{{ sede.endereco }} </p></div>
+      <div> <p><span>CNPJ:</span>{{ sede.cnpj }} </p></div>
+      <div> <p><span>STATUS:</span>{{ sede.status }} </p></div>
+  </div>
+
+  {% endfor %}
+</div>
 
 
 <!-- ------------------------- -->
