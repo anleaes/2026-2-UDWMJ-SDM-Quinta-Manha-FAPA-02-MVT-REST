@@ -1,55 +1,55 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
   Adicionar Divulgação - {{ block.super }}
 {% endblock %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/forms_geral.css' %}">
+{% endblock metadados_adicionais %}
+
+
 {% block body %}
-  <br />
-  <b>Cadastro de Divulgação de Evento</b>
-  <br />
-  <br />
 
-  {% for erro in erros_validacao %}
-    {{ erro.0 }}:
-    {{ erro.1 }}
-    <hr/>
-  {% endfor %}
+  <h1 id="divulgacao_evento-h1"> Cadastro de Divulgação de Evento</h1>
 
-  <br>
 
-  <form action="" method="POST" enctype="multipart/form-data">
+  <div id="lista-erros">
+    {% for erro in erros_validacao %}
+      <div class="erro-div">
+        <p>{{ erro.0 }}: </p>
+        {{ erro.1 }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div id="form-div">
+    <form id="divulgacao_evento-form" action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <label>Evento:</label>
-    <br />
-    {{ form.evento }}
-    <br />
-    <br />
-    <label>Local:</label>
-    <br />
-    {{ form.local }}
-    <br />
-    <br />
-    <label>Data:</label>
-    <br />
-    {{ form.data }}
-    <br />
-    <br />
-    <label>Horário Inicial:</label>
-    <br />
-    {{ form.horario_comeco }}
-    <br />
-    <br />
-    <label>Horário Final:</label>
-    <br />
-    {{ form.horario_fim }}
-    <br />
-    <br />
-    <label>Preço base:</label>
-    <br />
-    {{ form.preco_base }}
-    <br />
-    <br />
-    <button type="submit">Salvar</button>
-  </form>
+
+      <div class="func-div-grid">
+        <div>
+          <label>Evento:</label>
+          <label>Local:</label>
+          <label>Data:</label>
+          <label>Horário Inicial:</label>
+          <label>Horário Final:</label>
+          <label>Preço base:</label>
+
+        </div>
+        <div>
+          {{ form.evento }}
+          {{ form.local }}
+          {{ form.data }}
+          {{ form.horario_comeco }}
+          {{ form.horario_fim }}
+          {{ form.preco_base }}
+        </div>
+      </div>
+      
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
 {% endblock %}
