@@ -1,0 +1,197 @@
+body{
+    background-image: url("../img/bg_padrao.jpg");
+}
+
+h1{
+    justify-self: center;
+    font-family: Impact, 'Haettenschweiler';
+    font-size: 5em;
+    font-weight: 50;
+
+    text-shadow: 0px 5px gray;
+}
+
+div#container-cartas{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-wrap: wrap;
+
+    margin-bottom: 150px;
+}
+
+div.item-lista > div.botoes-de-acao{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+/* item-lista */
+
+div.item-lista > div.botoes-de-acao > a > button{
+    border-radius: 25%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+button#botao-novo-item{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 4em;
+    /* background-color: rgba(172, 255, 47, 0.555); */
+
+    background-image: linear-gradient(to bottom, #1a9138 0%, #68c750 50%, rgb(216, 237, 247) 100%); 
+    opacity: 0.8;
+    border: solid rgb(56, 56, 56);
+
+    position:fixed;
+
+    right: 45vw;
+    bottom: 2vh;
+
+    /* transition: background-color 0.3s ease-in-out; */
+    transition: opacity 0.3s ease-in-out;
+}
+
+button#botao-novo-item:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+button#botao-novo-item:active{
+    opacity: 0.7;
+}
+
+
+div#container-relativo{
+    position: relative;
+}
+
+div.item-lista > div{
+    display: flex;
+
+    justify-content: left;
+    align-items: center;
+
+}
+
+div.item-lista span{
+    font-weight: bold;
+
+}
+
+div.item-lista > div p.nome-destaque{
+    font-size: xx-large;
+}
+
+div.item-lista{
+    margin: 20px;
+    padding: 10px;
+
+    width: fit-content;
+    height: fit-content;
+    
+    border-width: 3px;
+    border-style: solid;
+
+    border-radius: 5%;
+
+    border-color: black;
+    background-color: rgba(0, 0, 0, 0.055);
+}
+
+div.item-lista > div:has(p.nome-destaque){
+    border-bottom: 3px dashed black;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------- SOBRESCRITA DE CORES -------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------- */
+
+/* 
+Sugestão de copy-paste:
+
+
+div.item-<nomeDoApp>{
+    border-color: <cor-identidade-do-app>;
+    background-color: <cor-identidade-do-app (COM O ALPHA menor q 0.3)>;
+}
+div.item-<nomeDoApp> > div:has(p.nome-destaque){
+    border-color: <cor-identidade-do-app>;
+}
+
+
+*/
+
+
+/* ------------------------------------------------- Funcionario ------------------------------------------------- */
+
+div.item-funcionario{
+    border-color: blue;
+    background-color: rgba(0, 0, 255, 0.144);
+}
+div.item-funcioario > div:has(p.nome-destaque){
+    border-color: blue;
+}
+
+div.item-funcionario > div p.funcionario-local-trabalho{
+    font-size: large;
+    text-decoration-line: underline;
+}
+
+
+/* ------------------------------------------------- Beneficio ------------------------------------------------- */
+
+div.item-beneficio{
+    border-color: purple;
+    background-color: rgba(128, 0, 128, 0.151);
+}
+div.item-beneficio > div:has(p.nome-destaque){
+    border-color: purple;
+}
+
+/* ------------------------------------------------- Espectador ------------------------------------------------- */
+
+div.item-espectador{
+    border-color: orange;
+    background-color: rgba(255, 166, 0, 0.164);
+}
+div.item-espectador > div:has(p.nome-destaque){
+    border-color: orange;
+}
+
+div.item-espectador > div p.espectador-local-registro{
+    font-size: large;
+    text-decoration-line: underline;
+}
+
+/* ------------------------------------------------- Sede ------------------------------------------------- */
+
+div.item-sede{
+    border-color: green;
+    background-color: rgba(0, 128, 0, 0.164);
+}
+div.item-sede > div:has(p.nome-destaque){
+    border-color: green;
+}
+
+/* ------------------------------------------------- Assinatura ------------------------------------------------- */
+
+div.item-assinatura{
+    border-color: red;
+    background-color: rgba(255, 0, 0, 0.151);
+}
+
+div.item-assinatura > div:has(p.nome-destaque){
+    border-color: red;
+}
+
+div.item-assinatura li.assinatura-beneficio{
+    list-style-position: inside;
+}

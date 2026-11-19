@@ -8,7 +8,7 @@
 
 
 {% block metadados_adicionais %}
-    <link rel="stylesheet" href="{% static 'css/beneficio/listar_beneficios.css' %}">
+    <link rel="stylesheet" href="{% static 'css/listas_geral.css' %}">
 {% endblock metadados_adicionais %}
 
 
@@ -17,22 +17,26 @@
 
 <h1>Beneficios</h1>
 
-{% for beneficio in beneficios %}
-
-<div class="item-beneficio">
-    
-    <div class="botoes-de-acao">
-        <a href="{% url 'beneficio:editar_beneficio' beneficio.id %}"><button class="botao-editar">Editar</button></a>
-        <a href="{% url 'beneficio:deletar_beneficio' beneficio.id %}"><button class="botao-deletar">Deletar</button></a>
-    </div>
-    <div> <p class="nome-beneficio"> {{ beneficio.nome }} </p></div>
-    <h3> Descrição </h3>
-    <div> {{ beneficio.descricao }} </div>
-
+<div id="container-relativo">
+    <a href="{% url 'beneficio:criar_beneficio' %}"><button id="botao-novo-item">+</button></a>
 </div>
 
+<div id="container-cartas">
+    {% for beneficio in beneficios %}
 
-{% endfor %}
+    <div class="item-beneficio item-lista">
+        
+        <div class="botoes-de-acao">
+            <a href="{% url 'beneficio:editar_beneficio' beneficio.id %}"><button class="botao-editar">Editar</button></a>
+            <a href="{% url 'beneficio:deletar_beneficio' beneficio.id %}"><button class="botao-deletar">Deletar</button></a>
+        </div>
+        <div> <p class="nome-destaque"> {{ beneficio.nome }} </p></div>
+        <div> <p> <span>Descrição:</span> {{ beneficio.descricao }} </p> </div>
+    </div>
+
+
+    {% endfor %}
+</div>
 
 <!-- ------------------------- -->
 {% endblock %}

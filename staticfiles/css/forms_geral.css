@@ -128,6 +128,48 @@ form button:active{
     box-shadow: none;
 }
 
+div#lista-erros{
+    transition: background-color 0.4s ease;
+
+    width: fit-content;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+
+div#lista-erros:has(*){
+    border: solid red 3px;
+    background-color: rgba(255, 0, 0, 0.295);
+    animation: erro-pisca-pisca 0.8s linear 0s 3;
+}
+
+div.erro-div{
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+
+    font-weight: bold;
+
+}
+
+div.erro-div ul{
+     list-style-type: none;
+}
+
+@keyframes erro-pisca-pisca {
+    0% { background-color: rgba(255, 0, 0, 0.295); }
+    50% { background-color: rgba(255, 0, 0, 0.705); }
+    100% { background-color: rgba(255, 0, 0, 0.295); }
+}
+
 
 /* ------------------------------------------------------------------- */
 /* - = - = - = - = - = -  SOBRESCRITAS DE CORES - = - = - = - = - = - */
@@ -200,33 +242,34 @@ form#assinatura-form{
 }
 
 form label#assinatura-beneficio-m2m{
-    height: 165px;
-    height: 180px;
+    height: 25vh;
+    margin-bottom: 50px;
 }
 
-/* Decisões nem um pouco ideais, porém o formato rígido do html vindo dos widgets complica bastante a estilização!!!! */
+/* Decisões nem um pouco ideais, porém o formato rígido do html vindo dos widgets complica bastante a estilização :| */
 form div#id_beneficios{
+    margin-top: 15px;
     transform: translateY(-5px);
-    height: 180px;
+    height: fit-content;
+    margin-bottom: 50px;
+    overflow: hidden scroll;
+    max-height: 25vh;
 
 }
 
-/* necessário este asterisco("catch all") porque o django widgets colocou texto puro dento de uma tag, 
-impedindo de capturar de outro jeito :/  */
-form div#id_beneficios *{
+form div#id_beneficios{
     display: flex;
     flex-direction:column;
-    font-size: large;
-    transform: translateY(-7px);
-
-    
+    font-size: large;    
 }
+
+/* form div#id_beneficios label{
+    background-color: #1a91384f;
+} */
 
 /* Forma não ideal de forçar o checkbox a ficar no canto do forms */
 div#id_beneficios input[type=checkbox]{
-    width: 185%;
-    transform: translateY(20px);
-
+    transform: translate(100px, 25px);
 }
 
 /* ------------------------------------------------- Sede ------------------------------------------------- */
