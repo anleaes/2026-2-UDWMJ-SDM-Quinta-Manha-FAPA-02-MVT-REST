@@ -13,7 +13,7 @@ class Cartao_Vip(models.Model):
         editable=False
     )
     validade = models.DateField('Validade', auto_now=False)
-    espectador = models.OneToOneField(Espectador, on_delete=models.CASCADE, related_name='cartao_vip')
+    espectador = models.OneToOneField(Espectador, on_delete=models.CASCADE)
     assinatura = models.ForeignKey(Assinatura, on_delete=models.CASCADE)
 
     class Meta:

@@ -1,41 +1,47 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 
     Lista de Cartão VIP - {{ block.super }}
 
 {% endblock title %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/listas_geral.css' %}">
+{% endblock metadados_adicionais %}
+
 {% block body %}
-<br />
-<b>Lista de Cartões VIP</b>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Codigo Autenticador</th>
-            <th>Validade</th>
-            <th>Espectador</th>
-            <th>Assinatura</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for c_vip in cartao_vip %}
-            <tr>
-                <td>{{ c_vip.id }}</th>
-                <td>{{ c_vip.codigo_autenticador }}</td>
-                <td>{{ c_vip.validade }}</td>
-                <td>{{ c_vip.espectador }}</td>
-                <td>{{ c_vip.assinatura }}</td>
-                <td>
-                    <a href="{% url 'cartao_vip:editar_cartao_vip' c_vip.id %}" >Editar</a>
-                </td>
-                <td>
-                    <a href="{% url 'cartao_vip:deletar_cartao_vip' c_vip.id %}" >Deletar</a>
-                </td>
-            </tr> 
-        {% endfor %}
-    </tbody>
-</table>
+
+<h1>Cartão VIP</h1>
+
+<div id="container-relativo">
+    <a href="{% url 'cartao_vip:criar_cartao_vip' %}"><button id="botao-novo-item">+</button></a>
+</div>
+
+<div id="container-cartas">
+    {% for c_vip in cartao_vip %}
+
+    <div class="item-cartao_vip item-lista">
+        <div class="botoes-de-acao">
+            <a href="{% url 'cartao_vip:editar_cartao_vip' c_vip.id %}"><button class="botao-editar">Editar</button></a>
+            <a href="{% url 'cartao_vip:deletar_cartao_vip' c_vip.id %}"><button class="botao-deletar">Deletar</button></a>
+        </div>
+        <div> <p class="nome-destaque"> {{c_vip.espectador}} - {{ c_vip.codigo_autenticador }}</p></div>
+        
+        <div> <p><span>ID:</span> {{ c_vip.id }} </p></div>
+        <div> <p><span>Codigo Autenticador: </span>{{ c_vip.codigo_autenticador }} </p></div>
+        <div> <p><span>Validade: </span>{{ c_vip.validade }} </p></div>
+        <div> <p><span>Espectador: </span> {{ c_vip.espectador }} </p></div>
+        <div> <p><span>Assinatura: </span>{{ c_vip.assinatura }} </p></div>
+
+
+        
+    </div>
+
+    {% endfor %}
+</div>
+
 
 {% endblock body %}
