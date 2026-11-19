@@ -246,3 +246,14 @@ div.item-evento{
 div.item-evento > div:has(p.nome-destaque){
     border-color: rgb(2, 109, 25);
 }
+
+/* ------------------------------------------------- Cartão VIP ------------------------------------------------- */
+
+div.item-cartao_vip{
+    border-color: rgb(221, 42, 42);
+    background-color: rgba(221, 42, 42, 0.151);
+}
+
+div.item-cartao_vip > div:has(p.nome-destaque){
+    border-color: rgb(221, 42, 42);
+}
