@@ -54,6 +54,25 @@ button.botao-editar{
 
 }
 
+/* Botão fixed voltar para tela inicial */
+
+div#inicial-botao{
+    position: relative;
+    z-index: 3;
+}
+
+div#inicial-botao a, div#inicial-botao button, div#inicial-botao img{
+    position: fixed;
+
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+    top: 25px;
+    right: 25px;
+}
+
+
 /* Tela video */
 
 .subcontainer-tela{

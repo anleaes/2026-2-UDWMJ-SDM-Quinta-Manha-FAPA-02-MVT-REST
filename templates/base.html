@@ -17,6 +17,10 @@
 </head>
 <body>
 
+    <div id="inicial-botao">
+            <a href="{% url 'index:inicial' %}"><button><img src="{% static 'img/homeicon.png' %}"></button></a>
+    </div>
+
     {% block body %}
     
     {% endblock body %}
