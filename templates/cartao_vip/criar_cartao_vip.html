@@ -14,6 +14,15 @@
     
   <h1 id="cartao_vip-h1"> Registrar Cartão VIP </h1>
 
+  <div id="lista-erros">
+    {% for erro in erros_validacao %}
+    <div class="erro-div">
+      <p>{{ erro.0 }}: </p>
+      {{ erro.1 }}
+    </div>
+    {% endfor %}
+  </div>
+
   <div id="form-div">
     <form id="cartao_vip-form" action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
