@@ -217,3 +217,14 @@ div.item-venda{
 div.item-venda > div:has(p.nome-destaque){
     border-color: rgb(199, 216, 50);
 }
+
+/* ------------------------------------------------- Divulgacao Evento ------------------------------------------------- */
+
+div.item-divulgacao_evento{
+    border-color: rgb(145, 145, 145);
+    background-color: rgba(54, 54, 54, 0.151);
+}
+
+div.item-divulgacao_evento > div:has(p.nome-destaque){
+    border-color: rgb(145, 145, 145);
+}
