@@ -29,4 +29,4 @@ class Venda(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return f'{self.ultima_edicao}-{self.status}'
+        return f'{self.funcionario} - R${self.preco_total} - {self.status}'
