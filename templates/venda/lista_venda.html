@@ -23,7 +23,7 @@
 <div id="container-cartas">
     {% for v in venda %}
 
-    <div class="item-assinatura item-lista">
+    <div class="item-venda item-lista">
         <div class="botoes-de-acao">
             <a href="{% url 'venda:editar_venda' v.id %}"><button class="botao-editar">Editar</button></a>
             <a href="{% url 'venda:deletar_venda' v.id %}"><button class="botao-deletar">Deletar</button></a>
