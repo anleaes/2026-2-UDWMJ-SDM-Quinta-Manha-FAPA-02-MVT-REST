@@ -195,3 +195,14 @@ div.item-assinatura > div:has(p.nome-destaque){
 div.item-assinatura li.assinatura-beneficio{
     list-style-position: inside;
 }
+
+/* ------------------------------------------------- Ingresso ------------------------------------------------- */
+
+div.item-ingresso{
+    border-color: rgb(67, 88, 207);
+    background-color: rgba(0, 0, 255, 0.151);
+}
+
+div.item-ingresso > div:has(p.nome-destaque){
+    border-color: rgb(67, 88, 207);
+}
