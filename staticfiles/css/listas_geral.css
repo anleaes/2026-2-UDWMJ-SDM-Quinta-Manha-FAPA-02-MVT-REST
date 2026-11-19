@@ -91,7 +91,9 @@ div.item-lista{
     padding: 10px;
 
     width: fit-content;
+    max-width: 350px;
     height: fit-content;
+    box-sizing: border-box;
     
     border-width: 3px;
     border-style: solid;
@@ -100,6 +102,11 @@ div.item-lista{
 
     border-color: black;
     background-color: rgba(0, 0, 0, 0.055);
+}
+/*em casos de descricao muito longa, quebrar ela dentro do card*/
+div.item-lista p{
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
 div.item-lista > div:has(p.nome-destaque){
@@ -227,4 +234,15 @@ div.item-divulgacao_evento{
 
 div.item-divulgacao_evento > div:has(p.nome-destaque){
     border-color: rgb(145, 145, 145);
+}
+
+/* ------------------------------------------------- Evento ------------------------------------------------- */
+
+div.item-evento{
+    border-color: rgb(2, 109, 25);
+    background-color: rgba(10, 82, 14, 0.151);
+}
+
+div.item-evento > div:has(p.nome-destaque){
+    border-color: rgb(2, 109, 25);
 }
