@@ -45,6 +45,7 @@ form label{
     font-family: monospace;
     font-size: large;
     border-bottom: dotted 1px rgba(0, 0, 0, 0.527);
+    white-space: nowrap;
 }
 
 
@@ -86,7 +87,8 @@ button[type=submit]{
 
 div.func-div-grid{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto 1fr;
+    column-gap: 15px;
 }
 
 
@@ -343,4 +345,46 @@ form#cartao_vip-form{
     border-color: rgb(221, 42, 42);
     box-shadow: 0px 15px rgb(221, 42, 42);
     background-image: linear-gradient(to bottom, rgb(221, 42, 42) 0%, rgb(145, 26, 26) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Cupom ------------------------------------------------- */
+h1#cupom-h1{
+    border-color: rgb(122, 33, 240);
+    box-shadow: inset 0px 8px rgb(122, 33, 240), 0px 10px rgb(122, 33, 240);
+}
+
+form#cupom-form{
+    border-color: rgb(122, 33, 240);
+    box-shadow: 0px 15px rgb(122, 33, 240);
+    background-image: linear-gradient(to bottom, rgb(122, 33, 240) 0%, rgb(82, 20, 163) 50%, rgb(216, 237, 247) 100%); 
+}
+
+form div#id_eventos_validos{
+    margin-top: 10px;
+    height: fit-content;
+    max-height: 25vh;
+
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+    font-size: large;    
+}
+
+form div#id_eventos_validos label{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 0;
+    height: auto;
+    border-bottom: dotted 1px rgba(0,0,0,0.3);
+    padding: 4px;
+    cursor: pointer;    
+}
+
+form div#id_eventos_validos input[type="checkbox"]{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    flex-shrink: 0; 
 }

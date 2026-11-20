@@ -257,3 +257,18 @@ div.item-cartao_vip{
 div.item-cartao_vip > div:has(p.nome-destaque){
     border-color: rgb(221, 42, 42);
 }
+
+/* ------------------------------------------------- Cupom ------------------------------------------------- */
+
+div.item-cupom{
+    border-color: rgb(122, 33, 240);
+    background-color: rgba(102, 30, 150, 0.151);
+}
+
+div.item-cupom > div:has(p.nome-destaque){
+    border-color: rgb(122, 33, 240);
+}
+
+div.item-cupom li.cupom-evento{
+    list-style-position: inside;
+}

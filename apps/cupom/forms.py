@@ -6,5 +6,6 @@ class CupomForm(forms.ModelForm):
         model = Cupom
         exclude = ()
         widgets = {
-            'data_vencimento': forms.DateInput(attrs={"type": "date"})
+            'data_vencimento': forms.DateInput(attrs={"type": "date"}),
+            'eventos_validos': forms.CheckboxSelectMultiple(),
         }
