@@ -29,4 +29,4 @@ class Ingresso(models.Model):
         ordering  =['id']
 
     def __str__(self):
-        return f'{self.espectador} - {self.evento_divulgado} - {self.validado}'
+        return f'{self.espectador.nome} - {self.evento_divulgado} - {self.validado}'
