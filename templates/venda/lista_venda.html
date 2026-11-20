@@ -36,7 +36,17 @@
         <div> <p><span>Preço Total: </span>R$ {{ v.preco_total }} </p></div>
         <div> <p><span>Ultima Edição: </span>{{ v.ultima_edicao }} </p></div>
         <div> <p><span>Status: </span>{{ v.status }} </p></div>
-        <div> <p><span>Ingressos: </span>{{ v.compra.count }} </p></div>
+        <div> 
+            <p><span>Ingressos: </span>{{ v.compra.count }} </p>
+            <ul>
+                {% for ing in v.compra.all %}
+                    <li>{{ ing }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+
         
     </div>
 

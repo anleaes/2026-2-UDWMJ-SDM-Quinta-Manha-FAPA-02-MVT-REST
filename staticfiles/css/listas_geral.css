@@ -116,6 +116,21 @@ div.item-lista > div:has(p.nome-destaque){
     font-weight: bold;
 }
 
+div.item-lista > div:has(ul){
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+div.item-lista ul{
+    margin: 5px 0 0 0;
+    padding-left: 35px;
+    list-style-position: outside;
+}
+
+div.item-lista li{
+    margin-bottom: 3px;
+    overflow-wrap: anywhere;
+}
 
 /* -------------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------- SOBRESCRITA DE CORES -------------------------------------------- */
