@@ -25,6 +25,9 @@ def criar_ingresso(request):
             f.preco_final = calcular_preco_final(f) 
             f.save()
 
+            venda = f.venda
+            venda.async_recalcular_preco_total()
+
             form.save_m2m()
             return redirect('ingresso:lista_ingresso')
         else:
@@ -52,8 +55,11 @@ def editar_ingresso(request, id_ingresso):
         if form.is_valid():
 
             ingresso.preco_final = calcular_preco_final(ingresso)
-            
             form.save()
+
+            venda = ingresso.venda
+            venda.async_recalcular_preco_total()
+
             return redirect('ingresso:lista_ingresso')
         else:
             context['erros_validacao'] = list(form.errors.items())
