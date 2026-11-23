@@ -16,6 +16,11 @@
     <title>{% block title %}Ingresso App{% endblock title %}</title>
 </head>
 <body>
+
+    <div id="inicial-botao">
+            <a href="{% url 'index:inicial' %}"><button><img src="{% static 'img/homeicon.png' %}"></button></a>
+    </div>
+    
     <div id="div-conta-logada">
         {% if user.is_authenticated %}
             <p id="username-logado">Bem Vindo(a) {{ user.username }}</p>
