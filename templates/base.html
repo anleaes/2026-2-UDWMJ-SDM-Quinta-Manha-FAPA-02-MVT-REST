@@ -21,6 +21,7 @@
             <p id="username-logado">Bem Vindo(a) {{ user.username }}</p>
             <p id="nivel-permissoes"> Nível de Permissões: | {% for permissao in user.get_group_permissions %} {{ permissao }} | {% endfor %} </p>
             <a href="{% url 'conta_usuario:desconectar_usuario' %}"><button id="desconectar-conta">Sair</button></a>
+            <a href="{% url 'conta_usuario:trocar_senha_usuario' %}"><button id="trocar-senha-conta">Senha</button></a>
         {% endif %}
     </div>
     

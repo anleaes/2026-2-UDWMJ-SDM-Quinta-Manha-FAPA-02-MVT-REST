@@ -150,7 +150,8 @@ div#div-conta-logada > p#nivel-permissoes  {
     block-size:auto;
 }
 
-div#div-conta-logada > a > button#desconectar-conta{
+div#div-conta-logada > a > button#desconectar-conta,
+div#div-conta-logada > a > button#trocar-senha-conta{
     background-color: red;
     width: 50px;
     height: 20px;
@@ -164,6 +165,15 @@ div#div-conta-logada > a > button#desconectar-conta{
     padding-bottom: 0px;
     margin-top: 0px;
     border-radius: 0px;
+}
+
+div#div-conta-logada > a > button#trocar-senha-conta{
+    background-color: yellow;
+}
+
+div#div-conta-logada > a:has(button#desconectar-conta),
+div#div-conta-logada > a:has(button#trocar-senha-conta){
+    text-decoration: none
 }
 
 
