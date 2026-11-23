@@ -18,9 +18,9 @@
 <body>
     <div id="div-conta-logada">
         {% if user.is_authenticated %}
-            <p>Bem Vindo(a) {{ user.username }}</p>
-            <p> Nível de Permissões: | {% for permissao in user.get_group_permissions %} {{ permissao }} | {% endfor %} </p>
-            <a href="{% url 'conta_usuario:desconectar_usuario' %}"><button>Sair</button></a>
+            <p id="username-logado">Bem Vindo(a) {{ user.username }}</p>
+            <p id="nivel-permissoes"> Nível de Permissões: | {% for permissao in user.get_group_permissions %} {{ permissao }} | {% endfor %} </p>
+            <a href="{% url 'conta_usuario:desconectar_usuario' %}"><button id="desconectar-conta">Sair</button></a>
         {% endif %}
     </div>
     
