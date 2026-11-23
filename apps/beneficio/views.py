@@ -6,7 +6,10 @@ from .forms import BeneficioForm
 
 from rest_framework import viewsets
 from .serializer import BeneficioSerializer
+from django.contrib.auth.decorators import login_required, permission_required
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def criar_beneficio(request: HttpRequest):
     template_name = 'beneficio/criar_beneficio.html'
     context = {}
@@ -29,7 +32,8 @@ def criar_beneficio(request: HttpRequest):
 
     return render(request, template_name, context)
 
-
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def editar_beneficio(request: HttpRequest, beneficio_id: int):
     template_name = 'beneficio/criar_beneficio.html'
     obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
@@ -50,14 +54,16 @@ def editar_beneficio(request: HttpRequest, beneficio_id: int):
     context = { 'form': form}
     return render(request, template_name, context)
 
-
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def listar_beneficios(request: HttpRequest):
     template_name = 'beneficio/listar_beneficios.html'
     beneficios = Beneficio.objects.all()
     context = {'beneficios': beneficios}
     return render(request, template_name, context)
 
-
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def deletar_beneficio(request: HttpRequest, beneficio_id: int):
     obj_beneficio = get_object_or_404(Beneficio, id=beneficio_id)
     obj_beneficio.delete()

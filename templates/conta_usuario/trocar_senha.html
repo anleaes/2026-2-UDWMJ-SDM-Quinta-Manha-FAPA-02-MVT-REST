@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    IngressoApp - Trocar Senha
+{% endblock title %}
+
+{% block metadados_adicionais %}
+        <link rel="stylesheet" href="{% static 'css/conta_usuario/tela_login.css' %}">
+{% endblock metadados_adicionais %}
+    
+{% block body %}
+
+<h1 id="titulo-principal"> <img src="{% static 'img/icone_estrela.png' %}"> IngressoApp <img src="{% static 'img/icone_estrela.png' %}"></h1>
+<h1 id="titulo-principal"> Trocar Senha </h1>
+
+<div id="login-form">
+    <img src="{% static 'img/ticket.png' %}"/>
+    <form action="" method="POST">
+    {% csrf_token %}
+
+    <div>
+        <label>Senha Antiga:</label>
+        {{ form.old_password }}
+    </div>
+    <div>
+        <label>Nova Senha:</label>
+        {{ form.new_password1 }}
+    </div>
+     <div>
+        <label>Confirmar Senha:</label>
+        {{ form.new_password2 }}
+    </div>
+
+    <button type="submit"> <p>Confirmar</p> </button>
+  </form>
+</div>
+
+  <script src="{% static 'js/script.js' %}"></script>
+
+{% endblock body %}
