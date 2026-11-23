@@ -1,40 +1,49 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
   Adicionar Cupom - {{ block.super }}
 {% endblock %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/forms_geral.css' %}">
+{% endblock metadados_adicionais %}
+
 {% block body %}
-  <br />
-  <b>Cadastro de Cupom</b>
-  <br />
-  <br />
+ 
+  <h1 id="cupom-h1">Cupom</h1>
 
-  {% for erro in erros_validacao %}
-    {{ erro.0 }}:
-    {{ erro.1 }}
-    <hr/>
-  {% endfor %}
 
-  <br />
+  <div id="lista-erros">
+    {% for erro in erros_validacao %}
+      <div class="erro-div">
+        <p>{{ erro.0 }}: </p>
+        {{ erro.1 }}
+      </div>
+    {% endfor %}
+  </div>
 
-  <form action="" method="POST" enctype="multipart/form-data">
+  <div id="form-div">
+    <form id="cupom-form" action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <label>Porcentagem de desconto:</label>
-    <br />
-    {{ form.porcentagem_desconto }}
-    <br />
-    <br />
-    <label>Data de Vencimento:</label>
-    <br />
-    {{ form.data_vencimento }}
-    <br />
-    <br />
-    <label>Eventos Validos:</label>
-    <br />
-    {{ form.eventos_validos }}
-    <br />
-    <br />
-    <button type="submit">Salvar</button>
-  </form>
+  
+      <div class="func-div-grid">
+        <div>
+          <label>Porcentagem de desconto:</label>
+          <label>Data de Vencimento::</label>
+          <label>Eventos Validos:</label>
+  
+        </div>
+        <div>
+          {{ form.porcentagem_desconto }}
+          {{ form.data_vencimento }}
+          {{ form.eventos_validos }}
+        </div>
+      </div>
+      
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+
 {% endblock %}

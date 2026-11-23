@@ -4,4 +4,4 @@ from .models import Ingresso
 class IngressoForm(forms.ModelForm):
     class Meta:
             model = Ingresso
-            exclude = ()
+            exclude = ('preco_final',)

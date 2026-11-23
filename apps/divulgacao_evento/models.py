@@ -25,4 +25,4 @@ class Divulgacao_Evento(models.Model):
         ordering  =['id']
 
     def __str__(self):
-        return f'{self.evento}'
+        return f'{self.data} : {self.evento} - R${self.preco_base}'

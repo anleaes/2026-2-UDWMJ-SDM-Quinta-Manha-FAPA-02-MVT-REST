@@ -45,6 +45,7 @@ form label{
     font-family: monospace;
     font-size: large;
     border-bottom: dotted 1px rgba(0, 0, 0, 0.527);
+    white-space: nowrap;
 }
 
 
@@ -86,7 +87,8 @@ button[type=submit]{
 
 div.func-div-grid{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto 1fr;
+    column-gap: 15px;
 }
 
 
@@ -246,16 +248,17 @@ form label#assinatura-beneficio-m2m{
     margin-bottom: 50px;
 }
 
-/* Decisões nem um pouco ideais, porém o formato rígido do html vindo dos widgets complica bastante a estilização!!!! */
+/* Decisões nem um pouco ideais, porém o formato rígido do html vindo dos widgets complica bastante a estilização :| */
 form div#id_beneficios{
+    margin-top: 15px;
     transform: translateY(-5px);
     height: fit-content;
     margin-bottom: 50px;
+    overflow: hidden scroll;
+    max-height: 25vh;
 
 }
 
-/* necessário este asterisco("catch all") porque o django widgets colocou texto puro dento de uma tag, 
-impedindo de capturar de outro jeito :/  */
 form div#id_beneficios{
     display: flex;
     flex-direction:column;
@@ -282,4 +285,106 @@ form#sede-form{
     border-color: #1a9138;
     box-shadow: 0px 15px #1a9138;
     background-image: linear-gradient(to bottom, #1a9138 0%, #68c750 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Ingresso ------------------------------------------------- */
+h1#ingresso-h1{
+    border-color: #2A7B9B;
+    box-shadow: inset 0px 8px #2A7B9B, 0px 10px #2A7B9B;
+}
+
+form#ingresso-form{
+    border-color: #2A7B9B;
+    box-shadow: 0px 15px #2A7B9B;
+    background-image: linear-gradient(to bottom, #2A7B9B 0%, rgb(92, 202, 138) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Venda ------------------------------------------------- */
+h1#venda-h1{
+    border-color: rgb(199, 216, 50);
+    box-shadow: inset 0px 8px rgb(199, 216, 50), 0px 10px rgb(199, 216, 50);
+}
+
+form#venda-form{
+    border-color: rgb(199, 216, 50);
+    box-shadow: 0px 15px rgb(199, 216, 50);
+    background-image: linear-gradient(to bottom, rgb(199, 216, 50) 0%, rgb(195, 202, 92) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Divulgacão Evento ------------------------------------------------- */
+h1#divulgacao_evento-h1{
+    border-color: rgb(145, 145, 145);
+    box-shadow: inset 0px 8px rgb(145, 145, 145), 0px 10px rgb(145, 145, 145);
+}
+
+form#divulgacao_evento-form{
+    border-color: rgb(145, 145, 145);
+    box-shadow: 0px 15px rgb(145, 145, 145);
+    background-image: linear-gradient(to bottom, rgb(145, 145, 145) 0%, rgb(107, 106, 106) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Evento ------------------------------------------------- */
+h1#evento-h1{
+    border-color: rgb(2, 109, 25);
+    box-shadow: inset 0px 8px rgb(2, 109, 25), 0px 10px rgb(2, 109, 25);
+}
+
+form#evento-form{
+    border-color: rgb(2, 109, 25);
+    box-shadow: 0px 15px rgb(2, 109, 25);
+    background-image: linear-gradient(to bottom, rgb(2, 109, 25) 0%, rgb(1, 80, 18) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Cartão VIP ------------------------------------------------- */
+h1#cartao_vip-h1{
+    border-color: rgb(221, 42, 42);
+    box-shadow: inset 0px 8px rgb(221, 42, 42), 0px 10px rgb(221, 42, 42);
+}
+
+form#cartao_vip-form{
+    border-color: rgb(221, 42, 42);
+    box-shadow: 0px 15px rgb(221, 42, 42);
+    background-image: linear-gradient(to bottom, rgb(221, 42, 42) 0%, rgb(145, 26, 26) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Cupom ------------------------------------------------- */
+h1#cupom-h1{
+    border-color: rgb(122, 33, 240);
+    box-shadow: inset 0px 8px rgb(122, 33, 240), 0px 10px rgb(122, 33, 240);
+}
+
+form#cupom-form{
+    border-color: rgb(122, 33, 240);
+    box-shadow: 0px 15px rgb(122, 33, 240);
+    background-image: linear-gradient(to bottom, rgb(122, 33, 240) 0%, rgb(82, 20, 163) 50%, rgb(216, 237, 247) 100%); 
+}
+
+form div#id_eventos_validos{
+    margin-top: 10px;
+    height: fit-content;
+    max-height: 25vh;
+
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+    font-size: large;    
+}
+
+form div#id_eventos_validos label{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 0;
+    height: auto;
+    border-bottom: dotted 1px rgba(0,0,0,0.3);
+    padding: 4px;
+    cursor: pointer;    
+}
+
+form div#id_eventos_validos input[type="checkbox"]{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    flex-shrink: 0; 
 }

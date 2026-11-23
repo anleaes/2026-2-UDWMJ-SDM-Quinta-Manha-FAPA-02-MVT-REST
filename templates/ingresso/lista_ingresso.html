@@ -1,45 +1,47 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 
     Lista de Ingressos - {{ block.super }}
 
 {% endblock title %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/listas_geral.css' %}">
+{% endblock metadados_adicionais %}
+
 {% block body %}
-<br />
-<b>Lista de Ingressos</b>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Espectador</th>
-            <th>Evento Divulgado</th>
-            <th>Cupom Aplicado</th>
-            <th>Venda</th>
-            <th>Validado</th>
-            <th>Preço Final</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for i in ingresso %}
-            <tr>
-                <td>{{ i.id }}</td>
-                <td>{{ i.espectador }}</td>
-                <td>{{ i.evento_divulgado }}</td>
-                <td>{{ i.cupom_aplicado }}</td>
-                <td>{{ i.venda }}</td>
-                <td>{{ i.validado }}</td>
-                <td>{{ i.preco_final }}</td>
-                <td>
-                    <a href="{% url 'ingresso:editar_ingresso' i.id %}" >Editar</a>
-                </td>
-                <td>
-                    <a href="{% url 'ingresso:deletar_ingresso' i.id %}" >Deletar</a>
-                </td>
-            </tr> 
-        {% endfor %}
-    </tbody>
-</table>
+
+<h1>Ingressos</h1>
+
+<div id="container-relativo">
+    <a href="{% url 'ingresso:criar_ingresso' %}"><button id="botao-novo-item">+</button></a>
+</div>
+
+<div id="container-cartas">
+
+    {% for i in ingresso %}
+
+    <div class="item-ingresso item-lista">
+        <div class="botoes-de-acao">
+            <a href="{% url 'ingresso:editar_ingresso' i.id %}"><button class="botao-editar">Editar</button></a>
+            <a href="{% url 'ingresso:deletar_ingresso' i.id %}"><button class="botao-deletar">Deletar</button></a>
+        </div>
+        <div> <p class="nome-destaque"> {{ i.espectador }} - {{i.evento_divulgado}} </p></div>
+    
+        <div> <p><span>ID:</span> {{ i.id }} </p></div>
+        <div> <p><span>Espectador: </span>{{ i.espectador }} </p></div>
+        <div> <p><span>Evento Divulgado: </span>{{ i.evento_divulgado }} </p></div>
+        <div> <p><span>Cupom Aplicado: </span> {{ i.cupom_aplicado }} </p></div>
+        <div> <p><span>Venda: </span> {{ i.venda }} </p></div>
+        <div> <p><span>Validado: </span> {{ i.validado }} </p></div>
+        <div> <p><span>Preço Final: </span>R$ {{ i.preco_final }} </p></div>
+
+    </div>
+
+    {% endfor %}
+</div>
 
 {% endblock body %}

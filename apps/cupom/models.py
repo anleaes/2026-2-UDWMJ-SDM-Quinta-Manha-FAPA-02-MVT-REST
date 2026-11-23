@@ -9,8 +9,8 @@ class Cupom(models.Model):
         'Porcentagem de desconto', 
         blank=False,
         null=False,
-        default=0,
-        validators=[validators.MinValueValidator(0)]
+        default=1,
+        validators=[validators.MinValueValidator(1)]
         )
     data_vencimento=models.DateField('Data de vencimento', auto_now=False)
     eventos_validos=models.ManyToManyField(Evento, verbose_name="Eventos")

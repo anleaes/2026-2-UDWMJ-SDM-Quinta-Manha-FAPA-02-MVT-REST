@@ -1,50 +1,47 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
   Adicionar Venda - {{ block.super }}
 {% endblock %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/forms_geral.css' %}">
+{% endblock metadados_adicionais %}
+
 {% block body %}
-    <br />
-    <b>Cadastro de Venda</b>
-    <br />
-    <br />
+    
+    <h1 id="venda-h1"> Registrar Venda </h1>
 
-    {% for erro in erros_validacao %}
-        {{ erro.0 }}:
-        {{ erro.1 }}
-        <hr/>
-    {% endfor %}
+    <div id="lista-erros">
+        {% for erro in erros_validacao %}
+        <div class="erro-div">
+            <p>{{ erro.0 }}: </p>
+            {{ erro.1 }}
+        </div>
+        {% endfor %}
+    </div>
 
-    <br>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <div id="form-div">
+        <form id="venda-form" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <label>Funcionario:</label>
-        <br />
-        {{ form.funcionario }}
-        <br />
-        <br />
-        <label>Pagador:</label>
-        <br />
-        {{ form.pagador }}
-        <br />
-        <br />
-        <label>Preço Total:</label>
-        <br />
-        {{ form.preco_total }}
-        <br />
-        <br />
-        <label>Ultima Edição:</label>
-        <br />
-        {{ form.ultima_edicao }}
-        <br />
-        <br />
-        <label>Status:</label>
-        <br />
-        {{ form.status }}
-        <br />
-        <br />
-        <button type="submit">Salvar</button>
-    </form>
+
+        <div class="func-div-grid">
+            <div>
+                <label>Funcionario:</label>
+                <label>Pagador:</label>
+
+            </div>
+            <div>
+                {{ form.funcionario }}
+                {{ form.pagador }}
+        </div>
+
+
+    
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
 {% endblock %}

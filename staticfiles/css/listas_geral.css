@@ -91,7 +91,9 @@ div.item-lista{
     padding: 10px;
 
     width: fit-content;
+    max-width: 350px;
     height: fit-content;
+    box-sizing: border-box;
     
     border-width: 3px;
     border-style: solid;
@@ -101,6 +103,11 @@ div.item-lista{
     border-color: black;
     background-color: rgba(0, 0, 0, 0.055);
 }
+/*em casos de descricao muito longa, quebrar ela dentro do card*/
+div.item-lista p{
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
 
 div.item-lista > div:has(p.nome-destaque){
     border-bottom: 3px dashed black;
@@ -109,6 +116,21 @@ div.item-lista > div:has(p.nome-destaque){
     font-weight: bold;
 }
 
+div.item-lista > div:has(ul){
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+div.item-lista ul{
+    margin: 5px 0 0 0;
+    padding-left: 35px;
+    list-style-position: outside;
+}
+
+div.item-lista li{
+    margin-bottom: 3px;
+    overflow-wrap: anywhere;
+}
 
 /* -------------------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------- SOBRESCRITA DE CORES -------------------------------------------- */
@@ -193,5 +215,75 @@ div.item-assinatura > div:has(p.nome-destaque){
 }
 
 div.item-assinatura li.assinatura-beneficio{
+    list-style-position: inside;
+}
+
+/* ------------------------------------------------- Ingresso ------------------------------------------------- */
+
+div.item-ingresso{
+    border-color: rgb(67, 88, 207);
+    background-color: rgba(0, 0, 255, 0.151);
+}
+
+div.item-ingresso > div:has(p.nome-destaque){
+    border-color: rgb(67, 88, 207);
+}
+
+/* ------------------------------------------------- Venda ------------------------------------------------- */
+
+div.item-venda{
+    border-color: rgb(199, 216, 50);
+    background-color: rgba(255, 255, 0, 0.151);
+}
+
+div.item-venda > div:has(p.nome-destaque){
+    border-color: rgb(199, 216, 50);
+}
+
+/* ------------------------------------------------- Divulgacao Evento ------------------------------------------------- */
+
+div.item-divulgacao_evento{
+    border-color: rgb(145, 145, 145);
+    background-color: rgba(54, 54, 54, 0.151);
+}
+
+div.item-divulgacao_evento > div:has(p.nome-destaque){
+    border-color: rgb(145, 145, 145);
+}
+
+/* ------------------------------------------------- Evento ------------------------------------------------- */
+
+div.item-evento{
+    border-color: rgb(2, 109, 25);
+    background-color: rgba(10, 82, 14, 0.151);
+}
+
+div.item-evento > div:has(p.nome-destaque){
+    border-color: rgb(2, 109, 25);
+}
+
+/* ------------------------------------------------- Cartão VIP ------------------------------------------------- */
+
+div.item-cartao_vip{
+    border-color: rgb(221, 42, 42);
+    background-color: rgba(221, 42, 42, 0.151);
+}
+
+div.item-cartao_vip > div:has(p.nome-destaque){
+    border-color: rgb(221, 42, 42);
+}
+
+/* ------------------------------------------------- Cupom ------------------------------------------------- */
+
+div.item-cupom{
+    border-color: rgb(122, 33, 240);
+    background-color: rgba(102, 30, 150, 0.151);
+}
+
+div.item-cupom > div:has(p.nome-destaque){
+    border-color: rgb(122, 33, 240);
+}
+
+div.item-cupom li.cupom-evento{
     list-style-position: inside;
 }

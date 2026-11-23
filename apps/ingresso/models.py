@@ -10,7 +10,7 @@ from venda.models import Venda
 class Ingresso(models.Model):
     espectador = models.ForeignKey(Espectador, on_delete=models.CASCADE)
     evento_divulgado = models.ForeignKey(Divulgacao_Evento, on_delete=models.CASCADE)
-    cupom_aplicado = models.ForeignKey(Cupom, on_delete=models.CASCADE)
+    cupom_aplicado = models.ForeignKey(Cupom, on_delete=models.CASCADE , null=True)
     venda= models.ForeignKey(Venda, on_delete=models.CASCADE, related_name='compra')
     validado = models.BooleanField('Validado', default=False)
     
@@ -29,4 +29,4 @@ class Ingresso(models.Model):
         ordering  =['id']
 
     def __str__(self):
-        return f'{self.validado}'
+        return f'{self.espectador.nome} - {self.evento_divulgado} - {self.validado}'

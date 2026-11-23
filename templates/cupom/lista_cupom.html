@@ -1,46 +1,51 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 
     Lista de Cupons - {{ block.super }}
 
 {% endblock title %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/listas_geral.css' %}">
+{% endblock metadados_adicionais %}
+
 {% block body %}
-<br />
-<b>Lista de Cupons</b>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Porcentagem de desconto</th>
-            <th>Data de vencimento</th>
-            <th>Evento</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for c in cupom %}
-            <tr>
-                <td>{{ c.id }}</td>
-                <td>{{ c.porcentagem_desconto }}</td>
-                <td>{{ c.data_vencimento }}</td>
-                <td>
-                    {% for evento in c.eventos_validos.all %}
-                        {{ evento }}
-                        {% if not forloop.last %}
-                            , 
-                        {% endif %}
-                    {% endfor %}
-                </td>
-                <td>
-                    <a href="{% url 'cupom:editar_cupom' c.id %}" >Editar</a>
-                </td>
-                <td>
-                    <a href="{% url 'cupom:deletar_cupom' c.id %}" >Deletar</a>
-                </td>
-            </tr> 
-        {% endfor %}
-    </tbody>
-</table>
+
+<h1>Cupons</h1>
+
+<div id="container-relativo">
+    <a href="{% url 'cupom:criar_cupom' %}"><button id="botao-novo-item">+</button></a>
+</div>
+
+
+<div id="container-cartas">
+    {% for c in cupom %}
+
+    <div class="item-cupom item-lista">
+        <div class="botoes-de-acao">
+            <a href="{% url 'cupom:editar_cupom' c.id %}"><button class="botao-editar">Editar</button></a>
+            <a href="{% url 'cupom:deletar_cupom' c.id %}"><button class="botao-deletar">Deletar</button></a>
+        </div>
+        <div> <p class="nome-destaque"> {{ assinatura.nome }} </p></div>
+        
+        <div> <p><span>ID:</span> {{ c.id }} </p></div>
+        <div> <p><span>Porcentagem de desconto: </span>{{ c.porcentagem_desconto }} </p></div>
+        <div> <p><span>Data de vencimento: </span>{{ c.data_vencimento }} </p></div>
+        
+
+        <div> <p><span>[ Eventos Válidos ]</span></p></div>
+        <ul>
+            {% for evento in c.eventos_validos.all %}
+                <li class="cupom-evento"> {{ evento }} </li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+
+    {% endfor %}
+</div>
 
 {% endblock body %}

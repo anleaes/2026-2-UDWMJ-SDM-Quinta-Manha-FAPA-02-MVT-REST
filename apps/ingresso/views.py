@@ -4,6 +4,14 @@ from .forms import IngressoForm
 from .models import Ingresso
 from rest_framework import viewsets
 from .serializer import IngressoSerializer
+from decimal import Decimal
+
+
+def calcular_preco_final(ingresso):
+    return (
+        ingresso.evento_divulgado.preco_base * 
+        (Decimal(1) - (Decimal(ingresso.cupom_aplicado.porcentagem_desconto) / Decimal(100)))
+    )
 
 def criar_ingresso(request):
     template_name = 'ingresso/criar_ingresso.html'
@@ -12,7 +20,14 @@ def criar_ingresso(request):
         form = IngressoForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
+            
+
+            f.preco_final = calcular_preco_final(f) 
             f.save()
+
+            venda = f.venda
+            venda.async_recalcular_preco_total()
+
             form.save_m2m()
             return redirect('ingresso:lista_ingresso')
         else:
@@ -38,7 +53,13 @@ def editar_ingresso(request, id_ingresso):
     if request.method == 'POST':
         form = IngressoForm(request.POST, instance=ingresso)
         if form.is_valid():
+
+            ingresso.preco_final = calcular_preco_final(ingresso)
             form.save()
+
+            venda = ingresso.venda
+            venda.async_recalcular_preco_total()
+
             return redirect('ingresso:lista_ingresso')
         else:
             context['erros_validacao'] = list(form.errors.items())

@@ -1,31 +1,49 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
   Adicionar Cartão VIP - {{ block.super }}
 {% endblock %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/forms_geral.css' %}">
+{% endblock metadados_adicionais %}
+
 {% block body %}
-    <br />
-    <b>Cadastro de Cartões VIP</b>
-    <br />
-    <br />
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-    <label>Validade:</label>
-    <br />
-    {{ form.validade }}
-    <br />
-    <br />
-    <label>Espectador:</label>
-    <br />
-    {{ form.espectador }}
-    <br />
-    <br />
-    <label>Assinatura:</label>
-    <br />
-    {{ form.assinatura }}
-    <br />
-    <br />
-    <button type="submit">Salvar</button>
+    
+  <h1 id="cartao_vip-h1"> Registrar Cartão VIP </h1>
+
+  <div id="lista-erros">
+    {% for erro in erros_validacao %}
+    <div class="erro-div">
+      <p>{{ erro.0 }}: </p>
+      {{ erro.1 }}
+    </div>
+    {% endfor %}
+  </div>
+
+  <div id="form-div">
+    <form id="cartao_vip-form" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  
+      <div class="func-div-grid">
+        <div>
+          <label>Validade:</label>
+          <label>Espectador:</label>
+          <label>Assinatura:</label>
+  
+        </div>
+
+        <div>
+          {{ form.validade }}
+          {{ form.espectador }}
+          {{ form.assinatura }}
+        </div>
+      </div>
+      
+      <button type="submit">Salvar</button>
     </form>
+  </div>
+
 {% endblock %}
