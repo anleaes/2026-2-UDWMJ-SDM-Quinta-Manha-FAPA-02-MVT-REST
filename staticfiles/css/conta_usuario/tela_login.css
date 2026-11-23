@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Plano de Fundo */
+body{
+    background-image: url("../../img/cinema_bg_pattern.jpg");
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    
+    height: 100vh;
+    width: auto;
+}
+
+/* Imagens */
+
+img{
+    width: 50px;
+}
+
+div#login-form  > img{
+    width: 80px;
+}
+
+/* - = - = - = - Forms - = - = - = -  */
+
+label{
+    font-weight: bold;
+}
+
+input{
+    padding: 5px;
+}
+
+
+form{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* div que agrega Label + Input */
+
+form > div{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Botão Login */
+
+button{
+    text-align: center;
+
+    display: flex;
+    align-self: center;
+    justify-self: center;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    border-radius: 10px;
+    background-image: linear-gradient(#FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, #a88124 80%);
+}
+
+/* foi necessário esse <p> dentro do button porque não estava centralizando o texto */
+
+button > p{
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+}
+
+h1{
+    background-image: linear-gradient(#FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, #a88124 80%);
+    color: transparent;
+    background-clip: text; /* o texto em si perde a cor mas serve de clipping mask pro background, fazendo parecer que o texto tem gradiente */
+    
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+h1#titulo-principal{
+    font-size: 70px;
+}
+
+
+/* Div que contém o formulário de login */
+
+div#login-form  > h1{
+    margin-bottom: 35px;
+}
+
+
+div#login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+
+    padding: 50px;
+
+    background-color: rgba(255, 255, 255);
+
+    width: 400px;
+    height: auto;
+    
+}

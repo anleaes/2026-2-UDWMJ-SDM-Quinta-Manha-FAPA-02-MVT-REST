@@ -7,42 +7,44 @@
 {% endblock %}
 
 {% block metadados_adicionais %}
-    <link rel="stylesheet" href="{% static 'css/assinatura/criar_assinatura.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms_geral.css' %}">
 {% endblock metadados_adicionais %}
 
 {% block body %}
 <!-- ------------------------- -->
-<h1> Registrar Assinatura </h1>
+<h1 id="assinatura-h1"> Registrar Assinatura </h1>
 
-<div>
-  <form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+<div id="lista-erros">
+{% for erro in erros_validacao %}
+<div class="erro-div">
+  <p>{{ erro.0 }}: </p>
+  {{ erro.1 }}
+</div>
+{% endfor %}
+</div>
 
-    <div>
-      <label>Ícone:</label>
-      {{ form.icone }}
+<div id="form-div">
+  <form id="assinatura-form" action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+    <div class="func-div-grid">
+      <div>
+        <label>Ícone:</label>
+        <label>Nome:</label>
+        <label>Custo Mensal (R$):</label>
+        <label id="assinatura-beneficio-m2m">Benefícios:</label>
+        <label>Descrição:</label>
+
+      </div>
+      <div>
+        {{ form.icone }}
+        {{ form.nome }}
+        {{ form.custo_mensal }}
+        {{ form.beneficios }}
+        {{ form.descricao }}
+      </div>
     </div>
-
-    <div>
-      <label>Nome:</label>
-      {{ form.nome }}
-    </div>
-
-     <div>
-      <label>Descrição:</label>
-      {{ form.descricao }}
-    </div>
-
-    <div>
-      <label>Custo Mensal (R$):</label>
-      {{ form.custo_mensal }}
-    </div>
-
-    <div>
-      <label>Benefícios:</label>
-      {{ form.beneficios }}
-    </div>
-
+    
     <button type="submit" id="criar-assinatura">Salvar</button>
   </form>
 </div>

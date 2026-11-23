@@ -19,6 +19,10 @@ def criar_espectador(request: HttpRequest):
             obj_espectador.save()
             form.save_m2m()
             return redirect('espectador:listar_espectadores')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = EspectadorForm(request.POST)
+            return render(request, template_name, context)
 
     form = EspectadorForm()
     context = {
@@ -37,12 +41,17 @@ def listar_espectadores(request: HttpRequest):
 def editar_espectador(request: HttpRequest, espectador_id: int):
     template_name = 'espectador/criar_espectador.html'
     obj_espectador = get_object_or_404(Espectador, id=espectador_id)
+    context = {}
 
     if request.method == 'POST':
         form = EspectadorForm(request.POST, instance=obj_espectador)
         if form.is_valid():
             form.save()
             return redirect('espectador:listar_espectadores')
+        else:
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = EspectadorForm(request.POST)
+            return render(request, template_name, context)
 
     form = EspectadorForm(instance=obj_espectador)
     context = { 'form': form}

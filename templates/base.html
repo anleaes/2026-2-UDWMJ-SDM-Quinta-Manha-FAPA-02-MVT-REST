@@ -20,7 +20,18 @@
     <div id="inicial-botao">
             <a href="{% url 'index:inicial' %}"><button><img src="{% static 'img/homeicon.png' %}"></button></a>
     </div>
+    
+    <div>
+        {% if user.is_authenticated %}
+            <p>Bem Vindo(a) {{ user.username }}</p>
+            {% for permissao in user.get_group_permissions %}
+                <p> Nível de Permissões: {{ permissao }} </p>
+            {% endfor %}
 
+            <a href="{% url 'conta_usuario:desconectar_usuario' %}"><button>Sair</button></a>
+        {% endif %}
+    </div>
+    
     {% block body %}
     
     {% endblock body %}

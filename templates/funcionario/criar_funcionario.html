@@ -7,76 +7,55 @@
 {% endblock %}
 
 {% block metadados_adicionais %}
-        <link rel="stylesheet" href="{% static 'css/funcionario/criar_funcionario.css' %}">
+        <link rel="stylesheet" href="{% static 'css/forms_geral.css' %}">
 {% endblock metadados_adicionais %}
 
 {% block body %}
 <!-- ------------------------- -->
-<h1> Registrar Funcionário </h1>
+<h1 id="funcionario-h1"> Registrar Funcionário </h1>
 
+<div id="lista-erros">
 {% for erro in erros_validacao %}
-  {{ erro.0 }}:
+<div class="erro-div">
+  <p>{{ erro.0 }}: </p>
   {{ erro.1 }}
-  <hr/>
+</div>
 {% endfor %}
+</div>
 
-
-<div>
-  <form action="" method="POST">
+<div id="form-div">
+  <form id=funcionario-form action="" method="POST">
     {% csrf_token %}
+    <div class="func-div-grid">
+      <div>
+        <label>Nome:</label>
+        <label>Data de Nascimento:</label>
+        <label>Telefone:</label>
+        <label>Email:</label>
+        <label>Gênero:</label>
+        <label>Cargo:</label>
+        <label>Local de Trabalho:</label>
+        <label>Turno de trabalho:</label>
+        <label>Salário:</label>
+        <label>Fator Comissão:</label>
+      </div>
 
-    <div>
-      <label>Nome:</label>
-      {{ form.nome }}
+      <div> 
+        {{ form.nome }}
+        {{ form.data_nascimento }}
+        {{ form.telefone }}
+        {{ form.email }}
+        {{ form.genero }}
+        {{ form.cargo }}
+        {{ form.sede_de_trabalho }}
+        {{ form.turno_trabalho }}
+        {{ form.salario }}
+        {{ form.multiplicador_comissao }}
+      </div>
     </div>
 
-    <div> 
-      <label>Data de Nascimento:</label>
-      {{ form.data_nascimento }}
-    </div>
-
-    <div>
-      <label>Telefone:</label>
-      {{ form.telefone }}
-    </div>
-
-    <div>
-      <label>Email:</label>
-      {{ form.email }}
-    </div>
-
-    <div>
-      <label>Gênero:</label>
-      {{ form.genero }}
-    </div>
-
-    <div>
-      <label>Cargo:</label>
-      {{ form.cargo }}
-    </div>
-
-    <div>
-      <label>Local de Trabalho:</label>
-      {{ form.sede_de_trabalho }}
-    </div>
-
-    <div>
-      <label>Turno de trabalho:</label>
-      {{ form.turno_trabalho }}
-    </div>
-
-    <div>
-      <label>Salário:</label>
-      {{ form.salario }}
-    </div>
-
-    <div>
-      <label>Fator Comissão:</label>
-      {{ form.multiplicador_comissao }}
-    </div>
-  
-    <button type="submit" id="criar-funcionario">Salvar</button>
-  </form>
+      <button type="submit" id="criar-funcionario">Salvar</button>
+    </form>
 </div>
 
 <!-- ------------------------- -->

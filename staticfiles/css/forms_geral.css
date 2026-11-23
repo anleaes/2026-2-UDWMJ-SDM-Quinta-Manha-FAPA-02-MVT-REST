@@ -1,0 +1,390 @@
+body{
+    background-image: url("../img/bg_padrao.jpg");
+}
+
+h1{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    justify-self: center;
+
+    font-family: Impact;
+    font-weight: 100;
+    text-shadow: 0px 3px rgb(117, 116, 116);
+
+    border: solid black 5px;
+    border-radius: 5%;
+    border-bottom: none;
+    box-shadow: inset 0px 8px black, 0px 10px black;
+    
+    background-color: white;
+
+    padding: 10px
+}
+
+form{
+    /* margin-top: 5vh; */
+    justify-self: center;
+    
+    border-radius: 5%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+
+    box-shadow: 0px 15px black;
+    
+    padding: 10px;
+
+    /* background-image: linear-gradient(125deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%); */
+    background-image: linear-gradient(to bottom,rgb(0, 0, 0) 0%, rgb(216, 237, 247) 100%);
+}
+
+form label{
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: large;
+    border-bottom: dotted 1px rgba(0, 0, 0, 0.527);
+    white-space: nowrap;
+}
+
+
+form input, form select, form textarea{
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+
+    /* border-radius: 100px; */
+    border-style: none;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+form label, form input, form select{
+    height: 25px;
+}
+
+form input:hover, form select:hover, form textarea:hover{
+    width: 200%;
+    transform: translateX(-50%);
+}
+
+
+/* Sobrescrita de comportamente para Evitar 
+a checkbox "fugir" do mouse */
+form input[type=checkbox]:hover, input[type=file]:hover{
+    transform: translateX(0px);
+    width: 100%;
+}
+
+form > div{
+    margin-bottom: 10px;
+}
+
+button[type=submit]{
+    width: 200px;
+    height: 50px;
+}
+
+div.func-div-grid{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 15px;
+}
+
+
+
+form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    justify-self: center;
+    align-self: center;
+    font-weight: 1000;
+
+    /* background-color: goldenrod; */
+    /* background-image: linear-gradient(#FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, #a88124 80%); */
+    color: black;
+
+    border-color: grey;
+    border-radius: 25%;
+    border-style: double;
+
+    /* background-image: linear-gradient(135deg, #25272b 0%, #868f9f 33%, #42474e 67%, #979ca6 100%); */
+    background-image: linear-gradient(135deg, #42474e 0%, #979ca6 25%, #868f9f 50%,  #42474e 75%, #979ca6 100%);
+
+    background-size: 100%;
+    transition: background-size 0.3s ease-out;
+}
+
+form button:hover{
+    transform: translateY(-8px);
+    box-shadow: 0px 8px grey;
+
+    background-size: 150%;
+}
+
+form button:active{
+    opacity: 75%;
+    transform: none;
+    box-shadow: none;
+}
+
+div#lista-erros{
+    transition: background-color 0.4s ease;
+
+    width: fit-content;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+
+div#lista-erros:has(*){
+    border: solid red 3px;
+    background-color: rgba(255, 0, 0, 0.295);
+    animation: erro-pisca-pisca 0.8s linear 0s 3;
+}
+
+div.erro-div{
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+
+    font-weight: bold;
+
+}
+
+div.erro-div ul{
+     list-style-type: none;
+}
+
+@keyframes erro-pisca-pisca {
+    0% { background-color: rgba(255, 0, 0, 0.295); }
+    50% { background-color: rgba(255, 0, 0, 0.705); }
+    100% { background-color: rgba(255, 0, 0, 0.295); }
+}
+
+
+/* ------------------------------------------------------------------- */
+/* - = - = - = - = - = -  SOBRESCRITAS DE CORES - = - = - = - = - = - */
+/* ------------------------------------------------------------------- */
+
+
+/* FORMATAÇÃO PADRÃO
+
+h1#<<nomeapp-h1>>{
+    border-color: <Cor-identidade-do-app-aqui> ;
+    box-shadow: inset 0px 8px <Cor-identidade-do-app-aqui>, 0px 10px <Cor-identidade-do-app-aqui>;
+}
+
+form#<<nomeapp-form>>{
+    border-color: <Cor-identidade-do-app-aqui>;
+    box-shadow: 0px 15px <Cor-identidade-do-app-aqui>;
+    background-image: linear-gradient(to bottom, <Cor-identidade-do-app-aqui> 0%, <<COR MEDIANA AQUI>> 50%, rgb(216, 237, 247) 100%); 
+                                                                        deixar esse último com essa cor branca -------^
+}
+
+*/
+
+
+/* ------------------------------------------------- Funcionario ------------------------------------------------- */
+h1#funcionario-h1{
+    border-color: #2A7B9B;
+    box-shadow: inset 0px 8px #2A7B9B, 0px 10px #2A7B9B;
+}
+
+form#funcionario-form{
+    border-color: #2A7B9B;
+    box-shadow: 0px 15px #2A7B9B;
+    background-image: linear-gradient(to bottom, #2A7B9B 0%, rgb(92, 202, 138) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Espectador ------------------------------------------------- */
+h1#espectador-h1{
+    border-color: #ca8f22;
+    box-shadow: inset 0px 8px #ca8f22, 0px 10px #ca8f22;
+}
+
+form#espectador-form{
+    border-color: #ca8f22;
+    box-shadow: 0px 15px #ca8f22;
+    background-image: linear-gradient(to bottom, #ca8f22 0%, #c7b654 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Beneficio ------------------------------------------------- */
+h1#beneficio-h1{
+    border-color: #aa3ed4;
+    box-shadow: inset 0px 8px #aa3ed4, 0px 10px #aa3ed4;
+}
+
+form#beneficio-form{
+    border-color: #aa3ed4;
+    box-shadow: 0px 15px #aa3ed4;
+    background-image: linear-gradient(to bottom, #aa3ed4 0%, #d75fdb 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Assinatura ------------------------------------------------- */
+h1#assinatura-h1{
+    border-color: #e43636;
+    box-shadow: inset 0px 8px #e43636, 0px 10px #e43636;
+}
+
+form#assinatura-form{
+    border-color: #e43636;
+    box-shadow: 0px 15px #e43636;
+    background-image: linear-gradient(to bottom, #e43636 0%, #f0985e 50%, rgb(216, 237, 247) 100%); 
+}
+
+form label#assinatura-beneficio-m2m{
+    height: 25vh;
+    margin-bottom: 50px;
+}
+
+/* Decisões nem um pouco ideais, porém o formato rígido do html vindo dos widgets complica bastante a estilização :| */
+form div#id_beneficios{
+    margin-top: 15px;
+    transform: translateY(-5px);
+    height: fit-content;
+    margin-bottom: 50px;
+    overflow: hidden scroll;
+    max-height: 25vh;
+
+}
+
+form div#id_beneficios{
+    display: flex;
+    flex-direction:column;
+    font-size: large;    
+}
+
+/* form div#id_beneficios label{
+    background-color: #1a91384f;
+} */
+
+/* Forma não ideal de forçar o checkbox a ficar no canto do forms */
+div#id_beneficios input[type=checkbox]{
+    transform: translate(100px, 25px);
+}
+
+/* ------------------------------------------------- Sede ------------------------------------------------- */
+
+h1#sede-h1{
+    border-color: #1a9138;
+    box-shadow: inset 0px 8px #1a9138, 0px 10px #1a9138;
+}
+
+form#sede-form{
+    border-color: #1a9138;
+    box-shadow: 0px 15px #1a9138;
+    background-image: linear-gradient(to bottom, #1a9138 0%, #68c750 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Ingresso ------------------------------------------------- */
+h1#ingresso-h1{
+    border-color: #2A7B9B;
+    box-shadow: inset 0px 8px #2A7B9B, 0px 10px #2A7B9B;
+}
+
+form#ingresso-form{
+    border-color: #2A7B9B;
+    box-shadow: 0px 15px #2A7B9B;
+    background-image: linear-gradient(to bottom, #2A7B9B 0%, rgb(92, 202, 138) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Venda ------------------------------------------------- */
+h1#venda-h1{
+    border-color: rgb(199, 216, 50);
+    box-shadow: inset 0px 8px rgb(199, 216, 50), 0px 10px rgb(199, 216, 50);
+}
+
+form#venda-form{
+    border-color: rgb(199, 216, 50);
+    box-shadow: 0px 15px rgb(199, 216, 50);
+    background-image: linear-gradient(to bottom, rgb(199, 216, 50) 0%, rgb(195, 202, 92) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Divulgacão Evento ------------------------------------------------- */
+h1#divulgacao_evento-h1{
+    border-color: rgb(145, 145, 145);
+    box-shadow: inset 0px 8px rgb(145, 145, 145), 0px 10px rgb(145, 145, 145);
+}
+
+form#divulgacao_evento-form{
+    border-color: rgb(145, 145, 145);
+    box-shadow: 0px 15px rgb(145, 145, 145);
+    background-image: linear-gradient(to bottom, rgb(145, 145, 145) 0%, rgb(107, 106, 106) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Evento ------------------------------------------------- */
+h1#evento-h1{
+    border-color: rgb(2, 109, 25);
+    box-shadow: inset 0px 8px rgb(2, 109, 25), 0px 10px rgb(2, 109, 25);
+}
+
+form#evento-form{
+    border-color: rgb(2, 109, 25);
+    box-shadow: 0px 15px rgb(2, 109, 25);
+    background-image: linear-gradient(to bottom, rgb(2, 109, 25) 0%, rgb(1, 80, 18) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Cartão VIP ------------------------------------------------- */
+h1#cartao_vip-h1{
+    border-color: rgb(221, 42, 42);
+    box-shadow: inset 0px 8px rgb(221, 42, 42), 0px 10px rgb(221, 42, 42);
+}
+
+form#cartao_vip-form{
+    border-color: rgb(221, 42, 42);
+    box-shadow: 0px 15px rgb(221, 42, 42);
+    background-image: linear-gradient(to bottom, rgb(221, 42, 42) 0%, rgb(145, 26, 26) 50%, rgb(216, 237, 247) 100%); 
+}
+
+/* ------------------------------------------------- Cupom ------------------------------------------------- */
+h1#cupom-h1{
+    border-color: rgb(122, 33, 240);
+    box-shadow: inset 0px 8px rgb(122, 33, 240), 0px 10px rgb(122, 33, 240);
+}
+
+form#cupom-form{
+    border-color: rgb(122, 33, 240);
+    box-shadow: 0px 15px rgb(122, 33, 240);
+    background-image: linear-gradient(to bottom, rgb(122, 33, 240) 0%, rgb(82, 20, 163) 50%, rgb(216, 237, 247) 100%); 
+}
+
+form div#id_eventos_validos{
+    margin-top: 10px;
+    height: fit-content;
+    max-height: 25vh;
+
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+    font-size: large;    
+}
+
+form div#id_eventos_validos label{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 0;
+    height: auto;
+    border-bottom: dotted 1px rgba(0,0,0,0.3);
+    padding: 4px;
+    cursor: pointer;    
+}
+
+form div#id_eventos_validos input[type="checkbox"]{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    flex-shrink: 0; 
+}

@@ -1,57 +1,56 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 
     Lista de Vendas - {{ block.super }}
 
 {% endblock title %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/listas_geral.css' %}">
+{% endblock metadados_adicionais %}
+
 {% block body %}
-<br />
-<b>Lista de Vendas</b>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Funcionario</th>
-            <th>Pagador</th>
-            <th>Preço Total</th>
-            <th>Ultima Edição</th>
-            <th>Status</th>
-            <th>Ingressos</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for v in venda %}
-            <tr>
-                <td>{{ v.id }}</td>
-                <td>{{ v.funcionario }}</td>
-                <td>{{ v.pagador }}</td>
-                <td>{{ v.preco_total }}</td>
-                <td>{{ v.ultima_edicao }}</td>
-                <td>{{ v.status }}</td>
-                <td>
 
-                    {{ v.compra.count }}
+<h1>Vendas</h1>
 
-                    <!-- {% for ing in v.compra.all %}
-                        {{ ing.validado }}
+<div id="container-relativo">
+    <a href="{% url 'venda:criar_venda' %}"><button id="botao-novo-item">+</button></a>
+</div>
 
-                        {% empty %}
-                            Vazio
+<div id="container-cartas">
+    {% for v in venda %}
 
-                    {% endfor %} -->
+    <div class="item-venda item-lista">
+        <div class="botoes-de-acao">
+            <a href="{% url 'venda:editar_venda' v.id %}"><button class="botao-editar">Editar</button></a>
+            <a href="{% url 'venda:deletar_venda' v.id %}"><button class="botao-deletar">Deletar</button></a>
+        </div>
+        <div> <p class="nome-destaque"> {{ v.pagador }} - R${{v.preco_total}} </p></div>
+        
+        <div> <p><span>ID:</span> {{ v.id }} </p></div>
+        <div> <p><span>Funcionario: </span>{{ v.funcionario }} </p></div>
+        <div> <p><span>Pagador: </span>{{ v.pagador }} </p></div>
+        <div> <p><span>Preço Total: </span>R$ {{ v.preco_total }} </p></div>
+        <div> <p><span>Ultima Edição: </span>{{ v.ultima_edicao }} </p></div>
+        <div> <p><span>Status: </span>{{ v.status }} </p></div>
+        <div> 
+            <p><span>Ingressos: </span>{{ v.compra.count }} </p>
+            <ul>
+                {% for ing in v.compra.all %}
+                    <li>{{ ing }}</li>
+                {% endfor %}
+            </ul>
+        </div>
 
-                </td>
-                <td>
-                    <a href="{% url 'venda:editar_venda' v.id %}" >Editar</a>
-                </td>
-                <td>
-                    <a href="{% url 'venda:deletar_venda' v.id %}" >Deletar</a>
-                </td>
-            </tr> 
-        {% endfor %}
-    </tbody>
-</table>
+
+
+        
+    </div>
+
+    {% endfor %}
+</div>
 
 {% endblock body %}

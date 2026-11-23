@@ -16,6 +16,11 @@ def criar_cartao_vip(request):
             f.save()
             form.save_m2m()
             return redirect('cartao_vip:lista_cartao_vip')
+        else:
+            # items() retorna um dict_items inconveniente de manipular, converte-se pra <<Lista de Tuplas>> list()
+            context['erros_validacao'] = list(form.errors.items())
+            context['form'] = Cartao_VipForm(request.POST)
+            return render(request, template_name, context)
     form = Cartao_VipForm()
     context['form'] = form
     return render(request, template_name, context)

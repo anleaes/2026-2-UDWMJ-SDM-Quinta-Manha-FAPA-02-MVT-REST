@@ -1,44 +1,43 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
   Lista de Eventos - {{ block.super }}
 {% endblock %}
 
+{% block metadados_adicionais %}
+    <link rel="stylesheet" href="{% static 'css/listas_geral.css' %}">
+{% endblock metadados_adicionais %}
+
 {% block body %}
-  <br />
-  <b>Lista de Eventos</b>
-  <br />
-  <br />
-  <table border="1">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Descricao</th>
-        <th>Regras</th>
-        <th>Banner</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for evento in eventos %}
-        <tr>
-          <th>{{ evento.id }}</th>
-          <td>{{ evento.nome }}</td>
-          <td>{{ evento.descricao }}</td>
-          <td>
-            <a href="{{ evento.regras.url }}">{{ evento.regras.url }}</a>
-          </td>
-          <td>
-            <img src="{{ evento.banner.url }}" width="80">
-          </td>
-          <td>
-            <a href="{% url 'evento:editar_evento' evento.id %}" >Editar</a>
-          </td>
-          <td>
-            <a href="{% url 'evento:deletar_evento' evento.id %}" >Deletar</a>
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  
+  <h1>Eventos</h1>
+
+
+  <div id="container-relativo">
+    <a href="{% url 'evento:criar_evento' %}"><button id="botao-novo-item">+</button></a>
+  </div>  
+
+  <div id="container-cartas">
+    {% for e in eventos %}
+
+    <div class="item-evento item-lista">
+        <div class="botoes-de-acao">
+            <a href="{% url 'evento:editar_evento' e.id %}"><button class="botao-editar">Editar</button></a>
+            <a href="{% url 'evento:deletar_evento' e.id %}"><button class="botao-deletar">Deletar</button></a>
+        </div>
+        <div> <p class="nome-destaque"> {{ e.nome }} </p></div>
+        
+        <div> <p><span>ID:</span> {{ e.id }} </p></div>
+        <div> <p><span>Nome: </span>{{ e.nome }} </p></div>
+        <div> <p><span>Banner: </span><a href="{{ e.banner.url }}"><img src="{{ e.banner.url }}" width="80"></a> </p></div>
+        <div> <p><span>Regras: </span> <a href="{{ e.regras.url }}">{{ e.regras.url }}</a> </p></div>
+        <div> <p><span>Descricao: </span>{{ e.descricao }} </p></div>
+
+    </div>
+
+    {% endfor %}
+  </div>
+
 {% endblock %}

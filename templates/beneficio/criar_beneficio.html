@@ -7,28 +7,40 @@
 {% endblock %}
 
 {% block metadados_adicionais %}
-    <link rel="stylesheet" href="{% static 'css/beneficio/criar_beneficio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms_geral.css' %}">
 {% endblock metadados_adicionais %}
 
 
 {% block body %}
 <!-- ------------------------- -->
-<h1> Registrar Benefício </h1>
+<h1 id="beneficio-h1"> Registrar Benefício </h1>
 
-<div>
-  <form action="" method="POST">
+<div id="lista-erros">
+{% for erro in erros_validacao %}
+<div class="erro-div">
+  <p>{{ erro.0 }}: </p>
+  {{ erro.1 }}
+</div>
+{% endfor %}
+</div>
+
+<div id="form-div">
+  <form id="beneficio-form" action="" method="POST">
     {% csrf_token %}
 
-    <div>
-      <label>Nome:</label>
-      {{ form.nome }}
-    </div>
+    <div class="func-div-grid">
 
-     <div>
-      <label>Descrição:</label>
-      {{ form.descricao }}
-    </div>
+        <div>
+          <label>Nome:</label>
+          <label>Descrição:</label>
+        </div>
+        <div>
+          {{ form.nome }}
+          {{ form.descricao }}
+        </div>
 
+    </div>
+    
     <button type="submit" id="criar-beneficio">Salvar</button>
   </form>
 </div>
