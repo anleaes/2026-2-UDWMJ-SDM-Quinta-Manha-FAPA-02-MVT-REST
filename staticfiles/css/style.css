@@ -104,26 +104,6 @@ button.botao-editar{
     line-height: 1.5;
 }
 
-
-/* Módulo conta logada */
-div#div-conta-logada{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5%;
-    border-bottom: solid 2px lightslategray;
-}
-
-div#div-conta-logada > p{
-    block-size:auto;
-}
-
-div#div-conta-logada button{
-    background-color: red;
-    width: 50px;
-    height: 20px;
-}
-
 .entidade-div {
     display: flex;
     width: 100%;
@@ -154,6 +134,26 @@ div#div-conta-logada button{
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 
 }
+
+/* Módulo conta logada */
+div#div-conta-logada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    border-bottom: solid 2px lightslategray;
+}
+
+div#div-conta-logada > p{
+    block-size:auto;
+}
+
+div#div-conta-logada button{
+    background-color: red;
+    width: 50px;
+    height: 20px;
+}
+
 
 /* Específico */
 #sede {

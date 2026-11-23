@@ -87,7 +87,10 @@ def editar_funcionario(request: HttpRequest, funcionario_id: int):
 @permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def deletar_funcionario(request: HttpRequest, funcionario_id: int):
     obj_funcionario = get_object_or_404(Funcionario, id=funcionario_id)
+
+    User.objects.filter(username=obj_funcionario.nome).delete()
     obj_funcionario.delete()
+    
     return redirect('funcionario:listar_funcionarios')
 
 
