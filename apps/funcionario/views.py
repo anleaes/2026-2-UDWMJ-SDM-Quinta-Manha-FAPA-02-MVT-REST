@@ -65,12 +65,19 @@ def listar_funcionarios(request: HttpRequest):
 def editar_funcionario(request: HttpRequest, funcionario_id: int):
     template_name = 'funcionario/criar_funcionario.html'
     context = {}
+
     obj_funcionario = get_object_or_404(Funcionario, id=funcionario_id)
+    username_antigo = obj_funcionario.nome
 
     if request.method == 'POST':
         form = FuncionarioForm(request.POST, instance=obj_funcionario)
         if form.is_valid():
-            form.save()
+            obj_funcionario = form.save()
+
+            funcionario_user = User.objects.get(username=username_antigo)
+            funcionario_user.username = obj_funcionario.nome
+            funcionario_user.save()
+
             return redirect('funcionario:listar_funcionarios')
         else:
             context['erros_validacao'] = list(form.errors.items())
@@ -90,7 +97,7 @@ def deletar_funcionario(request: HttpRequest, funcionario_id: int):
 
     User.objects.filter(username=obj_funcionario.nome).delete()
     obj_funcionario.delete()
-    
+
     return redirect('funcionario:listar_funcionarios')
 
 
