@@ -35,7 +35,7 @@ def tela_erro_autorizacao(request):
 
 @login_required(login_url='/conta/login/')
 def trocar_senha_usuario(request):
-    template_name = 'conta/trocar_senha.html'
+    template_name = 'conta_usuario/trocar_senha.html'
     context = {}
     if request.method == 'POST':
         form = PasswordChangeForm(user=request.user, data=request.POST)
