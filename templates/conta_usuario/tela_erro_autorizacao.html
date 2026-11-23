@@ -1,0 +1,29 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ERRO AUTORIZACAO</title>
+    <link rel="stylesheet" href="{% static 'css/conta_usuario/tela_erro_autorizacao.css' %}">
+</head>
+<body>
+
+    <div id="container-geral">
+        <div id="header">
+            <img src="{% static 'img/atencaoicone.png' %}">
+            <h1> Erro de Autorização - 403 Forbidden </h1>
+        </div>
+        <p> Você tentou acessar uma página ou executar uma ação da qual não possui permissão o suficiente </p>
+        <hr/>
+
+        <a href="{% url 'conta_usuario:login_usuario' %}"><p> Voltar para tela de login</p></a>
+    </div>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

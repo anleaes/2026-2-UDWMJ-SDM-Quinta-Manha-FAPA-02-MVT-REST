@@ -6,7 +6,10 @@ from .forms import SedeForm
 
 from rest_framework import viewsets
 from .serializer import SedeSerializer
+from django.contrib.auth.decorators import login_required, permission_required
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def criar_sede(request: HttpRequest):
     template_name = 'sede/criar_sede.html'
     context = {}
@@ -27,7 +30,8 @@ def criar_sede(request: HttpRequest):
     context['form'] = form
     return render(request, template_name, context)
 
-
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_atendente', login_url='/conta/nao_autorizado')
 def listar_sedes(request: HttpRequest):
     template_name = 'sede/listar_sedes.html'
 
@@ -38,6 +42,8 @@ def listar_sedes(request: HttpRequest):
 
     return render(request, template_name, context)
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def editar_sede(request: HttpRequest, sede_id: int):
     template_name = 'sede/criar_sede.html'
     context = {}
@@ -58,6 +64,8 @@ def editar_sede(request: HttpRequest, sede_id: int):
     context['form'] = form
     return render(request, template_name, context)
 
+@login_required(login_url='/conta/nao_autorizado')
+@permission_required('pessoa.acesso_gerente', login_url='/conta/nao_autorizado')
 def deletar_sede(request: HttpRequest, sede_id: int):
     sede = get_object_or_404(Sede, id=sede_id)
     sede.delete()
