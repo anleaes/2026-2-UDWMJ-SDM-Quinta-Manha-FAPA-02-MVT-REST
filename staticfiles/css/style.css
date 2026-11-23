@@ -70,8 +70,29 @@ div#inicial-botao a, div#inicial-botao button, div#inicial-botao img{
 
     top: 25px;
     right: 25px;
+
+    text-align: center;
+    display: inherit;
+    align-self: inherit;
+    justify-self: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    margin-top: inherit;
+    border-style:outset;
+    border-width: 2px;
+    background-image: inherit;
 }
 
+div#inicial-botao button:hover{
+    cursor: pointer;
+    scale: inherit;
+}
+
+div#inicial-botao button:active{
+    border-style: none;
+    border-width: 0px;
+    opacity: 85%;
+}
 
 /* Tela video */
 
