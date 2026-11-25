@@ -72,6 +72,10 @@ def editar_ingresso(request, id_ingresso):
 def deletar_ingresso(request, id_ingresso):
     ingresso = Ingresso.objects.get(id=id_ingresso)
     ingresso.delete()
+
+    venda = ingresso.venda
+    venda.async_recalcular_preco_total()
+
     return redirect('ingresso:lista_ingresso')
 
 class IngressoViewSet(viewsets.ModelViewSet):
