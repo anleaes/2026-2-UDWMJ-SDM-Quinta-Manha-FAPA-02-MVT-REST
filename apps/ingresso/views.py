@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.utils import timezone
+
+from cupom.models import Cupom
+from divulgacao_evento.models import Divulgacao_Evento
 from .forms import IngressoForm
 from .models import Ingresso
 from rest_framework import viewsets
@@ -24,6 +28,15 @@ def criar_ingresso(request):
         if form.is_valid():
             f = form.save(commit=False)
             
+            if f.cupom_aplicado is not None:
+
+                cupom = f.cupom_aplicado
+                evento_valido = cupom.eventos_validos.filter(id=f.evento_divulgado.evento_id).exists()
+                cupom_vencido = cupom.data_vencimento < timezone.localdate()
+
+                if not evento_valido or cupom_vencido:
+                    context['form'] = form
+                    return render(request, template_name, context)
 
             f.preco_final = calcular_preco_final(f) 
             f.save()

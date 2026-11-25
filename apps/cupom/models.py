@@ -21,4 +21,4 @@ class Cupom(models.Model):
         ordering = ['id']
 
     def __str__(self):
-        return f'{self.porcentagem_desconto}-{self.data_vencimento}'
+        return f'{self.pk} - {self.porcentagem_desconto}% - Data: {self.data_vencimento}'
