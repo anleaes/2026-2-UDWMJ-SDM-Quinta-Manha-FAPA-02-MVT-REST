@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+
+from cupom.models import Cupom
+from divulgacao_evento.models import Divulgacao_Evento
 from .forms import IngressoForm
 from .models import Ingresso
 from rest_framework import viewsets
 from .serializer import IngressoSerializer
 from decimal import Decimal
+from datetime import datetime
 
 
 def calcular_preco_final(ingresso):
@@ -24,6 +28,27 @@ def criar_ingresso(request):
         if form.is_valid():
             f = form.save(commit=False)
             
+            evento_d = Divulgacao_Evento.objects.get(id=f.evento_divulgado.id)
+            cupom_a = Cupom.objects.get(id=f.cupom_aplicado.id)
+
+
+
+            cupom_a = Cupom.objects.prefetch_related('eventos_validos').filter(id = cupom_a.id).first()
+
+            print(cupom_a.eventos_validos.all())
+
+
+            print(evento_d not in cupom_a.eventos_validos.all())
+            print(evento_d not in cupom_a.eventos_validos.all())
+            print(evento_d not in cupom_a.eventos_validos.all())
+
+
+
+            if f.cupom_aplicado is not None and evento_d not in cupom_a.eventos_validos.all() or cupom_a.data_vencimento <= datetime.now():
+                form = IngressoForm()
+                context['form'] = form
+                return render(request, template_name, context)
+
 
             f.preco_final = calcular_preco_final(f) 
             f.save()
