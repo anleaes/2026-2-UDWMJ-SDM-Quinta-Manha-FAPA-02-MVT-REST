@@ -10,7 +10,7 @@ from venda.models import Venda
 class Ingresso(models.Model):
     espectador = models.ForeignKey(Espectador, on_delete=models.CASCADE)
     evento_divulgado = models.ForeignKey(Divulgacao_Evento, on_delete=models.CASCADE)
-    cupom_aplicado = models.ForeignKey(Cupom, on_delete=models.CASCADE , null=True)
+    cupom_aplicado = models.ForeignKey(Cupom, on_delete=models.CASCADE, default=None , null=True, blank=True)
     venda= models.ForeignKey(Venda, on_delete=models.CASCADE, related_name='compra')
     validado = models.BooleanField('Validado', default=False)
     
@@ -19,7 +19,8 @@ class Ingresso(models.Model):
         decimal_places=2, 
         max_digits=12, 
         default= Decimal(0),
-        validators=[validators.MinValueValidator(Decimal(0))]
+        validators=[validators.MinValueValidator(Decimal(0))],
+        
     )
 
 
