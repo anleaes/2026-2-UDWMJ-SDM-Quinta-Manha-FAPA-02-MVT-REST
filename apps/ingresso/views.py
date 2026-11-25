@@ -8,10 +8,13 @@ from decimal import Decimal
 
 
 def calcular_preco_final(ingresso):
-    return (
-        ingresso.evento_divulgado.preco_base * 
-        (Decimal(1) - (Decimal(ingresso.cupom_aplicado.porcentagem_desconto) / Decimal(100)))
-    )
+    if ingresso.cupom_aplicado is None:
+        return ingresso.evento_divulgado.preco_base
+    else:
+        return (
+            ingresso.evento_divulgado.preco_base * 
+            (Decimal(1) - (Decimal(ingresso.cupom_aplicado.porcentagem_desconto) / Decimal(100)))
+        )
 
 def criar_ingresso(request):
     template_name = 'ingresso/criar_ingresso.html'
@@ -72,6 +75,10 @@ def editar_ingresso(request, id_ingresso):
 def deletar_ingresso(request, id_ingresso):
     ingresso = Ingresso.objects.get(id=id_ingresso)
     ingresso.delete()
+
+    venda = ingresso.venda
+    venda.async_recalcular_preco_total()
+
     return redirect('ingresso:lista_ingresso')
 
 class IngressoViewSet(viewsets.ModelViewSet):
