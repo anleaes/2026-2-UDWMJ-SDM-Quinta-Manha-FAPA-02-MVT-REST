@@ -218,6 +218,15 @@ div#div-conta-logada > a > button#trocar-senha-conta{
     padding-bottom: 0px;
     margin-top: 0px;
     border-radius: 0px;
+
+    cursor: pointer;
+    border: 2px outset buttonborder;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+div#div-conta-logada > a > button#desconectar-conta:hover,
+div#div-conta-logada > a > button#trocar-senha-conta:hover {
+    opacity: 0.85;
 }
 
 div#div-conta-logada > a > button#trocar-senha-conta{
