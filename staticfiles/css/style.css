@@ -34,14 +34,6 @@
     position: relative;
 }
 
-.entidade-div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
 .entidade-div a{
     display: flex;
     align-items: center;
