@@ -271,3 +271,33 @@ div#div-conta-logada > a:has(button#trocar-senha-conta){
     --cor: rgb(221, 42, 42);
 }
 
+
+
+/*animacao botoes*/
+
+@keyframes fadeInBotoes {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.entidade-div {
+    animation: fadeInBotoes 0.4s ease-out both;
+}
+
+.entidade-div:nth-child(1) { animation-delay: 0.10s; }
+.entidade-div:nth-child(2) { animation-delay: 0.12s; }
+.entidade-div:nth-child(3) { animation-delay: 0.14s; }
+.entidade-div:nth-child(4) { animation-delay: 0.16s; }
+.entidade-div:nth-child(5) { animation-delay: 0.18s; }
+.entidade-div:nth-child(6) { animation-delay: 0.20s; }
+.entidade-div:nth-child(7) { animation-delay: 0.22s; }
+.entidade-div:nth-child(8) { animation-delay: 0.24s; }
+.entidade-div:nth-child(9) { animation-delay: 0.26s; }
+.entidade-div:nth-child(10) { animation-delay: 0.28s; }
+.entidade-div:nth-child(11) { animation-delay: 0.30s; }
