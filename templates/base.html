@@ -105,13 +105,17 @@
                     <a href="{% url 'conta_usuario:trocar_senha_usuario' %}"><button id="trocar-senha-conta">Senha</button></a>
                 {% endif %}
             </div>
-        </main>
 
+            <div class="conteudo-pagina">
+                {% block body %}
+    
+                {% endblock body %}
+            </div>
+
+        </main>
     </div>
 
-    {% block body %}
     
-    {% endblock body %}
     
     <script src="{% static 'js/script.js' %}"></script>
 </body>
