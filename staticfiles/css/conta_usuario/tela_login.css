@@ -14,10 +14,28 @@ body{
     flex-direction: column;
     gap: 10px;
     
-    height: 100vh;
-    width: auto;
+    min-height: 100vh;
+    width: 100%;
 }
 
+
+/*Alinhamento com botoes (herdada do base.html)*/
+.container {
+    width: 100%;
+}
+
+.conteudo-pagina {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+body:has(.container){
+    gap: 0
+}
     
 /* Imagens */
 
@@ -56,34 +74,28 @@ form > div{
 
 /* Botão Login */
 
-button{
-    text-align: center;
-
+div#login-form button{
     display: flex;
-    align-self: center;
+    justify-content: center;
+    align-items: center;
     justify-self: center;
-
     padding-top: 15px;
     padding-bottom: 15px;
-
     width: 100%;
-
     margin-top: 20px;
-
     border-style: none;
     border-radius: 10px;
-    background-image: linear-gradient(#FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, #a88124 80%);
+    background-image: linear-gradient(#FEDB37 0%, #FDB931 8%, #9F7928 30%, #9F7928 40%, #A88124 80%);
 }
 
-button:hover{
-    /* opacity: 80%; */
+div#login-form button:hover{
     cursor: pointer;
     scale: 1.05;
 }
 
 /* foi necessário esse <p> dentro do button porque não estava centralizando o texto */
 
-button > p{
+div#login-form button > p{
     width: 100%;
     text-align: center;
     font-weight: bolder;
@@ -129,4 +141,18 @@ div#login-form{
     width: 400px;
     height: auto;
     
+}
+
+div#login-form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    margin-top: 20px;
+    border-style: none;
+    border-radius: 10px;
+    background-image: linear-gradient(#FEDB37 0%, #FDB931 8%, #9F7928 30%, #9F7928 40%, #A88124 80%);
 }

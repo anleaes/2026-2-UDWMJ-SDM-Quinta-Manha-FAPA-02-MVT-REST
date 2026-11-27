@@ -8,90 +8,20 @@
 
 {% block body %}
 <!-- Possivelmente necessário colocar mais uma div externa para agregar todas as divs -->
-<div class="container">
 
-    <div class="subcontainer-botoes">
+<div class="subcontainer-tela">
+    <video class="video-fundo" autoplay muted loop playsinline>
+        <source src="{% static 'img/tela_fundo.mp4' %}" type="video/mp4">
+    </video>
 
-        <div id="sede" class="entidade-div">
-            <a href="{% url 'sede:listar_sedes' %}">
-                Sedes
-            </a>
-        </div>
-
-        <div id="funcionario" class="entidade-div">
-            <a href="{% url 'funcionario:listar_funcionarios' %}">
-                Funcionários
-            </a>
-        </div>
-
-        <div id="espectador" class="entidade-div">
-            <a href="{% url 'espectador:listar_espectadores' %}">
-                Espectadores
-            </a>
-        </div>
-
-        <div id="beneficio" class="entidade-div">
-            <a href="{% url 'beneficio:listar_beneficios' %}">
-                Benefícios
-            </a>
-        </div>
-
-        <div id="assinatura" class="entidade-div">
-            <a href="{% url 'assinatura:listar_assinaturas' %}">
-                Assinaturas
-            </a>
-        </div>
-
-        <div id="venda" class="entidade-div">
-            <a href="{% url 'venda:lista_venda' %}">
-                Vendas
-            </a>
-        </div>
-
-        <div id="ingresso" class="entidade-div">
-            <a href="{% url 'ingresso:lista_ingresso' %}">
-                Ingressos
-            </a>
-        </div>
-
-        <div id="evento" class="entidade-div">
-            <a href="{% url 'evento:listar_eventos' %}">
-                Eventos
-            </a>
-        </div>
-
-        <div id="divulgacao_evento" class="entidade-div">
-            <a href="{% url 'divulgacao_evento:lista_divulgacao_evento' %}">
-                Divulgações de Eventos
-            </a>
-        </div>
-
-        <div id="cupom" class="entidade-div">
-            <a href="{% url 'cupom:lista_cupom' %}">
-                Cupons
-            </a>
-        </div>
-
-        <div id="cartao_vip" class="entidade-div">
-            <a href="{% url 'cartao_vip:lista_cartao_vip' %}">
-                Cartões VIP
-            </a>
-        </div>
-
-    </div>
-    <div class="subcontainer-tela">
-        <video class="video-fundo" autoplay muted loop playsinline>
-            <source src="{% static 'img/tela_fundo.mp4' %}" type="video/mp4">
-        </video>
-
-        <div class="tela_transparente">
-            <img class="img-logo" src="{% static 'img/ticket.png' %}" alt="Imagem logo">
-            <b class="titulo">{{ user.username }}</b>
-            <p class="texto">VOCÊ FAZ TUDO FUNCIONAR</p>
-        </div>
-
+    <div class="tela_transparente">
+        <img class="img-logo" src="{% static 'img/ticket.png' %}" alt="Imagem logo">
+        <b class="titulo">{{ user.username }}</b>
+        <p class="texto">VOCÊ FAZ TUDO FUNCIONAR</p>
     </div>
 
 </div>
+
+
 
 {% endblock body %}
